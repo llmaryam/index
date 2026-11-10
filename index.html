@@ -88,16 +88,16 @@
 </head>
 <body class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white transition-all-custom text-base">
 
-  <!-- کانتینر اعلان‌های گوشه صفحه -->
+  <!-- کانتینر اعلان‌های موقت -->
   <div id="toast-container" class="fixed top-5 left-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
   <!-- ========================================== -->
-  <!-- ۴. نوار ناوبری اصلی (هدر بالای صفحه)       -->
+  <!-- ۴. هدر اصلی سامانه                         -->
   <!-- ========================================== -->
   <header class="sticky top-0 z-40 glass-panel border-b px-4 lg:px-8 py-3 transition-all-custom">
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
       
-      <!-- لوگو و معرفی کوتاه -->
+      <!-- لوگو و عنوان برند -->
       <div class="flex items-center gap-3 shrink-0">
         <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 via-pink-500 to-rose-500 flex items-center justify-center font-black text-2xl text-white shadow-lg shadow-brand-500/30">
           📦
@@ -111,7 +111,7 @@
         </div>
       </div>
 
-      <!-- ۴ تب استاندارد پروژه -->
+      <!-- ۴ تب ناوبری اصلی -->
       <nav class="flex items-center gap-1.5 bg-slate-200/70 dark:bg-zinc-900/90 p-1.5 rounded-2xl border border-slate-300/80 dark:border-zinc-800 max-w-full overflow-x-auto">
         <button id="tab-btn-idea" onclick="switchMainTab('idea')" class="whitespace-nowrap flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-gradient-to-r from-brand-600 to-rose-600 text-white shadow-sm shrink-0">
           <span>🏠</span> ایده و طرز کار
@@ -127,7 +127,7 @@
         </button>
       </nav>
 
-      <!-- سوئیچ تم روز و شب در هدر -->
+      <!-- سوئیچ تم شب و روز -->
       <button onclick="toggleTheme()" class="shrink-0 flex items-center gap-2 px-3.5 py-2 rounded-xl border border-pink-200 dark:border-pink-900/60 text-xs sm:text-sm font-bold text-slate-700 dark:text-pink-200 hover:bg-pink-100/50 dark:hover:bg-zinc-800 transition">
         <span id="theme-icon">🌙</span>
         <span id="theme-text">حالت شب</span>
@@ -151,6 +151,7 @@
       <div id="presentation-pills" class="flex items-center gap-1.5 overflow-x-auto text-xs py-0.5">
         <button onclick="goToPresSection('sec-landing')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-bold transition bg-brand-600 text-white" data-target="sec-landing">فرود</button>
         <button onclick="goToPresSection('sec-friction')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-friction">اصطکاک‌ها</button>
+        <button onclick="goToPresSection('sec-welldefined')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-welldefined">مسئله خوش‌تعریف</button>
         <button onclick="goToPresSection('sec-personas')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-personas">کاربران ما</button>
         <button onclick="goToPresSection('sec-questions')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-questions">ایده بالغ</button>
         <button onclick="goToPresSection('sec-boundaries')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-boundaries">مرزبندی فرایندها</button>
@@ -273,132 +274,114 @@
       </div>
     </section>
 
-    <!-- ۵.۲ اصطکاک‌ها و مسئله (تعاملی، جذاب و با کلیک روی پیام دایرکت) -->
+    <!-- ۵.۲ اصطکاک‌ها و مسئله (حذف لیبل‌ها، رفتار آکاردئونی و بسته‌شدن خودکار قبلی) -->
     <section id="sec-friction" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3 flex items-center justify-between">
-        <div>
-          <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">اصطکاک‌های مرگبار دایرکت</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">روی هر کارت کلیک کنید تا ببینید خریدار در دایرکت چه می‌گوید!</p>
-        </div>
-        <span class="text-xs bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 px-3 py-1 rounded-full font-bold">
-          ۴ گلوگاه اصلی فروش
-        </span>
+      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
+        <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">اصطکاک‌های دایرکت</h3>
       </div>
 
-      <!-- ۴ کارت تعاملی اصطکاک با قابلیت کلیک برای نمایش پیام واقعی دایرکت -->
+      <!-- ۴ کارت اصطکاک بدون لیبل و با عملکرد آکاردئونی هوشمند -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs md:text-sm">
         
-        <div onclick="toggleFrictionQuote(1)" class="p-4 rounded-2xl glass-subcard hover:border-brand-500/60 transition cursor-pointer space-y-2 border-t-2 border-t-brand-500 group">
-          <div class="flex items-center justify-between">
-            <span class="text-xl">📉</span>
-            <span class="text-[10px] bg-brand-500/15 text-brand-600 dark:text-brand-300 px-2 py-0.5 rounded-md font-bold">خواب نقدینگی</span>
-          </div>
-          <div class="font-extrabold text-slate-900 dark:text-white group-hover:text-brand-500 transition">
+        <div onclick="toggleFrictionQuote(1)" class="p-5 rounded-2xl glass-subcard hover:border-brand-500/60 transition cursor-pointer space-y-2.5 border-t-2 border-t-brand-500 group">
+          <span class="text-2xl block">📉</span>
+          <div class="font-extrabold text-slate-900 dark:text-white group-hover:text-brand-500 transition text-sm">
             اتلاف سرمایه در انبارداری
           </div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
             خرید عمده همه رنگ‌ها و سایزها بودجه را قفل می‌کند و در پایان فصل جنس روی دست فروشنده می‌ماند.
           </p>
-          <div id="friction-quote-1" class="hidden p-2 rounded-xl bg-pink-500/10 border border-pink-500/20 text-[11px] text-pink-700 dark:text-pink-300 italic">
+          <div id="friction-quote-1" class="hidden p-2.5 rounded-xl bg-pink-500/10 border border-pink-500/20 text-[11px] text-pink-700 dark:text-pink-300 italic">
             💬 مشتری: «مشکی سایز ۴۰ ندارید؟ پس بیخیال، از پیج دیگه می‌خرم.»
           </div>
         </div>
 
-        <div onclick="toggleFrictionQuote(2)" class="p-4 rounded-2xl glass-subcard hover:border-brand-500/60 transition cursor-pointer space-y-2 border-t-2 border-t-brand-500 group">
-          <div class="flex items-center justify-between">
-            <span class="text-xl">⏳</span>
-            <span class="text-[10px] bg-rose-500/15 text-rose-600 dark:text-rose-300 px-2 py-0.5 rounded-md font-bold">مرگ انگیزه خرید</span>
-          </div>
-          <div class="font-extrabold text-slate-900 dark:text-white group-hover:text-brand-500 transition">
+        <div onclick="toggleFrictionQuote(2)" class="p-5 rounded-2xl glass-subcard hover:border-brand-500/60 transition cursor-pointer space-y-2.5 border-t-2 border-t-brand-500 group">
+          <span class="text-2xl block">⏳</span>
+          <div class="font-extrabold text-slate-900 dark:text-white group-hover:text-brand-500 transition text-sm">
             معطلی در گروه‌های تلگرامی
           </div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
             استعلام کسری در گروه‌های تلگرام همکاران ساعت‌ها طول می‌کشد؛ مشتری دایرکت در این فاصله منصرف می‌شود.
           </p>
-          <div id="friction-quote-2" class="hidden p-2 rounded-xl bg-rose-500/10 border border-rose-500/20 text-[11px] text-rose-700 dark:text-rose-300 italic">
+          <div id="friction-quote-2" class="hidden p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-[11px] text-rose-700 dark:text-rose-300 italic">
             💬 خریدار: «۳ ساعت پیش پیام دادم هنوز استعلام نگرفتید؟ پشیمون شدم.»
           </div>
         </div>
 
-        <div onclick="toggleFrictionQuote(3)" class="p-4 rounded-2xl glass-subcard hover:border-brand-500/60 transition cursor-pointer space-y-2 border-t-2 border-t-brand-500 group">
-          <div class="flex items-center justify-between">
-            <span class="text-xl">⚠️</span>
-            <span class="text-[10px] bg-amber-500/15 text-amber-600 dark:text-amber-300 px-2 py-0.5 rounded-md font-bold">ترس از کلاهبرداری</span>
-          </div>
-          <div class="font-extrabold text-slate-900 dark:text-white group-hover:text-brand-500 transition">
+        <div onclick="toggleFrictionQuote(3)" class="p-5 rounded-2xl glass-subcard hover:border-brand-500/60 transition cursor-pointer space-y-2.5 border-t-2 border-t-brand-500 group">
+          <span class="text-2xl block">⚠️</span>
+          <div class="font-extrabold text-slate-900 dark:text-white group-hover:text-brand-500 transition text-sm">
             ریسک کارت‌به‌کارت همکاران
           </div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
             کارت‌به‌کارت بین دو پیج ناآشنا در دو شهر، همواره با ریسک سوخت پول، تأخیر در ارسال و جنس خراب همراه است.
           </p>
-          <div id="friction-quote-3" class="hidden p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-700 dark:text-amber-300 italic">
+          <div id="friction-quote-3" class="hidden p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-700 dark:text-amber-300 italic">
             💬 فروشنده: «پول زدم به حساب همکار، گوشیشو خاموش کرده کد رهگیری هم نمیده!»
           </div>
         </div>
 
-        <div onclick="toggleFrictionQuote(4)" class="p-4 rounded-2xl glass-subcard hover:border-brand-500/60 transition cursor-pointer space-y-2 border-t-2 border-t-brand-500 group">
-          <div class="flex items-center justify-between">
-            <span class="text-xl">🛑</span>
-            <span class="text-[10px] bg-red-500/15 text-red-600 dark:text-red-300 px-2 py-0.5 rounded-md font-bold">بحران فیلترینگ</span>
-          </div>
-          <div class="font-extrabold text-slate-900 dark:text-white group-hover:text-brand-500 transition">
+        <div onclick="toggleFrictionQuote(4)" class="p-5 rounded-2xl glass-subcard hover:border-brand-500/60 transition cursor-pointer space-y-2.5 border-t-2 border-t-brand-500 group">
+          <span class="text-2xl block">🛑</span>
+          <div class="font-extrabold text-slate-900 dark:text-white group-hover:text-brand-500 transition text-sm">
             فلج کامل در قطعی شبکه
           </div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
             با هر بار اختلال اینترنت بین‌الملل، دایرکت اینستاگرام قطع شده و تمام معاملات آنلاین‌شاپ متوقف می‌شود.
           </p>
-          <div id="friction-quote-4" class="hidden p-2 rounded-xl bg-red-500/10 border border-red-500/20 text-[11px] text-red-700 dark:text-red-300 italic">
+          <div id="friction-quote-4" class="hidden p-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-[11px] text-red-700 dark:text-red-300 italic">
             💬 ادمین: «وی‌پی‌ان وصل نمیشه، ۳۰ تا سفارش آماده ارسال دارم که آدرساشون تو دایرکته!»
           </div>
         </div>
 
       </div>
+    </section>
 
-      <!-- کادر تحلیلی مسئله خوش‌تعریف (طراحی داشبوردی و جذاب) -->
-      <div class="p-5 rounded-3xl bg-gradient-to-r from-brand-500/10 via-pink-500/5 to-rose-500/10 border-2 border-brand-500/30 space-y-3">
-        <div class="flex items-center justify-between">
-          <span class="font-bold text-sm md:text-base text-brand-700 dark:text-brand-300 flex items-center gap-2">
-            <span>🎯</span> ارزیابی علمی: انطباق با شاخص‌های مسئله خوش‌تعریف
-          </span>
-          <span class="text-[11px] bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-bold">
-            اعتبارسنجی ۱۰۰٪ ✓
-          </span>
+    <!-- ۵.۳ کادر مجزا و هماهنگ: معیارهای مسئله خوش‌تعریف (کادر اختصاصی جدید) -->
+    <section id="sec-welldefined" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-pink-500">
+      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
+        <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">معیارهای مسئله خوش‌تعریف</h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs md:text-sm">
+        
+        <div class="p-5 rounded-2xl glass-subcard space-y-2 border-t-2 border-t-brand-500">
+          <span class="text-slate-500 dark:text-slate-400 font-bold block text-xs">۱. مبتلای مشخص</span>
+          <b class="text-slate-900 dark:text-white block text-sm">۱۳۰ هزار آنلاین‌شاپ دایرکتی</b>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">فروشندگان خرد اینستاگرام و بله که فروش مستمر روزانه دارند.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-          <div class="p-3 rounded-2xl bg-white/70 dark:bg-zinc-900/80 border border-pink-200 dark:border-zinc-800 space-y-1">
-            <span class="text-slate-500 font-bold block text-[11px]">۱. مبتلای مشخص:</span>
-            <b class="text-slate-900 dark:text-white">۱۳۰ هزار آنلاین‌شاپ دایرکتی فعال</b>
-          </div>
-          <div class="p-3 rounded-2xl bg-white/70 dark:bg-zinc-900/80 border border-pink-200 dark:border-zinc-800 space-y-1">
-            <span class="text-rose-600 font-bold block text-[11px]">۲. وضعیت نامطلوب:</span>
-            <b class="text-slate-900 dark:text-white">لغو ۱۷٪ سفارش‌ها به دلیل کسری قفسه</b>
-          </div>
-          <div class="p-3 rounded-2xl bg-white/70 dark:bg-zinc-900/80 border border-pink-200 dark:border-zinc-800 space-y-1">
-            <span class="text-emerald-600 font-bold block text-[11px]">۳. وضعیت مطلوب:</span>
-            <b class="text-slate-900 dark:text-white">تأمین زیر ۱ دقیقه و صفر کردن لغو</b>
-          </div>
-          <div class="p-3 rounded-2xl bg-white/70 dark:bg-zinc-900/80 border border-pink-200 dark:border-zinc-800 space-y-1">
-            <span class="text-brand-600 font-bold block text-[11px]">۴. مرز مداخله:</span>
-            <b class="text-slate-900 dark:text-white">پوشاک، کفش، ماگ و اکسسوری خرد</b>
-          </div>
+        <div class="p-5 rounded-2xl glass-subcard space-y-2 border-t-2 border-t-rose-500">
+          <span class="text-rose-600 dark:text-rose-400 font-bold block text-xs">۲. وضعیت نامطلوب</span>
+          <b class="text-slate-900 dark:text-white block text-sm">لغو ۱۷٪ سفارش‌ها</b>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">سوخت حتمی مشتری صرفاً به دلیل نداشتن یک سایز یا رنگ خاص در قفسه.</p>
         </div>
+
+        <div class="p-5 rounded-2xl glass-subcard space-y-2 border-t-2 border-t-emerald-500">
+          <span class="text-emerald-600 dark:text-emerald-400 font-bold block text-xs">۳. وضعیت مطلوب</span>
+          <b class="text-slate-900 dark:text-white block text-sm">تأمین زیر ۱ دقیقه</b>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">رساندن لغو سفارش به صفر از طریق اتصال همکاران بدون خواب سرمایه.</p>
+        </div>
+
+        <div class="p-5 rounded-2xl glass-subcard space-y-2 border-t-2 border-t-pink-500">
+          <span class="text-brand-600 dark:text-brand-400 font-bold block text-xs">۴. مرز مداخله</span>
+          <b class="text-slate-900 dark:text-white block text-sm">کالاهای استاندارد خرد</b>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">تمرکز انحصاری بر پوشاک، کفش، ماگ و اکسسوری با سایزبندی مشخص.</p>
+        </div>
+
       </div>
     </section>
 
-    <!-- ۵.۳ کاربران ما (ساده، درشت، خوانا و بدون شلوغی) -->
+    <!-- ۵.۴ کاربران ما (ساده، درشت و بدون توضیحات یا لیبل اضافه) -->
     <section id="sec-personas" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3 flex items-center justify-between">
-        <div>
-          <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">چه کسانی از هم‌بار سود می‌برند؟</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">اتصال هوشمند فروشنده اینستاگرامی به انباردار بازار</p>
-        </div>
-        <span class="text-xs bg-brand-500/10 text-brand-600 dark:text-brand-300 px-3 py-1 rounded-full font-bold">دو قطب مکمل بازار</span>
+      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
+        <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">چه کسانی از هم‌بار سود می‌برند؟</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        <!-- کارت مهشید (خوانا و شفاف) -->
+        <!-- کارت مهشید -->
         <div class="p-6 rounded-3xl glass-subcard space-y-4 shadow-sm hover:shadow-md transition">
           <div class="flex items-center gap-3.5">
             <div class="w-12 h-12 rounded-2xl bg-pink-500 text-white flex items-center justify-center text-2xl shadow-md">
@@ -417,7 +400,7 @@
           </div>
         </div>
 
-        <!-- کارت حاج‌رضا (خوانا و شفاف) -->
+        <!-- کارت حاج‌رضا -->
         <div class="p-6 rounded-3xl glass-subcard space-y-4 shadow-sm hover:shadow-md transition">
           <div class="flex items-center gap-3.5">
             <div class="w-12 h-12 rounded-2xl bg-zinc-700 text-white flex items-center justify-center text-2xl shadow-md">
@@ -439,7 +422,7 @@
       </div>
     </section>
 
-    <!-- ۵.۴ ارزیابی با هشت پرسش کلیدی -->
+    <!-- ۵.۵ ارزیابی با هشت پرسش کلیدی -->
     <section id="sec-questions" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-pink-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">ارزیابی ایده با هشت پرسش کلیدی</h3>
@@ -506,7 +489,7 @@
       </div>
     </section>
 
-    <!-- ۵.۵ مرزبندی فرایندهای برخط و فیزیکی -->
+    <!-- ۵.۶ مرزبندی فرایندهای برخط و فیزیکی -->
     <section id="sec-boundaries" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">مرزبندی فرایندهای برخط و فیزیکی</h3>
@@ -541,7 +524,7 @@
       </div>
     </section>
 
-    <!-- ۵.۶ اتلاف زمان و هزینه (طراحی مسابقه‌ای) -->
+    <!-- ۵.۷ اتلاف زمان و هزینه (طراحی مسابقه‌ای) -->
     <section id="sec-wastage" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-pink-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">مقایسه بصری اتلاف زمان و هزینه</h3>
@@ -630,7 +613,7 @@
       </div>
     </section>
 
-    <!-- ۵.۷ نقشه سفر مشتری -->
+    <!-- ۵.۸ نقشه سفر مشتری -->
     <section id="sec-journey" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-pink-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">نقشه سفر مشتری</h3>
@@ -841,7 +824,7 @@
       </div>
     </section>
 
-    <!-- ۶.۵ کادر تمایز بله (اصلاح‌شده: بدون لیبل سبز، بدون نتیجه استراتژیک، با دکمه در پایین) -->
+    <!-- ۶.۵ کادر تمایز بله (ساده و بدون حاشیه) -->
     <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-2 border-brand-500/40 relative overflow-hidden shadow-2xl bg-gradient-to-br from-brand-500/5 via-transparent to-rose-500/5">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-brand-500/15 text-brand-600 dark:text-brand-300 border border-brand-500/30 mb-2">
@@ -852,7 +835,6 @@
         </h3>
       </div>
 
-      <!-- ۳ ستون مقایسه با تیتر ساده -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs md:text-sm">
         
         <div class="p-4 rounded-2xl glass-subcard space-y-2 border-t-2 border-t-zinc-400 dark:border-t-zinc-600">
@@ -884,7 +866,6 @@
 
       </div>
 
-      <!-- دکمه انتقال به شبیه‌ساز بله در پایین کادر -->
       <div class="pt-2 flex justify-center">
         <button onclick="goToBaleSimulator()" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-brand-600 via-pink-600 to-rose-600 text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-brand-500/25 hover:scale-105 transition-all flex items-center justify-center gap-2">
           <span>🤖</span> تست زنده ربات بله در شبیه‌ساز (پایین صفحه) ←
@@ -957,7 +938,7 @@
   <!-- ========================================================= -->
   <main id="view-simulation" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-10 w-full">
     
-    <!-- ۷.۱ هدر شبیه‌ساز (فلش راست‌به‌چپ بدون شماره) -->
+    <!-- ۷.۱ هدر شبیه‌ساز -->
     <div class="glass-panel p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-5 border-r-4 border-r-brand-500">
       <div>
         <h2 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2.5">
@@ -1137,13 +1118,10 @@
   <!-- ========================================================= -->
   <main id="view-validation" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-10 w-full">
     
-    <!-- ۸.۱ شبیه‌سازی سناریوهای میدانی بر اساس الگوهای واقعی بازار -->
+    <!-- ۸.۱ سناریوهای شبیه‌سازی‌شده (بدون لیبل اضافه یا توضیح اضافی زیر تیتر) -->
     <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3 flex items-center justify-between">
+      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">سناریوهای شبیه‌سازی‌شده از نیاز واقعی بازار</h3>
-        <span class="text-xs bg-brand-500/10 text-brand-600 dark:text-brand-300 border border-brand-500/20 px-3 py-1 rounded-full font-bold">
-          الگوبرداری از ۳ چالش پرتکرار در بازار
-        </span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs md:text-sm">
@@ -1190,7 +1168,7 @@
       </div>
     </section>
 
-    <!-- ۸.۲ نقشه راه و فازبندی توسعه -->
+    <!-- ۸.۲ نقشه راه و چشم‌انداز توسعه -->
     <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">نقشه راه و چشم‌انداز توسعه</h3>
@@ -1281,7 +1259,7 @@
     </div>
   </div>
 
-  <!-- ۱۰. فوتر انتهای صفحه -->
+  <!-- ۱۰. فوتر -->
   <footer class="glass-panel border-t mt-auto py-4 px-6 text-xs text-slate-500 dark:text-slate-400 text-center">
     هم‌بار — انبار مشترک آنلاین‌شاپ‌ها و ضمانت امن ارسال | صدها قفسه، یک انبار
   </footer>
@@ -1290,7 +1268,6 @@
   <!-- ۱۱. کدهای جاوا اسکریپت سامانه              -->
   <!-- ========================================== -->
   <script>
-    // بانک داده پیش‌فرض
     const defaultDatabase = [
       { id: 1, title: 'هودی دورس پنبه‌ای مشکی L', customerPrice: 490000, wholesalePrice: 380000, qty: 7, seller: '@mode_parsi', city: 'تهران', rating: '۴.۹' },
       { id: 2, title: 'ماگ سرامیکی دست‌ساز', customerPrice: 220000, wholesalePrice: 165000, qty: 12, seller: '@ceramic_art', city: 'اصفهان', rating: '۴.۸' },
@@ -1313,6 +1290,7 @@
     const presSections = [
       'sec-landing',
       'sec-friction',
+      'sec-welldefined',
       'sec-personas',
       'sec-questions',
       'sec-boundaries',
@@ -1321,11 +1299,17 @@
     ];
     let currentPresIndex = 0;
 
-    // تابع تعاملی باز کردن پیام دایرکت واقعی در بخش اصطکاک‌ها
+    // تابع آکاردئونی هوشمند: باز کردن کارت انتخابی و بستن تمام کارت‌های دیگر
     function toggleFrictionQuote(num) {
-      const q = document.getElementById(`friction-quote-${num}`);
-      if (q) {
-        q.classList.toggle('hidden');
+      for (let i = 1; i <= 4; i++) {
+        const q = document.getElementById(`friction-quote-${i}`);
+        if (q) {
+          if (i === num) {
+            q.classList.toggle('hidden');
+          } else {
+            q.classList.add('hidden');
+          }
+        }
       }
     }
 
