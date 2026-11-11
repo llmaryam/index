@@ -157,6 +157,7 @@
         <button onclick="goToPresSection('sec-boundaries')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-boundaries">مرزبندی فرایندها</button>
         <button onclick="goToPresSection('sec-wastage')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-wastage">اتلاف زمان و هزینه</button>
         <button onclick="goToPresSection('sec-journey')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-journey">سفر مشتری</button>
+        <button onclick="goToPresSection('sec-scenarios')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-scenarios">سناریوهای واقعی</button>
       </div>
 
       <button onclick="nextPresStep()" class="shrink-0 px-3 py-1.5 rounded-xl bg-pink-100 dark:bg-zinc-800 text-brand-700 dark:text-pink-300 hover:bg-brand-500 hover:text-white text-xs font-bold transition flex items-center gap-1">
@@ -274,13 +275,13 @@
       </div>
     </section>
 
-    <!-- ۵.۲ اصطکاک‌ها و مسئله (حذف لیبل‌ها، رفتار آکاردئونی و بسته‌شدن خودکار قبلی) -->
+    <!-- ۵.۲ اصطکاک‌ها و مسئله -->
     <section id="sec-friction" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">اصطکاک‌های دایرکت</h3>
       </div>
 
-      <!-- ۴ کارت اصطکاک بدون لیبل و با عملکرد آکاردئونی هوشمند -->
+      <!-- ۴ کارت اصطکاک -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs md:text-sm">
         
         <div onclick="toggleFrictionQuote(1)" class="p-5 rounded-2xl glass-subcard hover:border-brand-500/60 transition cursor-pointer space-y-2.5 border-t-2 border-t-brand-500 group">
@@ -338,7 +339,7 @@
       </div>
     </section>
 
-    <!-- ۵.۳ کادر مجزا و هماهنگ: معیارهای مسئله خوش‌تعریف (کادر اختصاصی جدید) -->
+    <!-- ۵.۳ معیارهای مسئله خوش‌تعریف -->
     <section id="sec-welldefined" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-pink-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">معیارهای مسئله خوش‌تعریف</h3>
@@ -373,7 +374,7 @@
       </div>
     </section>
 
-    <!-- ۵.۴ کاربران ما (ساده، درشت و بدون توضیحات یا لیبل اضافه) -->
+    <!-- ۵.۴ چه کسانی از هم‌بار سود می‌برند؟ -->
     <section id="sec-personas" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">چه کسانی از هم‌بار سود می‌برند؟</h3>
@@ -652,6 +653,56 @@
       </div>
     </section>
 
+    <!-- ۵.۹ سناریوهای شبیه‌سازی‌شده از نیاز واقعی بازار (انتقال‌یافته از بخش اعتبارسنجی) -->
+    <section id="sec-scenarios" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
+      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
+        <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">سناریوهای شبیه‌سازی‌شده از نیاز واقعی بازار</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs md:text-sm">
+        
+        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-2.5">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-full bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">۱</span>
+            <div>
+              <div class="font-bold text-slate-900 dark:text-white text-sm">پیج کتانی و اسنیکرز (تهران)</div>
+              <div class="text-[11px] text-slate-500">الگوی کسری سایز در کفش</div>
+            </div>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">
+            «هفته‌ای ۱۰ تا ۱۵ مشتری سایز ۳۸ و ۳۹ می‌خوان که تموم کردیم. اگه بتونم از همکار مطمئن با نام خودم پست کنم، ماهی حداقل ۷ میلیون تومن سود اضافه‌س.»
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-2.5">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-full bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">۲</span>
+            <div>
+              <div class="font-bold text-slate-900 dark:text-white text-sm">پیج پوشاک و هودی (اصفهان)</div>
+              <div class="text-[11px] text-slate-500">الگوی ترس از سرقت مشتری</div>
+            </div>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">
+            «بزرگترین ترسم اینه که همکار شماره یا پیج خودشو بذاره تو بسته و مشتری منو بدزده! تعهد هم‌بار روی بسته‌بندی خنثی مهم‌ترین مزیته.»
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-2.5">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-full bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">۳</span>
+            <div>
+              <div class="font-bold text-slate-900 dark:text-white text-sm">پیج ماگ و دکوری (مشهد)</div>
+              <div class="text-[11px] text-slate-500">الگوی اختلال اینترنت بین‌الملل</div>
+            </div>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">
+            «وقتی اینترنت بین‌الملل قطع میشه، فروشگاه ما رسماً تعطیله. ربات بله که بتونه توی شرایط قطعی فاکتور و آدرس بگیره برای ما فرشته نجاته.»
+          </p>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <!-- ========================================================= -->
@@ -824,7 +875,7 @@
       </div>
     </section>
 
-    <!-- ۶.۵ کادر تمایز بله (ساده و بدون حاشیه) -->
+    <!-- ۶.۵ کادر تمایز بله -->
     <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-2 border-brand-500/40 relative overflow-hidden shadow-2xl bg-gradient-to-br from-brand-500/5 via-transparent to-rose-500/5">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-brand-500/15 text-brand-600 dark:text-brand-300 border border-brand-500/30 mb-2">
@@ -1114,104 +1165,9 @@
   </main>
 
   <!-- ========================================================= -->
-  <!-- ۸. بخش چهارم: اعتبارسنجی (سناریوهای میدانی و نقشه راه)    -->
+  <!-- ۸. بخش چهارم: اعتبارسنجی                                  -->
   <!-- ========================================================= -->
-  <main id="view-validation" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-10 w-full">
-    
-    <!-- ۸.۱ سناریوهای شبیه‌سازی‌شده (بدون لیبل اضافه یا توضیح اضافی زیر تیتر) -->
-    <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
-        <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">سناریوهای شبیه‌سازی‌شده از نیاز واقعی بازار</h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs md:text-sm">
-        
-        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-2.5">
-          <div class="flex items-center gap-2.5">
-            <span class="w-8 h-8 rounded-full bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">۱</span>
-            <div>
-              <div class="font-bold text-slate-900 dark:text-white text-sm">پیج کتانی و اسنیکرز (تهران)</div>
-              <div class="text-[11px] text-slate-500">الگوی کسری سایز در کفش</div>
-            </div>
-          </div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">
-            «هفته‌ای ۱۰ تا ۱۵ مشتری سایز ۳۸ و ۳۹ می‌خوان که تموم کردیم. اگه بتونم از همکار مطمئن با نام خودم پست کنم، ماهی حداقل ۷ میلیون تومن سود اضافه‌س.»
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-2.5">
-          <div class="flex items-center gap-2.5">
-            <span class="w-8 h-8 rounded-full bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">۲</span>
-            <div>
-              <div class="font-bold text-slate-900 dark:text-white text-sm">پیج پوشاک و هودی (اصفهان)</div>
-              <div class="text-[11px] text-slate-500">الگوی ترس از سرقت مشتری</div>
-            </div>
-          </div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">
-            «بزرگترین ترسم اینه که همکار شماره یا پیج خودشو بذاره تو بسته و مشتری منو بدزده! تعهد هم‌بار روی بسته‌بندی خنثی مهم‌ترین مزیته.»
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-2.5">
-          <div class="flex items-center gap-2.5">
-            <span class="w-8 h-8 rounded-full bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">۳</span>
-            <div>
-              <div class="font-bold text-slate-900 dark:text-white text-sm">پیج ماگ و دکوری (مشهد)</div>
-              <div class="text-[11px] text-slate-500">الگوی اختلال اینترنت بین‌الملل</div>
-            </div>
-          </div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">
-            «وقتی اینترنت بین‌الملل قطع میشه، فروشگاه ما رسماً تعطیله. ربات بله که بتونه توی شرایط قطعی فاکتور و آدرس بگیره برای ما فرشته نجاته.»
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ۸.۲ نقشه راه و چشم‌انداز توسعه -->
-    <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
-        <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">نقشه راه و چشم‌انداز توسعه</h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs md:text-sm">
-        
-        <div class="p-4 rounded-2xl glass-subcard space-y-2 border-t-2 border-t-pink-500">
-          <span class="text-[10px] font-bold text-brand-600 dark:text-brand-400">فاز اول</span>
-          <div class="font-extrabold text-slate-900 dark:text-white text-sm">کشف مسئله و شبیه‌ساز</div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-            اعتبارسنجی میدانی با ۵۰ آنلاین‌شاپ، ساخت پروتوتایپ و شبیه‌ساز تعاملی MVP.
-          </p>
-        </div>
-
-        <div class="p-4 rounded-2xl glass-subcard space-y-2 border-t-2 border-t-pink-500">
-          <span class="text-[10px] font-bold text-brand-600 dark:text-brand-400">فاز دوم</span>
-          <div class="font-extrabold text-slate-900 dark:text-white text-sm">صندوق امانت شتابی</div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-            راه‌اندازی درگاه پرداخت امن شاپرک و مکانیزم خودکار آزادسازی سهم همکاران.
-          </p>
-        </div>
-
-        <div class="p-4 rounded-2xl glass-subcard space-y-2 border-t-2 border-t-pink-500">
-          <span class="text-[10px] font-bold text-brand-600 dark:text-brand-400">فاز سوم</span>
-          <div class="font-extrabold text-slate-900 dark:text-white text-sm">ربات بله و سپر بقا</div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-            استقرار ربات روی سرورهای ابری داخل کشور برای پایداری در قطعی اینترنت.
-          </p>
-        </div>
-
-        <div class="p-4 rounded-2xl glass-subcard space-y-2 border-t-2 border-t-pink-500">
-          <span class="text-[10px] font-bold text-brand-600 dark:text-brand-400">فاز چهارم</span>
-          <div class="font-extrabold text-slate-900 dark:text-white text-sm">اتصال وب‌سرویس پست</div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-            صدور خودکار بارکد پستی و یکپارچگی انبار میان استان‌های مختلف کشور.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
+  <main id="view-validation" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-10 w-full"></main>
 
   <!-- ========================================== -->
   <!-- ۹. پنجره ثبت کالای جدید                    -->
@@ -1295,7 +1251,8 @@
       'sec-questions',
       'sec-boundaries',
       'sec-wastage',
-      'sec-journey'
+      'sec-journey',
+      'sec-scenarios'
     ];
     let currentPresIndex = 0;
 
