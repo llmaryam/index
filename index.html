@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" class="dark">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,7 +111,7 @@
         </div>
       </div>
 
-      <!-- ۴ تب ناوبری اصلی -->
+      <!-- ۳ تب ناوبری اصلی -->
       <nav class="flex items-center gap-1.5 bg-slate-200/70 dark:bg-zinc-900/90 p-1.5 rounded-2xl border border-slate-300/80 dark:border-zinc-800 max-w-full overflow-x-auto">
         <button id="tab-btn-idea" onclick="switchMainTab('idea')" class="whitespace-nowrap flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-gradient-to-r from-brand-600 to-rose-600 text-white shadow-sm shrink-0">
           <span>🏠</span> ایده و طرز کار
@@ -121,9 +121,6 @@
         </button>
         <button id="tab-btn-simulation" onclick="switchMainTab('simulation')" class="whitespace-nowrap flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition-all shrink-0">
           <span>🧪</span> شبیه‌سازی
-        </button>
-        <button id="tab-btn-validation" onclick="switchMainTab('validation')" class="whitespace-nowrap flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition-all shrink-0">
-          <span>✅</span> اعتبارسنجی
         </button>
       </nav>
 
@@ -653,7 +650,7 @@
       </div>
     </section>
 
-    <!-- ۵.۹ سناریوهای شبیه‌سازی‌شده از نیاز واقعی بازار (انتقال‌یافته از بخش اعتبارسنجی) -->
+    <!-- ۵.۹ سناریوهای شبیه‌سازی‌شده از نیاز واقعی بازار -->
     <section id="sec-scenarios" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">سناریوهای شبیه‌سازی‌شده از نیاز واقعی بازار</h3>
@@ -1164,11 +1161,6 @@
 
   </main>
 
-  <!-- ========================================================= -->
-  <!-- ۸. بخش چهارم: اعتبارسنجی                                  -->
-  <!-- ========================================================= -->
-  <main id="view-validation" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-10 w-full"></main>
-
   <!-- ========================================== -->
   <!-- ۹. پنجره ثبت کالای جدید                    -->
   <!-- ========================================== -->
@@ -1345,7 +1337,7 @@
     }
 
     function switchMainTab(tabId) {
-      const tabs = ['idea', 'market', 'simulation', 'validation'];
+      const tabs = ['idea', 'market', 'simulation'];
       tabs.forEach(t => {
         const viewEl = document.getElementById(`view-${t}`);
         const btnEl = document.getElementById(`tab-btn-${t}`);
