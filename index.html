@@ -876,7 +876,7 @@
       </div>
     </section>
 
-    <!-- ۶.۴ بوم مدل کسب‌وکار ۹ بخشی (تعاملی) -->
+    <!-- ۶.۴ بوم مدل کسب‌وکار ۹ بخشی (تعاملی با نمایش هم‌زمان خانه‌های مرتبط) -->
     <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-5 border-r-4 border-r-pink-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-4">
         <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">بوم کسب‌وکار هم‌بار</h3>
@@ -1007,7 +1007,7 @@
       </div>
     </section>
 
-    <!-- کادر جداگانه: راه‌های درآمدزایی هم‌بار (بند ۵) -->
+    <!-- کادر جداگانه: راه‌های درآمدزایی هم‌بار (با اعداد و تعرفه‌های مشخص) -->
     <section class="glass-panel p-6 md:p-8 rounded-3xl space-y-5 border-r-4 border-r-pink-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="font-bold text-base md:text-lg text-slate-900 dark:text-white flex items-center gap-2">
@@ -1018,15 +1018,15 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs md:text-sm">
         <div class="p-4 rounded-2xl glass-subcard border-r-4 border-r-brand-500 space-y-1.5">
           <div class="font-extrabold text-slate-900 dark:text-white">۱. کارمزد ۳٪ تراکنش</div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">تا فروشی نجات پیدا نکند، ریالی از فروشنده کسر نمی‌شود.</p>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">تا فروشی نجات پیدا نکند، ریالی کسر نمی‌شود؛ معادل <b>۱۲,۴۰۰ تومان</b> سود خالص در سفارش ۵۰۰ هزار تومانی.</p>
         </div>
         <div class="p-4 rounded-2xl glass-subcard border-r-4 border-r-pink-500 space-y-1.5">
           <div class="font-extrabold text-slate-900 dark:text-white">۲. اشتراک هم‌بار پلاس</div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">ورود رایگان؛ اشتراک ماهانه برای کاهش کارمزد به ۲٪ و آمار کالاهای کسری‌دار.</p>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">ورود رایگان؛ پلن ماهانه <b>۱۹۰,۰۰۰ تومانی</b> برای کاهش کارمزد به ۲٪ و دریافت گزارش کالاهای پرفروش کسری‌دار.</p>
         </div>
         <div class="p-4 rounded-2xl glass-subcard border-r-4 border-r-rose-500 space-y-1.5">
           <div class="font-extrabold text-slate-900 dark:text-white">۳. جایگاه ویژه قفسه</div>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">پرداخت اختیاری بنکداران خوش‌امتیاز برای نمایش در صدر نتایج جستجو.</p>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">تعرفه اختیاری <b>۲۵۰,۰۰۰ تومان در ماه</b> برای نمایش بنکداران خوش‌امتیاز در رده اول نتایج جستجو.</p>
         </div>
       </div>
     </section>
@@ -1730,6 +1730,18 @@
         : 'px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition';
     }
 
+    const bmcRelations = {
+      1: [2, 3, 5],
+      2: [1, 6, 7],
+      3: [1, 2, 8],
+      4: [1, 6, 7],
+      5: [1, 2, 9],
+      6: [2, 7, 8],
+      7: [2, 6, 8, 9],
+      8: [3, 6, 7],
+      9: [5, 6, 7]
+    };
+
     const bmcSynergies = {
       1: '<b>هماهنگی با کل بوم:</b> مهشید تقاضا را می‌آورد و حاج‌رضا موجودی را؛ هم‌بار بدون اینکه خودش کالا بخرد، دو سوی بازار ۱۳۰ هزار آنلاین‌شاپ را به هم قفل می‌کند.',
       2: '<b>هماهنگی با کل بوم:</b> ارزش‌های سه‌گانه (تأمین ۳۰ ثانیه‌ای، برند پیج معرف، پایداری روی بله) مستقیماً به فعالیت‌های کلیدی و منابع فنی تکیه دارند.',
@@ -1743,12 +1755,17 @@
     };
 
     function selectBmcBlock(num) {
+      const related = bmcRelations[num] || [];
       for (let i = 1; i <= 9; i++) {
         const card = document.getElementById(`bmc-card-${i}`);
         if (card) {
-          card.className = i === num
-            ? 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5 border-2 border-brand-500 shadow-md'
-            : 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5';
+          if (i === num) {
+            card.className = 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5 border-2 border-brand-500 shadow-md';
+          } else if (related.includes(i)) {
+            card.className = 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5 border-2 border-dashed border-brand-400 dark:border-brand-400/80 ring-2 ring-brand-500/15';
+          } else {
+            card.className = 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5';
+          }
         }
       }
       const box = document.getElementById('bmc-synergy-box');
