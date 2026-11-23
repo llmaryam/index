@@ -111,10 +111,13 @@
         </div>
       </div>
 
-      <!-- ۳ تب ناوبری اصلی -->
+      <!-- ۴ تب ناوبری اصلی -->
       <nav class="flex items-center gap-1.5 bg-slate-200/70 dark:bg-zinc-900/90 p-1.5 rounded-2xl border border-slate-300/80 dark:border-zinc-800 max-w-full overflow-x-auto">
         <button id="tab-btn-idea" onclick="switchMainTab('idea')" class="whitespace-nowrap flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-gradient-to-r from-brand-600 to-rose-600 text-white shadow-sm shrink-0">
           <span>🏠</span> ایده و طرز کار
+        </button>
+        <button id="tab-btn-value" onclick="switchMainTab('value')" class="whitespace-nowrap flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition-all shrink-0">
+          <span>💎</span> ارزش و مدل کسب‌وکار
         </button>
         <button id="tab-btn-market" onclick="switchMainTab('market')" class="whitespace-nowrap flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition-all shrink-0">
           <span>📊</span> اقتصاد و بازار
@@ -155,9 +158,6 @@
         <button onclick="goToPresSection('sec-wastage')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-wastage">اتلاف زمان و هزینه</button>
         <button onclick="goToPresSection('sec-journey')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-journey">سفر مشتری</button>
         <button onclick="goToPresSection('sec-scenarios')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-scenarios">سناریوهای واقعی</button>
-        <button onclick="goToPresSection('sec-valueprop')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-valueprop">ارزش پیشنهادی</button>
-        <button onclick="goToPresSection('sec-useexchange')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-useexchange">ارزش کاربردی و مبادله‌ای</button>
-        <button onclick="goToPresSection('sec-intermediary')" class="pres-pill whitespace-nowrap px-3 py-1.5 rounded-xl font-medium transition text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white" data-target="sec-intermediary">نقش واسطه‌گری</button>
       </div>
 
       <button onclick="nextPresStep()" class="shrink-0 px-3 py-1.5 rounded-xl bg-pink-100 dark:bg-zinc-800 text-brand-700 dark:text-pink-300 hover:bg-brand-500 hover:text-white text-xs font-bold transition flex items-center gap-1">
@@ -703,162 +703,244 @@
       </div>
     </section>
 
-    <!-- ================================================================= -->
-    <!-- بخش‌های تکمیلی فاز دوم در تب اول (با همان تم صورتی/رز و لحن ساده) -->
-    <!-- ================================================================= -->
+  </main>
 
-    <!-- ۵.۱۰ فرمولاسیون استاندارد ارزش پیشنهادی -->
-    <section id="sec-valueprop" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-        <div>
-          <span class="text-xs font-bold text-brand-600 dark:text-brand-400">پرونده تحلیلی فاز ۲ • بند ۱</span>
-          <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">فرمولاسیون علمی ارزش پیشنهادی هم‌بار</h3>
+  <!-- ========================================================= -->
+  <!-- ۶. بخش دوم (جدید): ارزش و مدل کسب‌وکار (فاز دوم - بخش الف) -->
+  <!-- ========================================================= -->
+  <main id="view-value" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-10 w-full">
+
+    <!-- ۶.۱ فرمولاسیون ارزش پیشنهادی -->
+    <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-5 border-r-4 border-r-brand-500">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-pink-200 dark:border-zinc-800 pb-4">
+        <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">ارزش هم‌بار در یک جمله</h3>
+        <div class="flex items-center gap-1.5 bg-slate-200/70 dark:bg-zinc-900/90 p-1 rounded-xl border border-pink-200 dark:border-zinc-800 text-xs shrink-0">
+          <button id="val-btn-blank" onclick="switchValueFormula('blank')" class="px-3 py-1.5 rounded-lg font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white transition">فرمول کاربردی (بلنک)</button>
+          <button id="val-btn-moore" onclick="switchValueFormula('moore')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition">جایگاه‌یابی (جفری مور)</button>
         </div>
-        <span class="text-[11px] font-mono bg-brand-500/15 text-brand-600 dark:text-brand-300 border border-brand-500/30 px-3 py-1 rounded-full font-bold self-start sm:self-auto">Value Proposition</span>
+      </div>
+
+      <!-- نمای ۱: فرمول استیو بلنک -->
+      <div id="val-view-blank" class="space-y-4">
+        <div class="p-5 md:p-6 rounded-2xl glass-subcard border-r-4 border-r-brand-500 text-sm md:text-base leading-relaxed text-slate-800 dark:text-slate-100">
+          «ما به <b>آنلاین‌شاپ‌های دایرکتی</b> کمک می‌کنیم تا <b>مشتریانِ کسریِ سایز و رنگ را در ۳۰ ثانیه نجات دهند</b>؛ آن هم از طریق <b>قفسه مشترک همکاران، صندوق امانت شاپرک و ربات پایدار بله</b>.»
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs md:text-sm text-center">
+          <div class="p-3.5 rounded-2xl glass-subcard">
+            <b class="text-brand-600 dark:text-brand-400 font-mono text-base block">۳۰ ثانیه</b>
+            <span class="text-slate-600 dark:text-slate-300">سرعت تأمین از قفسه همکار</span>
+          </div>
+          <div class="p-3.5 rounded-2xl glass-subcard">
+            <b class="text-emerald-600 dark:text-emerald-400 font-mono text-base block">۰ تومان</b>
+            <span class="text-slate-600 dark:text-slate-300">نیاز به خواب سرمایه و انبار</span>
+          </div>
+          <div class="p-3.5 rounded-2xl glass-subcard">
+            <b class="text-rose-600 dark:text-rose-400 font-mono text-base block">۱۰۰٪ پایدار</b>
+            <span class="text-slate-600 dark:text-slate-300">ادامه فروش در قطعی نت با بله</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- نمای ۲: فرمول جفری مور -->
+      <div id="val-view-moore" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 text-xs md:text-sm">
+        <div class="p-4 rounded-2xl glass-subcard space-y-1">
+          <span class="text-brand-600 dark:text-brand-400 font-bold block">برای:</span>
+          <p class="text-slate-700 dark:text-slate-200">فروشندگان خرد اینستاگرام و بله</p>
+        </div>
+        <div class="p-4 rounded-2xl glass-subcard space-y-1">
+          <span class="text-rose-600 dark:text-rose-400 font-bold block">که از:</span>
+          <p class="text-slate-700 dark:text-slate-200">لغو ۱۷٪ سفارش‌ها و ریسک کارت‌به‌کارت خسته‌اند</p>
+        </div>
+        <div class="p-4 rounded-2xl glass-subcard space-y-1">
+          <span class="text-brand-600 dark:text-brand-400 font-bold block">هم‌بار یک:</span>
+          <p class="text-slate-700 dark:text-slate-200">انبار مشترک آنلاین (B2B) است</p>
+        </div>
+        <div class="p-4 rounded-2xl glass-subcard space-y-1">
+          <span class="text-emerald-600 dark:text-emerald-400 font-bold block">که:</span>
+          <p class="text-slate-700 dark:text-slate-200">جنس همکار را بی‌واسطه با نام پیج خودتان می‌فرستد</p>
+        </div>
+        <div class="p-4 rounded-2xl glass-subcard space-y-1">
+          <span class="text-pink-600 dark:text-pink-400 font-bold block">برخلاف:</span>
+          <p class="text-slate-700 dark:text-slate-200">تلگرام و واسطه‌ها؛ در قطعی اینترنت هم کار می‌کند</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ۶.۲ تحلیل ارزش کاربردی در برابر ارزش مبادله‌ای و مازاد مشتری -->
+    <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-pink-500">
+      <div class="border-b border-pink-200 dark:border-zinc-800 pb-4">
+        <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">چرا پرداخت کارمزد ۳٪، سودآور است؟</h3>
+        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 mt-1">
+          هم‌بار با هزینه کمتر (نصف شدن هزینه پست و حذف خواب سرمایه)، نیاز پیج‌ها را در سطح امن‌تر و سریع‌تری تأمین می‌کند.
+        </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 text-xs md:text-sm">
-        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-2">
-          <div class="font-extrabold text-brand-600 dark:text-brand-400">۱. الگوی جایگاه‌یابی جفری مور (Geoffrey Moore)</div>
-          <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-            «برای <b class="text-slate-900 dark:text-white">آنلاین‌شاپ‌های دایرکتی</b> که سرمایه کافی برای انبار همه‌ی رنگ‌ها و سایزها ندارند، <b class="text-brand-600 dark:text-brand-400">هم‌بار</b> یک <b class="text-slate-900 dark:text-white">انبار ابری همکاربه‌همکار</b> است که در ۳۰ ثانیه کالای کسری را با نام پیج خودشان ارسال می‌کند؛ برخلاف گروه‌های تلگرام و دراپ‌شیپینگ سنتی، ما <b class="text-slate-900 dark:text-white">صندوق امانت شتابی، بسته‌بندی بی‌نام و ربات پایدار بله</b> را یک‌جا داریم.»
-          </p>
+        <!-- ارزش کاربردی -->
+        <div class="p-5 rounded-2xl glass-subcard border-t-4 border-t-brand-500 space-y-3">
+          <div class="font-black text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
+            <span>🎯</span> ارزش کاربردی (چقدر به کار کاربر می‌آید؟)
+          </div>
+          <div class="space-y-2.5 text-slate-600 dark:text-slate-300 leading-relaxed">
+            <div class="p-3 rounded-xl bg-white/70 dark:bg-zinc-900 border border-pink-100 dark:border-zinc-800">
+              <b class="text-brand-600 dark:text-brand-400">مهشید (معرف):</b> حفظ مشتری دایرکت + حفظ اعتبار برند با لیبل اختصاصی پیج خودش.
+            </div>
+            <div class="p-3 rounded-xl bg-white/70 dark:bg-zinc-900 border border-pink-100 dark:border-zinc-800">
+              <b class="text-rose-600 dark:text-rose-400">حاج‌رضا (تأمین‌کننده):</b> نقد شدن موجودی راکد انبار بدون وقت‌گذاشتن برای استوری و چت دایرکت.
+            </div>
+          </div>
         </div>
 
-        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-rose-500 space-y-2">
-          <div class="font-extrabold text-rose-600 dark:text-rose-400">۲. الگوی استیو بلنک (Steve Blank XYZ)</div>
-          <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-            «ما به <b class="text-slate-900 dark:text-white">فروشندگان خرد (X)</b> کمک می‌کنیم <b class="text-slate-900 dark:text-white">سفارش‌های سوخته و جنس‌های راکد قفسه‌شان را به سود نقد تبدیل کنند (Y)</b>، از طریق <b class="text-rose-600 dark:text-rose-400">اتصال فوری موجودی همکاران، ارسال محرمانه و تسویه امانی با بارکد پست (Z)</b>.»
-          </p>
-          <p class="text-[11px] text-slate-500 dark:text-slate-400 pt-1 border-t border-pink-200 dark:border-zinc-800">
-            ✨ خلاصه ارزش‌آفرینی (اسلاید درس): هم‌بار همان نیاز را با هزینه‌ای بسیار کمتر از خرید انبار و با امنیت بالاتر تأمین می‌کند.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-pink-400 space-y-1">
-          <b class="text-slate-900 dark:text-white block">🎯 کار کاربر (Jobs)</b>
-          <p class="text-slate-600 dark:text-slate-300">تأمین فوری سایز کسری در دایرکت + نقد کردن تک‌سایزهای مانده در انبار.</p>
-        </div>
-        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-rose-500 space-y-1">
-          <b class="text-rose-600 dark:text-rose-400 block">😣 درد اصلی (Pains)</b>
-          <p class="text-slate-600 dark:text-slate-300">پریدن مشتری، ریسک کارت‌به‌کارت، ترس از دزدیده شدن مشتری و قطعی نت.</p>
-        </div>
-        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-emerald-500 space-y-1">
-          <b class="text-emerald-600 dark:text-emerald-400 block">💊 درمان هم‌بار (Gains)</b>
-          <p class="text-slate-600 dark:text-slate-300">جور شدن کالا در ۳۰ ثانیه، صندوق امانت پستی، لیبل بی‌نام و بات بله.</p>
+        <!-- ارزش مبادله‌ای و مازاد مشتری -->
+        <div class="p-5 rounded-2xl glass-subcard border-t-4 border-t-emerald-500 space-y-3">
+          <div class="font-black text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
+            <span>⚖️</span> ارزش مبادله‌ای و مازاد مشتری (در سفارش ۵۰۰ هزار تومانی)
+          </div>
+          <div class="grid grid-cols-3 gap-2 text-center font-mono">
+            <div class="p-2.5 rounded-xl bg-white/70 dark:bg-zinc-900">
+              <span class="text-[11px] text-slate-500 block font-sans">سقف ارزش ذهنی (TMV)</span>
+              <b class="text-slate-900 dark:text-white text-sm md:text-base">۱۱۰,۰۰۰ ت</b>
+            </div>
+            <div class="p-2.5 rounded-xl bg-rose-500/10">
+              <span class="text-[11px] text-rose-600 dark:text-rose-400 block font-sans">بهای مبادله (۳٪)</span>
+              <b class="text-rose-600 dark:text-rose-400 text-sm md:text-base">۱۵,۰۰۰ ت</b>
+            </div>
+            <div class="p-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30">
+              <span class="text-[11px] text-emerald-700 dark:text-emerald-300 block font-sans font-bold">مازاد مشتری</span>
+              <b class="text-emerald-600 dark:text-emerald-400 text-sm md:text-base">+۹۵,۰۰۰ ت</b>
+            </div>
+          </div>
+          <div class="space-y-1 pt-1">
+            <div class="w-full h-3 bg-rose-500/20 rounded-full overflow-hidden flex">
+              <div class="h-full bg-rose-500" style="width: 14%" title="بهای مبادله (۱۵ هزار ت)"></div>
+              <div class="h-full bg-emerald-500" style="width: 86%" title="مازاد مصرف‌کننده (۹۵ هزار ت)"></div>
+            </div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">
+              کاربر فقط ۱۴٪ از سود نجات‌یافته را به‌عنوان کارمزد می‌پردازد و ۸۶٪ مازاد خالص برای خودش می‌ماند.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ۵.۱۱ تحلیل ارزش کاربردی (Use Value) و ارزش مبادله‌ای (Exchange Value) -->
-    <section id="sec-useexchange" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-rose-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-        <div>
-          <span class="text-xs font-bold text-rose-600 dark:text-rose-400">پرونده تحلیلی فاز ۲ • بند ۲</span>
-          <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">ارزش کاربردی در برابر ارزش مبادله‌ای (چرا ۳٪ کارمزد می‌ارزد؟)</h3>
-        </div>
-        <span class="text-[11px] font-mono bg-rose-500/15 text-rose-600 dark:text-rose-300 border border-rose-500/30 px-3 py-1 rounded-full font-bold self-start sm:self-auto">Use vs Exchange Value</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs md:text-sm">
-        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-2">
-          <b class="text-brand-600 dark:text-brand-400 block">۱. ارزش کاربردی (Use Value)</b>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-            ارزشی که پیج می‌گیرد فقط «خودِ کالا» نیست؛ بلکه <b>نسوختن هزینه تبلیغ، حفظ اعتبار پیج (نگفتن نداریم)، صرفه‌جویی در زمان و نقد شدن جنس راکد</b> است.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-rose-500 space-y-2">
-          <b class="text-rose-600 dark:text-rose-400 block">۲. سقف ارزش (TMV) و ارزش مبادله‌ای</b>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-            روی یک سفارش <b>۵۰۰ هزار تومانی</b> که قرار است بسوزد، ۱۱۰ هزار تومان سود + حدود ۲۵ هزار تومان هزینه تبلیغ آن مشتری می‌سوزد (پس <b>TMV = ۱۳۵ هزار ت</b>). اما <b>ارزش مبادله‌ای (قیمت هم‌بار)</b> فقط ۳٪ یعنی <b>۱۵ هزار تومان</b> است!
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl glass-subcard border-t-2 border-t-emerald-500 space-y-2">
-          <b class="text-emerald-600 dark:text-emerald-400 block">۳. مازاد مصرف‌کننده و ارزش استراتژیک</b>
-          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-            فاصله ۱۳۵ هزار تا ۱۵ هزار می‌شود <b>۱۲۰ هزار تومان مازاد مصرف‌کننده (Consumer Surplus)</b>! همچنین رایگان گذاشتن عضویت ماهانه یک <b>ارزش استراتژیک</b> است تا پیج‌ها بدون مقاومت وارد شبکه شوند.
-          </p>
+    <!-- ۶.۳ تحلیل واسطه ارزش‌آفرین و سدهای ضد دور زدن -->
+    <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-pink-200 dark:border-zinc-800 pb-4">
+        <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">واسطه ارزش‌آفرین، نه دلالِ حلقه زائد</h3>
+        <div class="flex items-center gap-1.5 bg-slate-200/70 dark:bg-zinc-900/90 p-1 rounded-xl border border-pink-200 dark:border-zinc-800 text-xs shrink-0">
+          <button id="interm-btn-functions" onclick="switchIntermediaryTab('functions')" class="px-3 py-1.5 rounded-lg font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white transition">۴ کارکرد و آزمون حذف</button>
+          <button id="interm-btn-antidis" onclick="switchIntermediaryTab('antidis')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition">۴ قفل ضد دور زدن</button>
         </div>
       </div>
 
-      <div class="p-4 rounded-2xl bg-brand-500/10 border border-brand-500/30 flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
-        <span class="font-bold text-slate-800 dark:text-slate-200">⚖️ ترازوی منطقی روی فاکتور ۵۰۰,۰۰۰ تومانی:</span>
-        <div class="flex flex-wrap gap-2 font-mono">
-          <span class="px-3 py-1 rounded-xl bg-rose-500/15 text-rose-600 dark:text-rose-400 font-bold">بدون هم‌بار: ۱۳۵,۰۰۰ ت ضرر</span>
-          <span class="px-3 py-1 rounded-xl bg-pink-500/15 text-brand-600 dark:text-brand-300 font-bold">کارمزد هم‌بار (۳٪): ۱۵,۰۰۰ ت</span>
-          <span class="px-3 py-1 rounded-xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-extrabold">مازاد ارزش در جیب تو: +۱۲۰,۰۰۰ ت</span>
+      <!-- تب ۱: ۴ کارکرد آلدرسون + آزمون حذف -->
+      <div id="interm-view-functions" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs md:text-sm">
+          <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-1.5">
+            <div class="font-extrabold text-slate-900 dark:text-white">۱. کاهش ارتباطات تجاری</div>
+            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">تبدیل ده‌ها استعلام پراکنده تلگرامی به یک جستجوی ۳۰ ثانیه‌ای متمرکز.</p>
+          </div>
+          <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-1.5">
+            <div class="font-extrabold text-slate-900 dark:text-white">۲. صرفه‌جویی مقیاس</div>
+            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">استفاده از ظرفیت خالی انبار ۱۳۰ هزار پیج بدون ساخت حتی یک متر انبار جدید.</p>
+          </div>
+          <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-1.5">
+            <div class="font-extrabold text-slate-900 dark:text-white">۳. تخصص‌گرایی</div>
+            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">معرف روی محتوا و فروش متمرکز می‌شود، بنکدار روی تأمین و هم‌بار روی لجستیک.</p>
+          </div>
+          <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-1.5">
+            <div class="font-extrabold text-slate-900 dark:text-white">۴. کاهش ریسک</div>
+            <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">حذف ریسک کارت‌به‌کارت با صندوق امانت شاپرک و تسویه مشروط به بارکد پستی.</p>
+          </div>
+        </div>
+        <div class="p-4 rounded-2xl bg-brand-500/10 border border-brand-500/30 text-xs md:text-sm text-slate-700 dark:text-slate-200">
+          <b>آزمون سرانگشتی حذف واسطه:</b> اگر هم‌بار حذف شود، پیج‌ها دوباره گرفتار کارت‌به‌کارت پرخطر، دوباره‌کاری پستی و پریدن مشتری می‌شوند؛ پس هم‌بار واسطه‌ای ارزش‌آفرین است، نه دلال زائد.
+        </div>
+      </div>
+
+      <!-- تب ۲: ۴ قفل ضد دور زدن -->
+      <div id="interm-view-antidis" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs md:text-sm">
+        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-rose-500 space-y-1.5">
+          <div class="font-extrabold text-slate-900 dark:text-white">۱. لیبل محرمانه</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">روی بسته فقط نام پیج معرف چاپ می‌شود؛ درج شماره تأمین‌کننده مساوی جریمه و حذف است.</p>
+        </div>
+        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-rose-500 space-y-1.5">
+          <div class="font-extrabold text-slate-900 dark:text-white">۲. امنیت صندوق شاپرک</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">خارج از هم‌بار هیچ تضمینی برای بازگشت وجه یا سلامت مرسوله وجود ندارد.</p>
+        </div>
+        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-rose-500 space-y-1.5">
+          <div class="font-extrabold text-slate-900 dark:text-white">۳. امتیاز اعتبار و اولویت</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">سابقه ارسال به‌موقع فقط در سامانه ثبت شده و رتبه نمایش بنکدار را بالا می‌برد.</p>
+        </div>
+        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-rose-500 space-y-1.5">
+          <div class="font-extrabold text-slate-900 dark:text-white">۴. راحتی ربات بله</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">صدور خودکار فاکتور و بارکد پیامکی در چند ثانیه، بسیار ارزان‌تر از پیگیری دستی است.</p>
         </div>
       </div>
     </section>
 
-    <!-- ۵.۱۲ تحلیل نقش واسطه‌گری (آلدرسون) و سدهای ضد دور زدن -->
-    <section id="sec-intermediary" class="scroll-mt-28 glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-pink-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-        <div>
-          <span class="text-xs font-bold text-brand-600 dark:text-brand-400">پرونده تحلیلی فاز ۲ • بند ۳</span>
-          <h3 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">چرا هم‌بار «واسطه ارزش‌آفرین» است و دور زده نمی‌شود؟</h3>
-        </div>
-        <span class="text-[11px] font-mono bg-brand-500/15 text-brand-600 dark:text-brand-300 border border-brand-500/30 px-3 py-1 rounded-full font-bold self-start sm:self-auto">Alderson & Anti-Bypass</span>
+    <!-- ۶.۴ بوم مدل کسب‌وکار ۹ بخشی (تعاملی) -->
+    <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-5 border-r-4 border-r-pink-500">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-pink-200 dark:border-zinc-800 pb-4">
+        <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">بوم ۹ بخشی هم‌بار</h3>
+        <span class="text-xs text-brand-600 dark:text-brand-400 font-bold">روی هر خانه کلیک کنید تا نقش آن در هماهنگی سیستم دیده شود</span>
       </div>
 
-      <div class="p-4 rounded-2xl glass-subcard border-r-4 border-r-emerald-500 text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-        <b class="text-emerald-600 dark:text-emerald-400">🧪 آزمون حذف واسطه (تمایز از دلال غیرمولد):</b> دلالِ فرصت‌طلب (مثل پروفرمافروشان) اگر حذف شود هیچ اتفاق بدی نمی‌افتد؛ اما اگر <b>هم‌بار</b> حذف شود، طرفین دوباره درگیر دپوی گران، سوخت ۱۷٪ سفارش‌ها و کلاهبرداری کارت‌به‌کارت می‌شوند. پس هم‌بار یک <b>واسطه ارزش‌آفرین (Intermediary)</b> است.
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 text-xs md:text-sm">
+        <button onclick="selectBmcBlock(1)" id="bmc-card-1" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5 border-2 border-brand-500">
+          <div class="font-black text-slate-900 dark:text-white">۱. مشتریان هدف</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">آنلاین‌شاپ‌های دایرکتی (مهشید) • بنکداران دارای موجودی راکد (حاج‌رضا)</p>
+        </button>
+
+        <button onclick="selectBmcBlock(2)" id="bmc-card-2" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+          <div class="font-black text-slate-900 dark:text-white">۲. ارزش پیشنهادی</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">تکمیل قفسه در ۳۰ ثانیه • ارسال با نام پیج معرف • صندوق امانت و پایداری در قطعی نت</p>
+        </button>
+
+        <button onclick="selectBmcBlock(3)" id="bmc-card-3" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+          <div class="font-black text-slate-900 dark:text-white">۳. کانال‌ها</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">ربات بله (@HamBarBot) • پنل وب هم‌بار • لینک فاکتور پیامکی</p>
+        </button>
+
+        <button onclick="selectBmcBlock(4)" id="bmc-card-4" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+          <div class="font-black text-slate-900 dark:text-white">۴. ارتباط با مشتری</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">استعلام خودکار سلف‌سرویس • رتبه‌بندی اعتبار همکاران • داوری آنلاین مرجوعی</p>
+        </button>
+
+        <button onclick="selectBmcBlock(5)" id="bmc-card-5" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+          <div class="font-black text-slate-900 dark:text-white">۵. جریان‌های درآمدی</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">کارمزد ۳٪ تراکنش موفق • اشتراک هم‌بار پلاس • نمایش ویژه قفسه بنکداران</p>
+        </button>
+
+        <button onclick="selectBmcBlock(6)" id="bmc-card-6" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+          <div class="font-black text-slate-900 dark:text-white">۶. منابع کلیدی</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">موتور تطبیق ابری قفسه‌ها • صندوق امانت شاپرک • سرورهای داخلی متصل به بله</p>
+        </button>
+
+        <button onclick="selectBmcBlock(7)" id="bmc-card-7" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+          <div class="font-black text-slate-900 dark:text-white">۷. فعالیت‌های کلیدی</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">قفل موجودی و تطبیق کسری • فریز وجه تا ثبت بارکد ۲۴ رقمی • نظارت بر لیبل خنثی</p>
+        </button>
+
+        <button onclick="selectBmcBlock(8)" id="bmc-card-8" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+          <div class="font-black text-slate-900 dark:text-white">۸. شرکای کلیدی</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">شبکه شاپرک و پیام‌رسان بله • پست پیشتاز و تیپاکس • بنکداران مرجع پوشاک و کفش</p>
+        </button>
+
+        <button onclick="selectBmcBlock(9)" id="bmc-card-9" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+          <div class="font-black text-slate-900 dark:text-white">۹. ساختار هزینه‌ها</div>
+          <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">کارمزد درگاه و پیامک (۲,۶۰۰ ت در سفارش) • سرور داخلی و ربات • پشتیبانی اختلافات</p>
+        </button>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-1.5">
-          <div class="font-extrabold text-brand-600 dark:text-brand-400">۱. کاهش تعداد ارتباطات</div>
-          <div class="font-mono font-bold text-slate-800 dark:text-slate-200">N×M ➔ N+M</div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">به جای چت با ده‌ها همکار در تلگرام، هر پیج فقط به یک هاب ابری وصل است.</p>
-        </div>
-        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-1.5">
-          <div class="font-extrabold text-brand-600 dark:text-brand-400">۲. افزایش مقیاس</div>
-          <div class="font-mono font-bold text-slate-800 dark:text-slate-200">Economies of Scale</div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">ظرفیت راکد قفسه همکاران را فعال و هزینه ثابت تولید محتوای پیج را سرشکن می‌کند.</p>
-        </div>
-        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-1.5">
-          <div class="font-extrabold text-brand-600 dark:text-brand-400">۳. تخصص و تجربه</div>
-          <div class="font-mono font-bold text-slate-800 dark:text-slate-200">Specialization</div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">مدیریت صندوق امانت، استعلام بارکد ۲۴ رقمی پست و لیبل سفید بدون زحمت ادمین.</p>
-        </div>
-        <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-brand-500 space-y-1.5">
-          <div class="font-extrabold text-brand-600 dark:text-brand-400">۴. کاهش ریسک</div>
-          <div class="font-mono font-bold text-slate-800 dark:text-slate-200">Risk Reduction</div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">حذف ریسک نوسان تقاضا (نیاز به دپو نداری)، کلاهبرداری مالی و جنس معیوب.</p>
-        </div>
-      </div>
-
-      <div class="space-y-2.5">
-        <div class="font-bold text-sm text-slate-900 dark:text-white">۴ لایه بازدارنده جهت جلوگیری از دور زدن پلتفرم:</div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs">
-          <div class="p-3.5 rounded-2xl glass-subcard flex items-start gap-2.5">
-            <span class="text-base">🙈</span>
-            <div><b>۱. ارسال کور (Blind Shipping):</b> اطلاعات تماس و آیدی اصلی تأمین‌کننده روی بسته و فاکتور مخفی است.</div>
-          </div>
-          <div class="p-3.5 rounded-2xl glass-subcard flex items-start gap-2.5">
-            <span class="text-base">🔒</span>
-            <div><b>۲. سپر صندوق امانت:</b> بیرون رفتن از هم‌بار یعنی از دست دادن ضمانت پرداخت و داوری کیفیت کالا.</div>
-          </div>
-          <div class="p-3.5 rounded-2xl glass-subcard flex items-start gap-2.5">
-            <span class="text-base">⚡</span>
-            <div><b>۳. اتوماسیون پست و بله:</b> صدور خودکار لینک شاپرک و پیامک رهگیری، معامله دستی را بی‌صرفه می‌کند.</div>
-          </div>
-          <div class="p-3.5 rounded-2xl glass-subcard flex items-start gap-2.5">
-            <span class="text-base">⭐</span>
-            <div><b>۴. امتیاز اعتبار و اولویت:</b> بالا رفتن رتبه فروشنده فقط با ثبت تراکنش موفق داخل سامانه ممکن است.</div>
-          </div>
-        </div>
-      </div>
+      <!-- کادر توضیح پویای هماهنگی بوم -->
+      <div id="bmc-synergy-box" class="p-4 rounded-2xl bg-brand-500/10 border border-brand-500/30 text-xs md:text-sm text-slate-800 dark:text-slate-100 leading-relaxed"></div>
     </section>
 
   </main>
 
   <!-- ========================================================= -->
-  <!-- ۶. بخش دوم: اقتصاد و بازار                                -->
+  <!-- ۷. بخش سوم: اقتصاد و بازار                                -->
   <!-- ========================================================= -->
   <main id="view-market" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-10 w-full">
     
@@ -889,7 +971,7 @@
       </div>
     </section>
 
-    <!-- ۶.۲ فیش یونیت‌اکونومیک یک سفارش ۵۰۰ هزار تومانی -->
+    <!-- ۶.۲ فیش یونیت‌اکونومیک + معماری جریان‌های درآمدی -->
     <section class="glass-panel p-6 md:p-8 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="font-bold text-base md:text-lg text-slate-900 dark:text-white flex items-center gap-2">
@@ -927,6 +1009,77 @@
         </div>
 
       </div>
+
+      <!-- ارتقای بند ۵: معماری جریان‌های درآمدی -->
+      <div class="pt-4 border-t border-pink-200 dark:border-zinc-800 space-y-3">
+        <div class="text-xs md:text-sm font-bold text-slate-900 dark:text-white">معماری و تنوع جریان‌های درآمدی هم‌بار:</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+          <div class="p-3.5 rounded-2xl glass-subcard border-r-4 border-r-brand-500 space-y-1">
+            <div class="font-extrabold text-slate-900 dark:text-white">۱. کارمزد ۳٪ تراکنش (موتور فعلی)</div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">تا فروشی نجات پیدا نکند، ریالی از فروشنده کسر نمی‌شود.</p>
+          </div>
+          <div class="p-3.5 rounded-2xl glass-subcard border-r-4 border-r-pink-500 space-y-1">
+            <div class="font-extrabold text-slate-900 dark:text-white">۲. اشتراک «هم‌بار پلاس» (فریمیوم)</div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">ورود رایگان؛ اشتراک ماهانه برای کاهش کارمزد به ۲٪ و گزارش کالاهای کسری‌دار.</p>
+          </div>
+          <div class="p-3.5 rounded-2xl glass-subcard border-r-4 border-r-rose-500 space-y-1">
+            <div class="font-extrabold text-slate-900 dark:text-white">۳. جایگاه ویژه قفسه بنکداران</div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">پرداخت اختیاری تأمین‌کنندگان خوش‌امتیاز برای نمایش در صدر نتایج جستجو.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ارتقای بند ۷: دیاگرام تعاملی گردش داده و نقدینگی -->
+    <section class="glass-panel p-6 md:p-8 rounded-3xl space-y-5 border-r-4 border-r-pink-500">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-pink-200 dark:border-zinc-800 pb-3">
+        <h3 class="font-bold text-base md:text-lg text-slate-900 dark:text-white flex items-center gap-2">
+          <span>🔄</span> دیاگرام تعاملی گردش داده و نقدینگی میان بازیگران
+        </h3>
+        <span class="text-xs text-slate-500 dark:text-slate-400">روی هر گام کلیک کنید</span>
+      </div>
+
+      <!-- ۴ مرحله کلیکی -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs">
+        <button onclick="selectFlowStep(1)" id="flow-step-1" class="p-3 rounded-2xl font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white shadow transition text-right">
+          ۱. استعلام و قفل (داده)
+        </button>
+        <button onclick="selectFlowStep(2)" id="flow-step-2" class="p-3 rounded-2xl font-bold glass-subcard text-slate-700 dark:text-slate-200 transition text-right">
+          ۲. پرداخت شاپرک (پول)
+        </button>
+        <button onclick="selectFlowStep(3)" id="flow-step-3" class="p-3 rounded-2xl font-bold glass-subcard text-slate-700 dark:text-slate-200 transition text-right">
+          ۳. ارسال و بارکد (داده)
+        </button>
+        <button onclick="selectFlowStep(4)" id="flow-step-4" class="p-3 rounded-2xl font-bold glass-subcard text-slate-700 dark:text-slate-200 transition text-right">
+          ۴. تسویه ۳ طرفه (پول)
+        </button>
+      </div>
+
+      <!-- نقشه ۴ بازیگر + وضعیت پویا -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-xs">
+        <div id="flow-actor-buyer" class="p-3.5 rounded-2xl glass-subcard space-y-1 transition">
+          <div class="text-xl">🛍️</div>
+          <div class="font-bold text-slate-900 dark:text-white">خریدار دایرکت</div>
+          <div id="flow-note-buyer" class="text-[11px] text-slate-500 dark:text-slate-400">درخواست سایز کسری</div>
+        </div>
+        <div id="flow-actor-mahshid" class="p-3.5 rounded-2xl glass-subcard space-y-1 transition">
+          <div class="text-xl">👩🏻‍💼</div>
+          <div class="font-bold text-slate-900 dark:text-white">مهشید (معرف)</div>
+          <div id="flow-note-mahshid" class="text-[11px] text-slate-500 dark:text-slate-400">ثبت درخواست در هم‌بار</div>
+        </div>
+        <div id="flow-actor-hambar" class="p-3.5 rounded-2xl glass-subcard space-y-1 transition">
+          <div class="text-xl">☁️</div>
+          <div class="font-bold text-slate-900 dark:text-white">هسته و صندوق هم‌بار</div>
+          <div id="flow-note-hambar" class="text-[11px] text-slate-500 dark:text-slate-400">تطبیق و قفل قفسه</div>
+        </div>
+        <div id="flow-actor-reza" class="p-3.5 rounded-2xl glass-subcard space-y-1 transition">
+          <div class="text-xl">🧔🏻‍♂️</div>
+          <div class="font-bold text-slate-900 dark:text-white">حاج‌رضا (تأمین‌کننده)</div>
+          <div id="flow-note-reza" class="text-[11px] text-slate-500 dark:text-slate-400">اعلام موجودی آماده</div>
+        </div>
+      </div>
+
+      <div id="flow-summary-bar" class="p-3.5 rounded-2xl bg-brand-500/10 border border-brand-500/30 text-xs md:text-sm text-slate-800 dark:text-slate-100 text-center font-medium"></div>
     </section>
 
     <!-- ۶.۳ محاسبه‌گر سود ماهانه -->
@@ -1076,13 +1229,18 @@
       </div>
     </section>
 
-    <!-- ۶.۶ جدول مقایسه کامل -->
+    <!-- ۶.۶ جدول مقایسه کامل + سوییچ ماتریس قوت و ضعف (ارتقای بند ۶) -->
     <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-pink-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-pink-200 dark:border-zinc-800 pb-4">
         <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">مقایسه هم‌بار با رقبا و روش‌های سنتی</h3>
+        <div class="flex items-center gap-1.5 bg-slate-200/70 dark:bg-zinc-900/90 p-1 rounded-xl border border-pink-200 dark:border-zinc-800 text-xs shrink-0">
+          <button id="comp-btn-features" onclick="switchCompMatrix('features')" class="px-3 py-1.5 rounded-lg font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white transition">مقایسه امکانات</button>
+          <button id="comp-btn-swot" onclick="switchCompMatrix('swot')" class="px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition">نقاط قوت و ضعف رقبا</button>
+        </div>
       </div>
 
-      <div class="overflow-x-auto">
+      <!-- نمای ۱: جدول مقایسه امکانات قبلی (بدون تغییر) -->
+      <div id="comp-view-features" class="overflow-x-auto">
         <table class="w-full text-right text-xs md:text-sm">
           <thead class="bg-pink-100/60 dark:bg-zinc-900/90 text-slate-800 dark:text-white border-b border-pink-200 dark:border-zinc-800 font-bold">
             <tr>
@@ -1133,290 +1291,45 @@
         </table>
       </div>
 
-      <!-- جمع‌بندی نقاط قوت و ضعف در برابر رقبا و جایگزین سنتی (فاز ۲ - بند ۶) -->
-      <div class="pt-4 border-t border-pink-200 dark:border-zinc-800 space-y-3">
-        <div class="font-extrabold text-sm text-slate-900 dark:text-white">نقاط قوت و ضعف هم‌بار در برابر رقبا و جایگزین‌های سنتی:</div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 text-xs">
-          <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-pink-500 space-y-1.5">
-            <div class="font-bold text-slate-900 dark:text-white">۱. Stockly (اروپا)</div>
-            <p class="text-emerald-600 dark:text-emerald-400"><b>✅ قوت:</b> شبکه شرکتی بسیار بزرگ و اتوماسیون انبار.</p>
-            <p class="text-rose-600 dark:text-rose-400"><b>⚠️ ضعف:</b> نیازمند شرکت رسمی، بی‌تفاوت به قطعی نت ایران.</p>
-          </div>
-          <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-pink-500 space-y-1.5">
-            <div class="font-bold text-slate-900 dark:text-white">۲. دراپ‌شیپینگ سنتی</div>
-            <p class="text-emerald-600 dark:text-emerald-400"><b>✅ قوت:</b> شروع کم‌هزینه برای پیج‌های تازه‌کار.</p>
-            <p class="text-rose-600 dark:text-rose-400"><b>⚠️ ضعف:</b> یک‌طرفه است، برند تأمین‌کننده می‌خورد و تسویه کند دارد.</p>
-          </div>
-          <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-pink-500 space-y-1.5">
-            <div class="font-bold text-slate-900 dark:text-white">۳. گروه‌های تلگرام</div>
-            <p class="text-emerald-600 dark:text-emerald-400"><b>✅ قوت:</b> رایگان و چت مستقیم بین فروشنده‌ها.</p>
-            <p class="text-rose-600 dark:text-rose-400"><b>⚠️ ضعف:</b> کلاهبرداری کارت‌به‌کارت، فیلترینگ و خطر سرقت مشتری.</p>
-          </div>
-          <div class="p-4 rounded-2xl glass-subcard border-t-2 border-t-pink-500 space-y-1.5">
-            <div class="font-bold text-slate-900 dark:text-white">۴. بنکداران و باسلام/دیجی‌کالا</div>
-            <p class="text-emerald-600 dark:text-emerald-400"><b>✅ قوت:</b> تنوع بالای جنس و اعتماد خریدار به نام بازارگاه.</p>
-            <p class="text-rose-600 dark:text-rose-400"><b>⚠️ ضعف:</b> اجبار به خرید جین/دپو یا کشیدن مشتری به بیرون از پیج شما.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!-- بخش‌های تحلیلی فاز دوم در تب اقتصاد و بازار                -->
-    <!-- ========================================================= -->
-
-    <!-- ۶.۷ بوم مدل کسب‌وکار ۹ بخشی تعاملی (الزام ۴ + مورد تکمیلی ۱) -->
-    <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-5 border-r-4 border-r-brand-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-        <div>
-          <span class="text-xs font-bold text-brand-600 dark:text-brand-400">فاز ۲ • بند ۴ و کامپوننت وب تعاملی</span>
-          <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">بوم مدل کسب‌وکار ۹ بخشی هم‌بار (روی هر خانه کلیک کن!)</h3>
-        </div>
-        <span class="text-[11px] font-mono bg-brand-500/15 text-brand-600 dark:text-brand-300 border border-brand-500/30 px-3 py-1 rounded-full font-bold self-start sm:self-auto">Interactive BMC</span>
-      </div>
-
-      <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300">
-        روی هر بخش بوم کلیک کنید تا علاوه بر محتوا، <b>بخش‌های هم‌راستا و هماهنگ با آن</b> روشن شوند و ببینید اجزا چطور به هم قفل شده‌اند.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-3 text-xs">
-        <!-- شرکای کلیدی -->
-        <button onclick="selectBMC('kp')" id="bmc-card-kp" class="bmc-card text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition-all lg:col-span-2 lg:row-span-2 lg:col-start-1 lg:row-start-1 flex flex-col justify-between gap-2">
-          <div>
-            <div class="font-black text-brand-600 dark:text-brand-400 mb-1.5">🤝 شرکای کلیدی</div>
-            <ul class="space-y-1 text-slate-600 dark:text-slate-300 leading-relaxed">
-              <li>• پست پیشتاز و تیپاکس</li>
-              <li>• پیام‌رسان مالی «بله»</li>
-              <li>• درگاه پرداخت شاپرک</li>
-              <li>• بنکداران و پیج‌های مبدأ</li>
-            </ul>
-          </div>
-          <span class="text-[10px] text-slate-400 font-mono">Key Partners</span>
-        </button>
-
-        <!-- فعالیت‌های کلیدی -->
-        <button onclick="selectBMC('ka')" id="bmc-card-ka" class="bmc-card text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition-all lg:col-span-2 lg:col-start-3 lg:row-start-1 flex flex-col justify-between gap-2">
-          <div>
-            <div class="font-black text-rose-600 dark:text-rose-400 mb-1.5">⚙️ فعالیت‌های کلیدی</div>
-            <ul class="space-y-1 text-slate-600 dark:text-slate-300 leading-relaxed">
-              <li>• تطبیق ۳۰ ثانیه‌ای قفسه</li>
-              <li>• مدیریت صندوق امانت</li>
-              <li>• چاپ لیبل محرمانه پیج</li>
-            </ul>
-          </div>
-          <span class="text-[10px] text-slate-400 font-mono">Key Activities</span>
-        </button>
-
-        <!-- منابع کلیدی -->
-        <button onclick="selectBMC('kr')" id="bmc-card-kr" class="bmc-card text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition-all lg:col-span-2 lg:col-start-3 lg:row-start-2 flex flex-col justify-between gap-2">
-          <div>
-            <div class="font-black text-rose-600 dark:text-rose-400 mb-1.5">🧱 منابع کلیدی</div>
-            <ul class="space-y-1 text-slate-600 dark:text-slate-300 leading-relaxed">
-              <li>• انبار ابری و موتور تطبیق</li>
-              <li>• کیف‌پول امانی و بات بله</li>
-              <li>• شبکه اعتماد همکاران</li>
-            </ul>
-          </div>
-          <span class="text-[10px] text-slate-400 font-mono">Key Resources</span>
-        </button>
-
-        <!-- ارزش‌های پیشنهادی -->
-        <button onclick="selectBMC('vp')" id="bmc-card-vp" class="bmc-card text-right p-4 rounded-2xl glass-subcard border-brand-500/50 bg-brand-500/5 hover:border-brand-500 transition-all lg:col-span-2 lg:row-span-2 lg:col-start-5 lg:row-start-1 flex flex-col justify-between gap-2">
-          <div>
-            <div class="font-black text-brand-600 dark:text-brand-300 mb-1.5">💎 ارزش پیشنهادی</div>
-            <ul class="space-y-1 text-slate-700 dark:text-slate-200 leading-relaxed">
-              <li>• نجات فروش سوخته دایرکت</li>
-              <li>• ویترین کامل با سرمایه صفر</li>
-              <li>• نقد شدن موجودی راکد</li>
-              <li>• بسته‌بندی بی‌نام + امانت</li>
-              <li>• فروش پایدار در قطعی نت</li>
-            </ul>
-          </div>
-          <span class="text-[10px] text-brand-500 font-mono">Value Propositions</span>
-        </button>
-
-        <!-- ارتباط با مشتریان -->
-        <button onclick="selectBMC('cr')" id="bmc-card-cr" class="bmc-card text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition-all lg:col-span-2 lg:col-start-7 lg:row-start-1 flex flex-col justify-between gap-2">
-          <div>
-            <div class="font-black text-brand-600 dark:text-brand-400 mb-1.5">❤️ ارتباط با مشتری</div>
-            <ul class="space-y-1 text-slate-600 dark:text-slate-300 leading-relaxed">
-              <li>• سلف‌سرویس زیر ۳۰ ثانیه</li>
-              <li>• نشان اعتماد و رتبه‌بندی</li>
-              <li>• داوری سلامت کالا</li>
-            </ul>
-          </div>
-          <span class="text-[10px] text-slate-400 font-mono">Customer Relations</span>
-        </button>
-
-        <!-- کانال‌ها -->
-        <button onclick="selectBMC('ch')" id="bmc-card-ch" class="bmc-card text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition-all lg:col-span-2 lg:col-start-7 lg:row-start-2 flex flex-col justify-between gap-2">
-          <div>
-            <div class="font-black text-brand-600 dark:text-brand-400 mb-1.5">📡 کانال‌ها</div>
-            <ul class="space-y-1 text-slate-600 dark:text-slate-300 leading-relaxed">
-              <li>• وب‌اپلیکیشن هم‌بار</li>
-              <li>• ربات بله (@HamBarBot)</li>
-              <li>• شبکه باجه‌های پست/تیپاکس</li>
-            </ul>
-          </div>
-          <span class="text-[10px] text-slate-400 font-mono">Channels</span>
-        </button>
-
-        <!-- بخش‌های مشتریان -->
-        <button onclick="selectBMC('cs')" id="bmc-card-cs" class="bmc-card text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition-all lg:col-span-2 lg:row-span-2 lg:col-start-9 lg:row-start-1 flex flex-col justify-between gap-2">
-          <div>
-            <div class="font-black text-rose-600 dark:text-rose-400 mb-1.5">👥 مشتریان (دووجهی)</div>
-            <ul class="space-y-1 text-slate-600 dark:text-slate-300 leading-relaxed">
-              <li>• <b>فروشنده معرف:</b> پیج‌های اینستاگرام با کسری سایز/رنگ</li>
-              <li>• <b>تأمین‌کننده:</b> بنکداران و پیج‌های دارای جنس مازاد</li>
-            </ul>
-          </div>
-          <span class="text-[10px] text-slate-400 font-mono">Customer Segments</span>
-        </button>
-
-        <!-- ساختار هزینه‌ها -->
-        <button onclick="selectBMC('cost')" id="bmc-card-cost" class="bmc-card text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition-all lg:col-span-5 lg:col-start-1 lg:row-start-3 flex flex-col justify-between gap-2">
-          <div>
-            <div class="font-black text-rose-600 dark:text-rose-400 mb-1">💸 ساختار هزینه‌ها (سبک و بدون انبار!)</div>
-            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-              سرورهای داخلی و توسعه سامانه • کارمزد شاپرک و پیامک کد رهگیری • تیم کوچک احراز و حل اختلاف (صفر ریال هزینه اجاره انبار و خرید جنس)
-            </p>
-          </div>
-          <span class="text-[10px] text-slate-400 font-mono">Cost Structure</span>
-        </button>
-
-        <!-- جریان‌های درآمدی -->
-        <button onclick="selectBMC('rev')" id="bmc-card-rev" class="bmc-card text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition-all lg:col-span-5 lg:col-start-6 lg:row-start-3 flex flex-col justify-between gap-2">
-          <div>
-            <div class="font-black text-emerald-600 dark:text-emerald-400 mb-1">💰 جریان‌های درآمدی (تنوع درآمدی)</div>
-            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-              کارمزد ۳٪ تراکنش موفق (اصلی) • اشتراک Pro اتصال اکسل انبار (فریمیوم) • مارک‌آپ تسویه آنی و بیمه مرسوله • جایگاه ویژه تأمین‌کنندگان
-            </p>
-          </div>
-          <span class="text-[10px] text-slate-400 font-mono">Revenue Streams</span>
-        </button>
-      </div>
-
-      <!-- باکس توضیح هماهنگی اجزا -->
-      <div id="bmc-inspector" class="p-4 md:p-5 rounded-2xl glass-subcard border-r-4 border-r-brand-500 space-y-1.5 text-xs md:text-sm">
-        <div class="font-extrabold text-brand-600 dark:text-brand-400 flex items-center gap-2">
-          <span>🔗</span> <span id="bmc-inspector-title">هماهنگی اجزای بوم: روی هر خانه کلیک کنید</span>
-        </div>
-        <p id="bmc-inspector-desc" class="text-slate-700 dark:text-slate-300 leading-relaxed text-xs md:text-sm">
-          چون در <b>ساختار هزینه</b> پول انبار و خرید جنس نمی‌دهیم، توانسته‌ایم در <b>جریان درآمدی</b> آبونمان ماهانه نگیریم و فقط ۳٪ کارمزد روی فروش موفق بگیریم؛ همین هماهنگی باعث می‌شود هر دو سمت <b>مشتریان</b> بدون ترس وارد شوند.
-        </p>
-      </div>
-    </section>
-
-    <!-- ۶.۸ معماری جریان درآمدی (فاز ۲ - بند ۵) -->
-    <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-rose-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-        <div>
-          <span class="text-xs font-bold text-rose-600 dark:text-rose-400">فاز ۲ • بند ۵ (فصل ۵ کتاب مرجع)</span>
-          <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">معماری جریان درآمدی هم‌بار (تنوع درآمد بدون فشار به پیج)</h3>
-        </div>
-        <span class="text-[11px] font-mono bg-rose-500/15 text-rose-600 dark:text-rose-300 border border-rose-500/30 px-3 py-1 rounded-full font-bold self-start sm:self-auto">Revenue Streams</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-        <div class="p-5 rounded-2xl glass-subcard border-t-4 border-t-emerald-500 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="font-black text-emerald-600 dark:text-emerald-400 text-sm">۱. کارمزد تراکنش</span>
-            <span class="text-[10px] bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full font-bold">موتور اصلی</span>
-          </div>
-          <div class="font-mono font-bold text-slate-900 dark:text-white">۳٪ فروش موفق</div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">تا معامله واقعی انجام نشود ریالی نمی‌گیریم. ریسک فروشنده صفر و هم‌راستا با سود اوست.</p>
-        </div>
-
-        <div class="p-5 rounded-2xl glass-subcard border-t-4 border-t-brand-500 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="font-black text-brand-600 dark:text-brand-400 text-sm">۲. فریمیوم و اشتراک Pro</span>
-            <span class="text-[10px] bg-brand-500/15 text-brand-600 dark:text-brand-300 px-2 py-0.5 rounded-full font-bold">فاز رشد</span>
-          </div>
-          <div class="font-mono font-bold text-slate-900 dark:text-white">پایه رایگان / Pro ماهانه</div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">عضویت رایگان است؛ پیج‌های پرحجم برای سینک خودکار انبار و گزارش سود ماهانه نسخه Pro می‌گیرند.</p>
-        </div>
-
-        <div class="p-5 rounded-2xl glass-subcard border-t-4 border-t-rose-500 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="font-black text-rose-600 dark:text-rose-400 text-sm">۳. مارک‌آپ خدمات (VAS)</span>
-            <span class="text-[10px] bg-rose-500/15 text-rose-600 dark:text-rose-400 px-2 py-0.5 rounded-full font-bold">مکمل</span>
-          </div>
-          <div class="font-mono font-bold text-slate-900 dark:text-white">تسویه آنی + بیمه بسته</div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">تسویه استاندارد رایگان است؛ تأمین‌کننده می‌تواند با ۰.۵٪ کارمزد جزئی، پولش را در لحظه نقد کند.</p>
-        </div>
-
-        <div class="p-5 rounded-2xl glass-subcard border-t-4 border-t-pink-500 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="font-black text-brand-600 dark:text-pink-300 text-sm">۴. جایگاه ویژه جستجو</span>
-            <span class="text-[10px] bg-pink-500/15 text-brand-600 dark:text-pink-300 px-2 py-0.5 rounded-full font-bold">بنکداران</span>
-          </div>
-          <div class="font-mono font-bold text-slate-900 dark:text-white">Featured Listing</div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">عمده‌فروشان خوش‌سابقه (امتیاز ۴.۸+) برای نمایش در صدر استعلام‌های فصلی هزینه پکیج می‌دهند.</p>
-        </div>
-      </div>
-
-      <div class="p-4 rounded-2xl glass-subcard border-r-4 border-r-brand-500 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-        <b class="text-brand-600 dark:text-brand-400">💡 چرا اول کار اشتراک ماهانه اجباری نگذاشتیم؟</b> چون در بازار دووجهی، گرفتن حق عضویت از روز اول باعث فرار پیج‌های کوچک می‌شود؛ مدل «کارمزد مبتنی بر موفقیت» مانع ورود را صفر می‌کند.
-      </div>
-    </section>
-
-    <!-- ۶.۹ دیاگرام تعاملی جریان نقدینگی، داده و کالا (مورد تکمیلی ۳) -->
-    <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 border-r-4 border-r-brand-500">
-      <div class="border-b border-pink-200 dark:border-zinc-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold text-brand-600 dark:text-brand-400">مورد تکمیلی • نقشه شفاف تبادلات</span>
-          <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">دیاگرام تعاملی جریان پول، داده و کالا بین بازیگران</h3>
-        </div>
-        <div class="flex flex-wrap gap-1.5 bg-slate-200/70 dark:bg-zinc-900/90 p-1.5 rounded-2xl border border-pink-200 dark:border-zinc-800">
-          <button id="flow-btn-money" onclick="switchFlowMode('money')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white shadow transition">💵 جریان نقدینگی</button>
-          <button id="flow-btn-data" onclick="switchFlowMode('data')" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-brand-600 transition">📡 جریان داده</button>
-          <button id="flow-btn-goods" onclick="switchFlowMode('goods')" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-brand-600 transition">📦 جریان کالا و لیبل</button>
-        </div>
-      </div>
-
-      <!-- ۵ بازیگر اصلی -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-center text-xs">
-        <div id="actor-buyer" class="p-4 rounded-2xl glass-subcard border-2 border-transparent transition-all space-y-1">
-          <div class="text-2xl">🛍️</div>
-          <div class="font-black text-slate-900 dark:text-white">۱. خریدار نهایی</div>
-          <div class="text-[11px] text-slate-500 dark:text-slate-400">مشتری دایرکت</div>
-        </div>
-        <div id="actor-seller" class="p-4 rounded-2xl glass-subcard border-2 border-transparent transition-all space-y-1">
-          <div class="text-2xl">📱</div>
-          <div class="font-black text-slate-900 dark:text-white">۲. پیج معرف</div>
-          <div class="text-[11px] text-slate-500 dark:text-slate-400">دارای کسری قفسه</div>
-        </div>
-        <div id="actor-hambar" class="p-4 rounded-2xl glass-subcard border-2 border-brand-500/60 bg-brand-500/10 transition-all space-y-1">
-          <div class="text-2xl">🛡️</div>
-          <div class="font-black text-brand-600 dark:text-brand-400">۳. هسته هم‌بار</div>
-          <div class="text-[11px] text-slate-600 dark:text-slate-300">صندوق امانت و تطبیق</div>
-        </div>
-        <div id="actor-supplier" class="p-4 rounded-2xl glass-subcard border-2 border-transparent transition-all space-y-1">
-          <div class="text-2xl">🏪</div>
-          <div class="font-black text-slate-900 dark:text-white">۴. تأمین‌کننده</div>
-          <div class="text-[11px] text-slate-500 dark:text-slate-400">دارنده جنس در قفسه</div>
-        </div>
-        <div id="actor-logistics" class="p-4 rounded-2xl glass-subcard border-2 border-transparent transition-all space-y-1">
-          <div class="text-2xl">🚚</div>
-          <div class="font-black text-slate-900 dark:text-white">۵. پست و بله</div>
-          <div class="text-[11px] text-slate-500 dark:text-slate-400">بارکد ۲۴ رقمی و شاپرک</div>
-        </div>
-      </div>
-
-      <div id="flow-steps-container" class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs"></div>
-
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
-        <div id="flow-active-summary" class="text-xs md:text-sm text-slate-700 dark:text-slate-300 font-medium"></div>
-        <button onclick="nextFlowStep()" class="shrink-0 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-600 to-rose-600 text-white font-bold text-xs shadow hover:opacity-95 transition">
-          قدم بعدی در چرخه ◀
-        </button>
+      <!-- نمای ۲: ماتریس نقاط قوت و ضعف در برابر ۳ رقیب/جایگزین -->
+      <div id="comp-view-swot" class="hidden overflow-x-auto">
+        <table class="w-full text-right text-xs md:text-sm">
+          <thead class="bg-pink-100/60 dark:bg-zinc-900/90 text-slate-800 dark:text-white border-b border-pink-200 dark:border-zinc-800 font-bold">
+            <tr>
+              <th class="p-3.5">رقیب / جایگزین سنتی</th>
+              <th class="p-3.5 text-emerald-600 dark:text-emerald-400">نقطه قوت رقیب</th>
+              <th class="p-3.5 text-rose-600 dark:text-rose-400">نقطه ضعف رقیب</th>
+              <th class="p-3.5 text-brand-600 dark:text-brand-400 bg-brand-500/10">برتری هم‌بار</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-pink-100 dark:divide-zinc-800 text-slate-700 dark:text-slate-300">
+            <tr>
+              <td class="p-3.5 font-bold text-slate-900 dark:text-white">۱. گروه‌های تلگرامی و کارت‌به‌کارت</td>
+              <td class="p-3.5">بدون کارمزد؛ ارتباط مستقیم و آشنای قدیمی</td>
+              <td class="p-3.5 text-rose-600 dark:text-rose-400">ریسک کلاهبرداری، معطلی چندساعته، قطعی در فیلترینگ</td>
+              <td class="p-3.5 text-brand-600 dark:text-brand-400 font-bold bg-brand-500/5">صندوق امانت شاپرک + تطبیق ۳۰ ثانیه‌ای + پایداری روی بله</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-slate-900 dark:text-white">۲. دراپ‌شیپینگ سنتی (تأمین‌کننده واحد)</td>
+              <td class="p-3.5">تنوع کالای عمده بدون خرید اولیه</td>
+              <td class="p-3.5 text-rose-600 dark:text-rose-400">ارسال با نام انبار مرکزی، تسویه دیرهنگام و سود پایین واسطه</td>
+              <td class="p-3.5 text-brand-600 dark:text-brand-400 font-bold bg-brand-500/5">ارسال با نام پیج شما + شبکه دوطرفه + سود خالص ۲۲٪</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-slate-900 dark:text-white">۳. پلتفرم‌های سایت‌محور (مثل Stockly)</td>
+              <td class="p-3.5">نرم‌افزار منظم و حسابداری دقیق</td>
+              <td class="p-3.5 text-rose-600 dark:text-rose-400">نیازمند وب‌سایت و ثبت شرکت؛ فلج شدن در قطعی اینترنت جهانی</td>
+              <td class="p-3.5 text-brand-600 dark:text-brand-400 font-bold bg-brand-500/5">سازگار با فروش دایرکتی بدون نیاز به سایت و با شبکه داخلی</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
   </main>
 
   <!-- ========================================================= -->
-  <!-- ۷. بخش سوم: شبیه‌سازی (موتور وب + شبیه‌ساز ربات بله)        -->
+  <!-- ۸. بخش چهارم: شبیه‌سازی (موتور وب + شبیه‌ساز ربات بله)      -->
   <!-- ========================================================= -->
   <main id="view-simulation" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-10 w-full">
     
@@ -1678,10 +1591,7 @@
       'sec-boundaries',
       'sec-wastage',
       'sec-journey',
-      'sec-scenarios',
-      'sec-valueprop',
-      'sec-useexchange',
-      'sec-intermediary'
+      'sec-scenarios'
     ];
     let currentPresIndex = 0;
 
@@ -1774,7 +1684,7 @@
     }
 
     function switchMainTab(tabId) {
-      const tabs = ['idea', 'market', 'simulation'];
+      const tabs = ['idea', 'value', 'market', 'simulation'];
       tabs.forEach(t => {
         const viewEl = document.getElementById(`view-${t}`);
         const btnEl = document.getElementById(`tab-btn-${t}`);
@@ -1792,8 +1702,118 @@
       }
 
       if (tabId === 'simulation') renderInventoryList();
-      if (tabId === 'market') renderFlowDiagram();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // --- توابع تعاملی فاز دوم (بخش الف) ---
+    function switchValueFormula(mode) {
+      const isBlank = mode === 'blank';
+      document.getElementById('val-view-blank').classList.toggle('hidden', !isBlank);
+      document.getElementById('val-view-moore').classList.toggle('hidden', isBlank);
+      document.getElementById('val-btn-blank').className = isBlank
+        ? 'px-3 py-1.5 rounded-lg font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white transition'
+        : 'px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition';
+      document.getElementById('val-btn-moore').className = !isBlank
+        ? 'px-3 py-1.5 rounded-lg font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white transition'
+        : 'px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition';
+    }
+
+    function switchIntermediaryTab(mode) {
+      const isFunc = mode === 'functions';
+      document.getElementById('interm-view-functions').classList.toggle('hidden', !isFunc);
+      document.getElementById('interm-view-antidis').classList.toggle('hidden', isFunc);
+      document.getElementById('interm-btn-functions').className = isFunc
+        ? 'px-3 py-1.5 rounded-lg font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white transition'
+        : 'px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition';
+      document.getElementById('interm-btn-antidis').className = !isFunc
+        ? 'px-3 py-1.5 rounded-lg font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white transition'
+        : 'px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition';
+    }
+
+    const bmcSynergies = {
+      1: '<b>هماهنگی با کل بوم:</b> مهشید تقاضا را می‌آورد و حاج‌رضا موجودی را؛ هم‌بار بدون اینکه خودش کالا بخرد، دو سوی بازار ۱۳۰ هزار آنلاین‌شاپ را به هم قفل می‌کند.',
+      2: '<b>هماهنگی با کل بوم:</b> ارزش‌های سه‌گانه (تأمین ۳۰ ثانیه‌ای، برند پیج معرف، پایداری روی بله) مستقیماً به فعالیت‌های کلیدی و منابع فنی تکیه دارند.',
+      3: '<b>هماهنگی با کل بوم:</b> حضور روی پیام‌رسان بله باعث می‌شود حتی در اختلال اینترنت بین‌الملل، قیف فروش قطع نشود و هزینه جذب و پشتیبانی پایین بماند.',
+      4: '<b>هماهنگی با کل بوم:</b> استعلام خودکار و رتبه‌بندی اعتبار باعث می‌شود پلتفرم بدون نیاز به نیروی انسانی زیاد مقیاس بگیرد و اعتماد حفظ شود.',
+      5: '<b>هماهنگی با کل بوم:</b> کارمزد ۳٪ تنها زمانی دریافت می‌شود که ارزش پیشنهادی محقق شده باشد و به‌راحتی هزینه اندک درگاه و پیامک (۲,۶۰۰ ت) را پوشش می‌دهد.',
+      6: '<b>هماهنگی با کل بوم:</b> صندوق امانت شاپرک و موتور تطبیق، دقیقاً همان منابع ناملموس و فناوری‌محوری هستند که جایگزین ریسک کارت‌به‌کارت سنتی می‌شوند.',
+      7: '<b>هماهنگی با کل بوم:</b> قفل موجودی و مشروط کردن تسویه به بارکد ۲۴ رقمی، امنیت مالی و جلوگیری از دور زدن پلتفرم را تضمین می‌کند.',
+      8: '<b>هماهنگی با کل بوم:</b> همکاری با شاپرک، بله و شرکت پست باعث می‌شود هم‌بار بدون ساخت زیرساخت بانکی یا ناوگان پستی مستقل، در سراسر کشور عمل کند.',
+      9: '<b>هماهنگی با کل بوم:</b> چون انبار فیزیکی اجاره نمی‌شود، هزینه‌ها متغیر و بسیار سبک‌اند؛ در نتیجه حاشیه سود خالص پلتفرم در هر تراکنش مثبت باقی می‌ماند.'
+    };
+
+    function selectBmcBlock(num) {
+      for (let i = 1; i <= 9; i++) {
+        const card = document.getElementById(`bmc-card-${i}`);
+        if (card) {
+          card.className = i === num
+            ? 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5 border-2 border-brand-500 shadow-md'
+            : 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5';
+        }
+      }
+      const box = document.getElementById('bmc-synergy-box');
+      if (box) box.innerHTML = bmcSynergies[num] || '';
+    }
+
+    const flowStepsData = {
+      1: {
+        buyer: 'سفارش سایز کسری در دایرکت',
+        mahshid: 'جستجو و ثبت کسری در ۳۰ ثانیه',
+        hambar: 'قفل آنی موجودی قفسه همکار',
+        reza: 'رزرو خودکار ۱ عدد از انبار',
+        summary: '<b>جریان داده:</b> درخواست مهشید در موتور هم‌بار با قفسه حاج‌رضا تطبیق داده شده و کالا برای این سفارش قفل می‌شود.'
+      },
+      2: {
+        buyer: 'واریز ۵۰۰,۰۰۰ ت به درگاه شاپرک',
+        mahshid: 'ارسال لینک فاکتور بله به خریدار',
+        hambar: 'فریز کامل ۵۰۰,۰۰۰ ت در صندوق امانت',
+        reza: 'دریافت اعلان آماده‌سازی بسته',
+        summary: '<b>جریان نقدینگی:</b> کل ۵۰۰,۰۰۰ تومان در صندوق امانت هم‌بار قفل می‌شود تا هیچ‌کس ریسک کارت‌به‌کارت نداشته باشد.'
+      },
+      3: {
+        buyer: 'دریافت پیامک کد رهگیری پست',
+        mahshid: 'حفظ برند (فرستنده = پیج مهشید)',
+        hambar: 'تأیید سیستمی بارکد ۲۴ رقمی پست',
+        reza: 'بسته‌بندی خنثی و تحویل به پست',
+        summary: '<b>جریان داده + فیزیک:</b> حاج‌رضا بسته را با نام پیج مهشید پست می‌کند و بارکد پستی را در ربات بله ثبت می‌نماید.'
+      },
+      4: {
+        buyer: 'تحویل سالم مرسوله در مقصد',
+        mahshid: 'واریز سود خالص: +۱۱۰,۰۰۰ ت',
+        hambar: 'کارمزد ۳٪ (۱۵,۰۰۰ ت ناخالص)',
+        reza: 'آزادسازی سهم عمده: ۳۷۵,۰۰۰ ت',
+        summary: '<b>جریان نقدینگی نهایی:</b> بلافاصله پس از تأیید ارسال، ۵۰۰ هزار ت به‌صورت ۳ طرفه تسویه می‌شود (۳۷۵ + ۱۱۰ + ۱۵ هزار ت).'
+      }
+    };
+
+    function selectFlowStep(step) {
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById(`flow-step-${i}`);
+        if (btn) {
+          btn.className = i === step
+            ? 'p-3 rounded-2xl font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white shadow transition text-right'
+            : 'p-3 rounded-2xl font-bold glass-subcard text-slate-700 dark:text-slate-200 hover:border-brand-500 transition text-right';
+        }
+      }
+      const data = flowStepsData[step];
+      if (!data) return;
+      document.getElementById('flow-note-buyer').innerText = data.buyer;
+      document.getElementById('flow-note-mahshid').innerText = data.mahshid;
+      document.getElementById('flow-note-hambar').innerText = data.hambar;
+      document.getElementById('flow-note-reza').innerText = data.reza;
+      document.getElementById('flow-summary-bar').innerHTML = data.summary;
+    }
+
+    function switchCompMatrix(mode) {
+      const isFeatures = mode === 'features';
+      document.getElementById('comp-view-features').classList.toggle('hidden', !isFeatures);
+      document.getElementById('comp-view-swot').classList.toggle('hidden', isFeatures);
+      document.getElementById('comp-btn-features').className = isFeatures
+        ? 'px-3 py-1.5 rounded-lg font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white transition'
+        : 'px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition';
+      document.getElementById('comp-btn-swot').className = !isFeatures
+        ? 'px-3 py-1.5 rounded-lg font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white transition'
+        : 'px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition';
     }
 
     function goToBaleSimulator() {
@@ -2147,168 +2167,13 @@
       showToast('اطلاعات به حالت اولیه برگشت', 'info');
     }
 
-    /* === بوم مدل کسب‌وکار ۹ بخشی تعاملی (فاز ۲) === */
-    const bmcDetails = {
-      kp: {
-        title: 'شرکای کلیدی ⇄ هماهنگ با فعالیت‌های کلیدی و کانال‌ها',
-        desc: 'اتصال به پست پیشتاز/تیپاکس و درگاه شاپرک ستون «صندوق امانت» را می‌سازد و شراکت با پیام‌رسان بله کانال «سپر بقا» را در زمان قطعی نت زنده نگه می‌دارد.',
-        links: ['ka', 'ch', 'vp']
-      },
-      ka: {
-        title: 'فعالیت‌های کلیدی ⇄ هماهنگ با ارزش پیشنهادی و درآمد',
-        desc: 'تطبیق ۳۰ ثانیه‌ای، چاپ لیبل سفید پیج معرف و قفل وجه در صندوق امانت دقیقاً همان کاری است که هم اعتماد می‌آورد و هم جلوی دور زدن پلتفرم را می‌گیرد.',
-        links: ['vp', 'rev', 'kr']
-      },
-      kr: {
-        title: 'منابع کلیدی ⇄ هماهنگ با ساختار هزینه سبک',
-        desc: 'دارایی هم‌بار «انبار آجری» نیست؛ بلکه کاتالوگ ابری موجودی، صندوق امانت و بات بله است. به همین خاطر هزینه ثابت ما بسیار پایین می‌ماند.',
-        links: ['ka', 'cost', 'vp']
-      },
-      vp: {
-        title: 'ارزش‌های پیشنهادی ⇄ قلب هماهنگی کل بوم',
-        desc: 'حفظ مشتریِ در حال سوختن برای پیج معرف و نقد شدن جنس راکد برای تأمین‌کننده، دقیقاً گره هر دو سمت بخش مشتریان را بدون نیاز به خواب سرمایه باز می‌کند.',
-        links: ['cs', 'ka', 'rev', 'ch']
-      },
-      cr: {
-        title: 'ارتباط با مشتری ⇄ هماهنگ با جلوگیری از دور زدن',
-        desc: 'سیستم رتبه‌بندی و نشان اعتماد باعث می‌شود تأمین‌کننده برای حفظ جایگاه اول جستجو و داوری امن هم‌بار، معاملاتش را داخل پلتفرم نگه دارد.',
-        links: ['cs', 'vp', 'rev']
-      },
-      ch: {
-        title: 'کانال‌ها ⇄ هماهنگ با واقعیت بازار ایران',
-        desc: 'وب‌اپ سریع در روزهای عادی + ربات بله (@HamBarBot) در قطعی اینترنت + شبکه پستی سراسری یعنی هیچ سفارشی روی زمین نمی‌ماند.',
-        links: ['cs', 'kp', 'vp']
-      },
-      cs: {
-        title: 'بخش‌های مشتریان (بازار دووجهی) ⇄ هماهنگ با جریان درآمدی',
-        desc: 'هر پیج در هم‌بار می‌تواند هم معرف باشد و هم تأمین‌کننده؛ عضویت رایگان باعث می‌شود قفسه‌ها خودشان همدیگر را تکمیل کنند.',
-        links: ['vp', 'ch', 'cr', 'rev']
-      },
-      cost: {
-        title: 'ساختار هزینه‌ها ⇄ هماهنگ با کارمزد ناچیز ۳٪',
-        desc: 'چون هیچ انباری اجاره نمی‌کنیم و جنسی نمی‌خریم، هزینه محدود به سرور و پیامک است؛ پس همان ۳٪ کارمزد کل سیستم را سودآور نگه می‌دارد.',
-        links: ['kr', 'rev', 'ka']
-      },
-      rev: {
-        title: 'جریان‌های درآمدی ⇄ هماهنگ با مشتریان خرد',
-        desc: 'مدل اصلی «کارمزد ۳٪ فقط روی فروش موفق» ریسک ورود پیج‌های کوچک را صفر می‌کند و در فاز رشد با اشتراک Pro و تسویه آنی درآمد پایدار می‌سازد.',
-        links: ['cs', 'vp', 'cost']
-      }
-    };
-
-    function selectBMC(key) {
-      const info = bmcDetails[key];
-      if (!info) return;
-      document.querySelectorAll('.bmc-card').forEach(el => {
-        el.classList.remove('ring-2', 'ring-brand-500', 'bg-brand-500/15', 'ring-rose-400', 'bg-rose-500/10');
-      });
-
-      const active = document.getElementById(`bmc-card-${key}`);
-      if (active) active.classList.add('ring-2', 'ring-brand-500', 'bg-brand-500/15');
-
-      info.links.forEach(linkKey => {
-        const linked = document.getElementById(`bmc-card-${linkKey}`);
-        if (linked) linked.classList.add('ring-2', 'ring-rose-400', 'bg-rose-500/10');
-      });
-
-      document.getElementById('bmc-inspector-title').innerText = info.title;
-      document.getElementById('bmc-inspector-desc').innerText = info.desc;
-    }
-
-    /* === دیاگرام تعاملی جریان نقدینگی، داده و کالا (فاز ۲) === */
-    const flowData = {
-      money: [
-        { actors: ['buyer', 'seller'], title: '۱. واریز وجه خریدار', desc: 'مشتری مبلغ ۵۰۰,۰۰۰ تومانی را از طریق لینک امن شاپرک واریز می‌کند.' },
-        { actors: ['seller', 'hambar'], title: '۲. قفل در صندوق امانت', desc: 'کل پول تا ثبت بارکد پستی در صندوق امانت هم‌بار فریز می‌شود.' },
-        { actors: ['hambar', 'logistics'], title: '۳. تایید بارکد پستی', desc: 'پس از تحویل بسته و ثبت کد ۲۴ رقمی پست، شرط آزادسازی وجه تایید می‌شود.' },
-        { actors: ['hambar', 'supplier'], title: '۴. تقسیم سود ۳ طرفه', desc: '۳۷۵ هزار به تأمین‌کننده، ۱۱۰ هزار سود نقد به پیج معرف و ۱۵ هزار (۳٪) به هم‌بار واریز می‌شود.' }
-      ],
-      data: [
-        { actors: ['seller', 'hambar'], title: '۱. استعلام ۳۰ ثانیه‌ای', desc: 'ادمین پیج معرف، سایز یا رنگ کسری را در وب یا ربات بله جستجو می‌کند.' },
-        { actors: ['hambar', 'supplier'], title: '۲. ارسال دستور و لیبل سفید', desc: 'هم‌بار نزدیک‌ترین قفسه را رزرو کرده و آدرس خریدار + لیبل با نام پیج معرف را می‌فرستد.' },
-        { actors: ['logistics', 'hambar'], title: '۳. استعلام اصالت بارکد', desc: 'تأمین‌کننده کد رهگیری ۲۴ رقمی را ثبت و هم‌بار وضعیت پست پیشتاز را تایید می‌کند.' },
-        { actors: ['hambar', 'buyer'], title: '۴. پیامک رهگیری با برند پیج', desc: 'کد رهگیری مرسوله با نام پیج معرف برای خریدار پیامک می‌شود (نام تأمین‌کننده مخفی است).' }
-      ],
-      goods: [
-        { actors: ['supplier', 'hambar'], title: '۱. رزرو از قفسه مازاد', desc: 'کالا از موجودی واقعی انبار تأمین‌کننده کسر و برای این سفارش رزرو می‌شود.' },
-        { actors: ['supplier', 'logistics'], title: '۲. بسته‌بندی بدون نام', desc: 'کالا بدون کارت ویزیت تأمین‌کننده و با لیبل اختصاصی پیج معرف به باجه پست تحویل داده می‌شود.' },
-        { actors: ['logistics', 'buyer'], title: '۳. ارسال مستقیم به مقصد', desc: 'بسته مستقیم از شهر تأمین‌کننده به آدرس خریدار نهایی ارسال می‌شود (بدون هزینه ارسال دوبل).' },
-        { actors: ['buyer', 'seller'], title: '۴. تحویل و وفاداری مشتری', desc: 'خریدار بسته را با نام پیج محبوبش تحویل می‌گیرد و کیفیت فیزیکی را تایید می‌کند.' }
-      ]
-    };
-
-    let currentFlowMode = 'money';
-    let currentFlowStep = 0;
-
-    function switchFlowMode(mode) {
-      currentFlowMode = mode;
-      currentFlowStep = 0;
-      ['money', 'data', 'goods'].forEach(m => {
-        const btn = document.getElementById(`flow-btn-${m}`);
-        if (!btn) return;
-        btn.className = (m === mode)
-          ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-brand-600 to-rose-600 text-white shadow transition'
-          : 'px-3 py-1.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-brand-600 transition';
-      });
-      renderFlowDiagram();
-    }
-
-    function nextFlowStep() {
-      currentFlowStep = (currentFlowStep + 1) % flowData[currentFlowMode].length;
-      renderFlowDiagram();
-    }
-
-    function setFlowStep(idx) {
-      currentFlowStep = idx;
-      renderFlowDiagram();
-    }
-
-    function renderFlowDiagram() {
-      const container = document.getElementById('flow-steps-container');
-      const summary = document.getElementById('flow-active-summary');
-      if (!container) return;
-
-      const steps = flowData[currentFlowMode];
-      const activeStep = steps[currentFlowStep];
-
-      ['buyer', 'seller', 'hambar', 'supplier', 'logistics'].forEach(id => {
-        const el = document.getElementById(`actor-${id}`);
-        if (!el) return;
-        if (activeStep.actors.includes(id)) {
-          el.classList.add('border-brand-500', 'bg-brand-500/15', 'scale-[1.03]', 'shadow-lg');
-          el.classList.remove('border-transparent');
-        } else {
-          el.classList.remove('border-brand-500', 'bg-brand-500/15', 'scale-[1.03]', 'shadow-lg');
-          if (id !== 'hambar') el.classList.add('border-transparent');
-        }
-      });
-
-      container.innerHTML = '';
-      steps.forEach((st, idx) => {
-        const isCurrent = idx === currentFlowStep;
-        const card = document.createElement('button');
-        card.onclick = () => setFlowStep(idx);
-        card.className = isCurrent
-          ? 'text-right p-4 rounded-2xl bg-brand-500/15 border-2 border-brand-500 space-y-1.5 transition-all'
-          : 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-400/50 space-y-1.5 transition-all opacity-85';
-        card.innerHTML = `
-          <div class="font-bold text-xs ${isCurrent ? 'text-brand-600 dark:text-brand-400' : 'text-slate-900 dark:text-white'}">${st.title}</div>
-          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">${st.desc}</p>
-        `;
-        container.appendChild(card);
-      });
-
-      if (summary) {
-        summary.innerHTML = `<span class="text-brand-600 dark:text-brand-400 font-bold">گام فعال:</span> ${activeStep.title} — ${activeStep.desc}`;
-      }
-    }
-
     window.onload = () => {
       renderInventoryList();
       updateCalculator();
       resetBaleBot();
       setupScrollSpy();
-      renderFlowDiagram();
+      selectBmcBlock(1);
+      selectFlowStep(1);
     };
   </script>
 </body>
