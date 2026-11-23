@@ -81,6 +81,56 @@
       background: rgba(253, 242, 248, 0.85); 
       border: 1px solid rgba(244, 114, 182, 0.35); 
     }
+
+    /* استایل‌های حالت انتخاب و ارتباط در بوم کسب‌وکار */
+    html:not(.dark) .glass-subcard.bmc-active-brand,
+    .dark .glass-subcard.bmc-active-brand {
+      border: 2px solid #ec4899;
+      background: rgba(236, 72, 153, 0.18);
+      box-shadow: 0 10px 25px -8px rgba(236, 72, 153, 0.35);
+    }
+    html:not(.dark) .glass-subcard.bmc-related-brand,
+    .dark .glass-subcard.bmc-related-brand {
+      border: 2px dashed rgba(236, 72, 153, 0.65);
+      background: rgba(236, 72, 153, 0.07);
+    }
+
+    html:not(.dark) .glass-subcard.bmc-active-rose,
+    .dark .glass-subcard.bmc-active-rose {
+      border: 2px solid #f43f5e;
+      background: rgba(244, 63, 94, 0.18);
+      box-shadow: 0 10px 25px -8px rgba(244, 63, 94, 0.35);
+    }
+    html:not(.dark) .glass-subcard.bmc-related-rose,
+    .dark .glass-subcard.bmc-related-rose {
+      border: 2px dashed rgba(244, 63, 94, 0.65);
+      background: rgba(244, 63, 94, 0.07);
+    }
+
+    html:not(.dark) .glass-subcard.bmc-active-emerald,
+    .dark .glass-subcard.bmc-active-emerald {
+      border: 2px solid #10b981;
+      background: rgba(16, 185, 129, 0.18);
+      box-shadow: 0 10px 25px -8px rgba(16, 185, 129, 0.35);
+    }
+    html:not(.dark) .glass-subcard.bmc-related-emerald,
+    .dark .glass-subcard.bmc-related-emerald {
+      border: 2px dashed rgba(16, 185, 129, 0.65);
+      background: rgba(16, 185, 129, 0.07);
+    }
+
+    .bmc-box-brand {
+      border: 2px solid #ec4899;
+      background: rgba(236, 72, 153, 0.15);
+    }
+    .bmc-box-rose {
+      border: 2px solid #f43f5e;
+      background: rgba(244, 63, 94, 0.15);
+    }
+    .bmc-box-emerald {
+      border: 2px solid #10b981;
+      background: rgba(16, 185, 129, 0.15);
+    }
     
     .transition-all-custom { transition: all 0.25s ease-in-out; }
     html { scroll-behavior: smooth; }
@@ -876,61 +926,61 @@
       </div>
     </section>
 
-    <!-- ۶.۴ بوم مدل کسب‌وکار ۹ بخشی (تعاملی با نمایش هم‌زمان خانه‌های مرتبط) -->
+    <!-- ۶.۴ بوم مدل کسب‌وکار ۹ بخشی (تعاملی با تغییر رنگ هماهنگ) -->
     <section class="glass-panel p-6 md:p-10 rounded-3xl space-y-5 border-r-4 border-r-pink-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-4">
         <h3 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white">بوم کسب‌وکار هم‌بار</h3>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 text-xs md:text-sm">
-        <button onclick="selectBmcBlock(1)" id="bmc-card-1" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5 border-2 border-brand-500">
+        <button onclick="selectBmcBlock(1)" id="bmc-card-1" class="text-right p-4 rounded-2xl glass-subcard transition space-y-1.5">
           <div class="font-black text-slate-900 dark:text-white">۱. مشتریان هدف</div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">آنلاین‌شاپ‌های دایرکتی (مهشید) • بنکداران دارای موجودی راکد (حاج‌رضا)</p>
         </button>
 
-        <button onclick="selectBmcBlock(2)" id="bmc-card-2" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+        <button onclick="selectBmcBlock(2)" id="bmc-card-2" class="text-right p-4 rounded-2xl glass-subcard transition space-y-1.5">
           <div class="font-black text-slate-900 dark:text-white">۲. ارزش پیشنهادی</div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">تکمیل قفسه در ۳۰ ثانیه • ارسال با نام پیج معرف • صندوق امانت و پایداری در قطعی نت</p>
         </button>
 
-        <button onclick="selectBmcBlock(3)" id="bmc-card-3" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+        <button onclick="selectBmcBlock(3)" id="bmc-card-3" class="text-right p-4 rounded-2xl glass-subcard transition space-y-1.5">
           <div class="font-black text-slate-900 dark:text-white">۳. کانال‌ها</div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">ربات بله (@HamBarBot) • پنل وب هم‌بار • لینک فاکتور پیامکی</p>
         </button>
 
-        <button onclick="selectBmcBlock(4)" id="bmc-card-4" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+        <button onclick="selectBmcBlock(4)" id="bmc-card-4" class="text-right p-4 rounded-2xl glass-subcard transition space-y-1.5">
           <div class="font-black text-slate-900 dark:text-white">۴. ارتباط با مشتری</div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">استعلام خودکار سلف‌سرویس • رتبه‌بندی اعتبار همکاران • داوری آنلاین مرجوعی</p>
         </button>
 
-        <button onclick="selectBmcBlock(5)" id="bmc-card-5" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+        <button onclick="selectBmcBlock(5)" id="bmc-card-5" class="text-right p-4 rounded-2xl glass-subcard transition space-y-1.5">
           <div class="font-black text-slate-900 dark:text-white">۵. جریان‌های درآمدی</div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">کارمزد ۳٪ تراکنش موفق • اشتراک هم‌بار پلاس • نمایش ویژه قفسه بنکداران</p>
         </button>
 
-        <button onclick="selectBmcBlock(6)" id="bmc-card-6" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+        <button onclick="selectBmcBlock(6)" id="bmc-card-6" class="text-right p-4 rounded-2xl glass-subcard transition space-y-1.5">
           <div class="font-black text-slate-900 dark:text-white">۶. منابع کلیدی</div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">موتور تطبیق ابری قفسه‌ها • صندوق امانت شاپرک • سرورهای داخلی متصل به بله</p>
         </button>
 
-        <button onclick="selectBmcBlock(7)" id="bmc-card-7" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+        <button onclick="selectBmcBlock(7)" id="bmc-card-7" class="text-right p-4 rounded-2xl glass-subcard transition space-y-1.5">
           <div class="font-black text-slate-900 dark:text-white">۷. فعالیت‌های کلیدی</div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">قفل موجودی و تطبیق کسری • فریز وجه تا ثبت بارکد ۲۴ رقمی • نظارت بر لیبل خنثی</p>
         </button>
 
-        <button onclick="selectBmcBlock(8)" id="bmc-card-8" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+        <button onclick="selectBmcBlock(8)" id="bmc-card-8" class="text-right p-4 rounded-2xl glass-subcard transition space-y-1.5">
           <div class="font-black text-slate-900 dark:text-white">۸. شرکای کلیدی</div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">شبکه شاپرک و پیام‌رسان بله • پست پیشتاز و تیپاکس • بنکداران مرجع پوشاک و کفش</p>
         </button>
 
-        <button onclick="selectBmcBlock(9)" id="bmc-card-9" class="text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5">
+        <button onclick="selectBmcBlock(9)" id="bmc-card-9" class="text-right p-4 rounded-2xl glass-subcard transition space-y-1.5">
           <div class="font-black text-slate-900 dark:text-white">۹. ساختار هزینه‌ها</div>
           <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">کارمزد درگاه و پیامک (۲,۶۰۰ ت در سفارش) • سرور داخلی و ربات • پشتیبانی اختلافات</p>
         </button>
       </div>
 
-      <!-- کادر توضیح پویای هماهنگی بوم -->
-      <div id="bmc-synergy-box" class="p-4 rounded-2xl bg-brand-500/10 border border-brand-500/30 text-xs md:text-sm text-slate-800 dark:text-slate-100 leading-relaxed"></div>
+      <!-- کادر توضیح پویای هماهنگی بوم (هم‌رنگ با کادر انتخاب‌شده) -->
+      <div id="bmc-synergy-box" class="p-4 rounded-2xl text-xs md:text-sm text-slate-800 dark:text-slate-100 leading-relaxed transition-all"></div>
     </section>
 
   </main>
@@ -1007,7 +1057,7 @@
       </div>
     </section>
 
-    <!-- کادر جداگانه: راه‌های درآمدزایی هم‌بار (با اعداد و تعرفه‌های مشخص) -->
+    <!-- کادر جداگانه: راه‌های درآمدزایی هم‌بار -->
     <section class="glass-panel p-6 md:p-8 rounded-3xl space-y-5 border-r-4 border-r-pink-500">
       <div class="border-b border-pink-200 dark:border-zinc-800 pb-3">
         <h3 class="font-bold text-base md:text-lg text-slate-900 dark:text-white flex items-center gap-2">
@@ -1730,6 +1780,12 @@
         : 'px-3 py-1.5 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-white transition';
     }
 
+    const bmcColors = {
+      1: 'brand', 2: 'brand', 3: 'brand', 4: 'brand',
+      5: 'emerald', 9: 'emerald',
+      6: 'rose', 7: 'rose', 8: 'rose'
+    };
+
     const bmcRelations = {
       1: [2, 3, 5],
       2: [1, 6, 7],
@@ -1743,33 +1799,38 @@
     };
 
     const bmcSynergies = {
-      1: '<b>هماهنگی با کل بوم:</b> مهشید تقاضا را می‌آورد و حاج‌رضا موجودی را؛ هم‌بار بدون اینکه خودش کالا بخرد، دو سوی بازار ۱۳۰ هزار آنلاین‌شاپ را به هم قفل می‌کند.',
-      2: '<b>هماهنگی با کل بوم:</b> ارزش‌های سه‌گانه (تأمین ۳۰ ثانیه‌ای، برند پیج معرف، پایداری روی بله) مستقیماً به فعالیت‌های کلیدی و منابع فنی تکیه دارند.',
-      3: '<b>هماهنگی با کل بوم:</b> حضور روی پیام‌رسان بله باعث می‌شود حتی در اختلال اینترنت بین‌الملل، قیف فروش قطع نشود و هزینه جذب و پشتیبانی پایین بماند.',
-      4: '<b>هماهنگی با کل بوم:</b> استعلام خودکار و رتبه‌بندی اعتبار باعث می‌شود پلتفرم بدون نیاز به نیروی انسانی زیاد مقیاس بگیرد و اعتماد حفظ شود.',
-      5: '<b>هماهنگی با کل بوم:</b> کارمزد ۳٪ تنها زمانی دریافت می‌شود که ارزش پیشنهادی محقق شده باشد و به‌راحتی هزینه اندک درگاه و پیامک (۲,۶۰۰ ت) را پوشش می‌دهد.',
-      6: '<b>هماهنگی با کل بوم:</b> صندوق امانت شاپرک و موتور تطبیق، دقیقاً همان منابع فناوری‌محوری هستند که جایگزین ریسک کارت‌به‌کارت سنتی می‌شوند.',
-      7: '<b>هماهنگی با کل بوم:</b> قفل موجودی و مشروط کردن تسویه به بارکد ۲۴ رقمی، امنیت مالی و جلوگیری از دور زدن پلتفرم را تضمین می‌کند.',
-      8: '<b>هماهنگی با کل بوم:</b> همکاری با شاپرک، بله و شرکت پست باعث می‌شود هم‌بار بدون ساخت زیرساخت بانکی یا ناوگان پستی مستقل، در سراسر کشور عمل کند.',
-      9: '<b>هماهنگی با کل بوم:</b> چون انبار فیزیکی اجاره نمی‌شود، هزینه‌ها متغیر و بسیار سبک‌اند؛ در نتیجه حاشیه سود خالص پلتفرم در هر تراکنش مثبت باقی می‌ماند.'
+      1: '<b>۱. مشتریان هدف ← ارتباط با ارزش، کانال و درآمد:</b> مهشید تقاضا را می‌آورد و حاج‌رضا موجودی را؛ هم‌بار بدون اینکه خودش کالا بخرد، دو سوی بازار ۱۳۰ هزار آنلاین‌شاپ را به هم قفل می‌کند.',
+      2: '<b>۲. ارزش پیشنهادی ← ارتباط با مشتریان، منابع و فعالیت‌ها:</b> ارزش‌های سه‌گانه (تأمین ۳۰ ثانیه‌ای، برند پیج معرف، پایداری روی بله) مستقیماً به فعالیت‌های کلیدی و منابع فنی تکیه دارند.',
+      3: '<b>۳. کانال‌ها ← ارتباط با مشتریان، ارزش و شرکا:</b> حضور روی پیام‌رسان بله باعث می‌شود حتی در اختلال اینترنت بین‌الملل، قیف فروش قطع نشود و هزینه جذب و پشتیبانی پایین بماند.',
+      4: '<b>۴. ارتباط با مشتری ← ارتباط با مشتریان، منابع و فعالیت‌ها:</b> استعلام خودکار و رتبه‌بندی اعتبار باعث می‌شود پلتفرم بدون نیاز به نیروی انسانی زیاد مقیاس بگیرد و اعتماد حفظ شود.',
+      5: '<b>۵. جریان‌های درآمدی ← ارتباط با مشتریان، ارزش و هزینه‌ها:</b> کارمزد ۳٪ تنها زمانی دریافت می‌شود که ارزش پیشنهادی محقق شده باشد و به‌راحتی هزینه اندک درگاه و پیامک (۲,۶۰۰ ت) را پوشش می‌دهد.',
+      6: '<b>۶. منابع کلیدی ← ارتباط با ارزش، فعالیت‌ها و شرکا:</b> صندوق امانت شاپرک و موتور تطبیق، دقیقاً همان منابع فناوری‌محوری هستند که جایگزین ریسک کارت‌به‌کارت سنتی می‌شوند.',
+      7: '<b>۷. فعالیت‌های کلیدی ← ارتباط با ارزش، منابع، شرکا و هزینه‌ها:</b> قفل موجودی و مشروط کردن تسویه به بارکد ۲۴ رقمی، امنیت مالی و جلوگیری از دور زدن پلتفرم را تضمین می‌کند.',
+      8: '<b>۸. شرکای کلیدی ← ارتباط با کانال‌ها، منابع و فعالیت‌ها:</b> همکاری با شاپرک، بله و شرکت پست باعث می‌شود هم‌بار بدون ساخت زیرساخت بانکی یا ناوگان پستی مستقل، در سراسر کشور عمل کند.',
+      9: '<b>۹. ساختار هزینه‌ها ← ارتباط با درآمد، منابع و فعالیت‌ها:</b> چون انبار فیزیکی اجاره نمی‌شود، هزینه‌ها متغیر و بسیار سبک‌اند؛ در نتیجه حاشیه سود خالص پلتفرم در هر تراکنش مثبت باقی می‌ماند.'
     };
 
     function selectBmcBlock(num) {
       const related = bmcRelations[num] || [];
+      const tone = bmcColors[num] || 'brand';
+
       for (let i = 1; i <= 9; i++) {
         const card = document.getElementById(`bmc-card-${i}`);
         if (card) {
+          let cls = 'text-right p-4 rounded-2xl glass-subcard transition space-y-1.5';
           if (i === num) {
-            card.className = 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5 border-2 border-brand-500 shadow-md';
+            cls += ` bmc-active-${tone}`;
           } else if (related.includes(i)) {
-            card.className = 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5 border-2 border-dashed border-brand-400 dark:border-brand-400/80 ring-2 ring-brand-500/15';
-          } else {
-            card.className = 'text-right p-4 rounded-2xl glass-subcard hover:border-brand-500 transition space-y-1.5';
+            cls += ` bmc-related-${tone}`;
           }
+          card.className = cls;
         }
       }
       const box = document.getElementById('bmc-synergy-box');
-      if (box) box.innerHTML = bmcSynergies[num] || '';
+      if (box) {
+        box.className = `p-4 rounded-2xl text-xs md:text-sm text-slate-800 dark:text-slate-100 leading-relaxed transition-all bmc-box-${tone}`;
+        box.innerHTML = bmcSynergies[num] || '';
+      }
     }
 
     const flowStepsData = {
