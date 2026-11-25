@@ -1289,7 +1289,7 @@
         </div>
       </div>
 
-      <!-- نمای ۱: جدول مقایسه امکانات قبلی (بدون تغییر) -->
+      <!-- نمای ۱: جدول مقایسه امکانات قبلی -->
       <div id="comp-view-features" class="overflow-x-auto">
         <table class="w-full text-right text-xs md:text-sm">
           <thead class="bg-pink-100/60 dark:bg-zinc-900/90 text-slate-800 dark:text-white border-b border-pink-200 dark:border-zinc-800 font-bold">
@@ -1379,129 +1379,389 @@
   </main>
 
   <!-- ========================================================= -->
-  <!-- ۸. بخش چهارم: شبیه‌سازی (موتور وب + شبیه‌ساز ربات بله)      -->
+  <!-- ۸. بخش چهارم: شبیه‌سازی کامل (فاز دوم - بخش ب: MVP دوطرفه) -->
   <!-- ========================================================= -->
-  <main id="view-simulation" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-10 w-full">
+  <main id="view-simulation" class="hidden flex-grow max-w-7xl mx-auto px-4 py-8 md:py-10 space-y-8 w-full">
     
-    <!-- ۷.۱ هدر شبیه‌ساز -->
-    <div class="glass-panel p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-5 border-r-4 border-r-brand-500">
-      <div>
-        <h2 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2.5">
-          <span class="w-3 h-3 rounded-full bg-brand-500 animate-ping"></span>
-          شبیه‌ساز زنده فرآیند هم‌بار (تست عملیاتی)
-        </h2>
-        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 mt-1.5 font-medium">
-          تفکیک سود: قیمت مشتری ← کسر سهم همکار ← کسر ۳٪ کارمزد هم‌بار ← واریز سود خالص به پیج شما.
-        </p>
+    <!-- ۸.۱ هدر شبیه‌ساز و اتصال مستقیم به سناریوهای فاز اول -->
+    <section class="glass-panel p-6 md:p-8 rounded-3xl space-y-5 border-r-4 border-r-brand-500">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-pink-200 dark:border-zinc-800 pb-4">
+        <div>
+          <h2 class="text-lg md:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2.5">
+            <span class="w-3 h-3 rounded-full bg-brand-500 animate-ping"></span>
+            کنسول زنده دوطرفه هم‌بار (شبیه‌ساز کامل معاملات برای ارائه)
+          </h2>
+          <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 mt-1 font-medium">
+            مشاهده هم‌زمان رخدادهای سمت <b>فروشنده معرف (مهشید)</b>، <b>صندوق امانت هم‌بار</b> و <b>فروشنده تأمین‌کننده (حاج‌رضا و همکاران)</b>: استعلام، مقایسه، پیش‌فاکتور، کسر موجودی قفسه، اعلان‌های دوطرفه و تسویه ۳ طرفه.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 shrink-0">
+          <button onclick="showRegisterModal()" class="px-4 py-2.5 bg-gradient-to-r from-brand-600 to-rose-600 hover:opacity-95 text-white rounded-xl text-xs md:text-sm font-bold shadow transition">
+            + ثبت کالای جدید در قفسه
+          </button>
+          <button onclick="resetData()" class="px-3.5 py-2.5 border border-pink-200 dark:border-zinc-700 text-xs md:text-sm rounded-xl font-bold hover:bg-pink-100/50 dark:hover:bg-zinc-800 text-slate-700 dark:text-white transition">
+            🔄 ریست کامل شبیه‌ساز
+          </button>
+        </div>
       </div>
 
-      <div class="flex items-center gap-2.5 shrink-0">
-        <button onclick="showRegisterModal()" class="px-4 py-2.5 bg-gradient-to-r from-brand-600 to-rose-600 hover:opacity-95 text-white rounded-xl text-xs md:text-sm font-bold shadow transition">
-          + اضافه کردن کالای جدید به انبار
-        </button>
-        <button onclick="resetData()" class="px-3.5 py-2.5 border border-pink-200 dark:border-zinc-700 text-xs md:text-sm rounded-xl font-medium hover:bg-pink-100/50 dark:hover:bg-zinc-800 text-slate-700 dark:text-white transition">
-          تنظیم مجدد
-        </button>
+      <!-- نوار اتصال پیوسته به سناریوهای فاز اول -->
+      <div class="space-y-2">
+        <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
+          <span class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+            <span>🔗</span> اتصال پیوسته به سناریوهای فاز اول (انتخاب سریع سناریو برای تست و ارائه):
+          </span>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400">با کلیک روی هر سناریو، جستجو و مقایسه به صورت زنده بارگذاری می‌شود</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs">
+          <button onclick="loadPhase1Scenario('hoodie')" class="p-3 rounded-2xl glass-subcard hover:border-brand-500 transition text-right space-y-1 border-r-4 border-r-brand-500">
+            <div class="font-extrabold text-slate-900 dark:text-white">👩🏻‍💼 سناریو ۱: مهشید و حاج‌رضا (فاز ۱)</div>
+            <div class="text-[11px] text-slate-600 dark:text-slate-400">هودی مشکی L • مقایسه ۲ همکار + بسته‌بندی خنثی</div>
+          </button>
+          <button onclick="loadPhase1Scenario('sneakers')" class="p-3 rounded-2xl glass-subcard hover:border-brand-500 transition text-right space-y-1 border-r-4 border-r-rose-500">
+            <div class="font-extrabold text-slate-900 dark:text-white">👟 سناریو ۲: پیج کتانی تهران (فاز ۱)</div>
+            <div class="text-[11px] text-slate-600 dark:text-slate-400">کسری سایز ۳۹ اسنیکرز • مقایسه بیشترین سود</div>
+          </button>
+          <button onclick="loadPhase1Scenario('mug')" class="p-3 rounded-2xl glass-subcard hover:border-brand-500 transition text-right space-y-1 border-r-4 border-r-emerald-500">
+            <div class="font-extrabold text-slate-900 dark:text-white">☕ سناریو ۳: ماگ مشهد / قطعی نت</div>
+            <div class="text-[11px] text-slate-600 dark:text-slate-400">اختلال اینترنت بین‌الملل • همگام با ربات بله</div>
+          </button>
+          <button onclick="loadPhase1Scenario('empty_test')" class="p-3 rounded-2xl glass-subcard hover:border-rose-500 transition text-right space-y-1 border-r-4 border-r-amber-500">
+            <div class="font-extrabold text-slate-900 dark:text-white">⚠️ سناریو ۴: تست خطا و حالت خالی</div>
+            <div class="text-[11px] text-slate-600 dark:text-slate-400">شبیه‌سازی نبود کالا در قفسه و خطای ورودی</div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ۸.۲ داشبورد کلان آمار زنده شبکه -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="glass-panel p-5 rounded-2xl border-b-4 border-b-pink-500">
+        <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">موجودی کل قفسه همکاران</div>
+        <div id="stat-total-items" class="text-lg md:text-2xl font-black mt-1 text-brand-600 dark:text-brand-400 font-mono">۸ کالا (۳۹ عدد)</div>
+      </div>
+      <div class="glass-panel p-5 rounded-2xl border-b-4 border-b-rose-500">
+        <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">سفارش‌های نجات‌یافته</div>
+        <div id="stat-saved-orders" class="text-lg md:text-2xl font-black text-rose-600 dark:text-rose-400 mt-1 font-mono">۴ سفارش موفق</div>
+      </div>
+      <div class="glass-panel p-5 rounded-2xl border-b-4 border-b-emerald-500">
+        <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">گردش صندوق امانت (GMV)</div>
+        <div id="stat-total-gmv" class="text-lg md:text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-1 font-mono">۲,۱۵۰,۰۰۰ تومان</div>
+      </div>
+      <div class="glass-panel p-5 rounded-2xl border-b-4 border-b-brand-500">
+        <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">درآمد کارمزد ۳٪ هم‌بار</div>
+        <div id="stat-hambar-revenue" class="text-lg md:text-2xl font-black text-brand-600 dark:text-brand-400 mt-1 font-mono">۶۴,۵۰۰ تومان</div>
       </div>
     </div>
 
-    <!-- ۷.۲ آمار داشبورد -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="glass-panel p-5 rounded-2xl border-b-4 border-b-pink-500">
-        <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">کالاهای موجود در انبار همکاران</div>
-        <div id="stat-total-items" class="text-xl md:text-2xl font-black mt-1 text-brand-600 dark:text-brand-400 font-mono">۵ کالا</div>
-      </div>
-      <div class="glass-panel p-5 rounded-2xl border-b-4 border-b-rose-500">
-        <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">مشتریان حفظ‌شده امروز</div>
-        <div class="text-xl md:text-2xl font-black text-rose-600 dark:text-rose-400 mt-1 font-mono">۴ مشتری</div>
-      </div>
-      <div class="glass-panel p-5 rounded-2xl border-b-4 border-b-pink-500">
-        <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">سود خالص واریز شده به پیج‌ها</div>
-        <div class="text-xl md:text-2xl font-black text-brand-600 dark:text-brand-400 mt-1 font-mono">۴۸۵,۰۰۰ تومان</div>
-      </div>
-      <div class="glass-panel p-5 rounded-2xl border-b-4 border-b-rose-500">
-        <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">کارمزد ۳٪ هم‌بار</div>
-        <div class="text-xl md:text-2xl font-black text-rose-600 dark:text-rose-400 mt-1 font-mono">۵۵,۵۰۰ تومان</div>
-      </div>
-    </div>
+    <!-- ۸.۳ کنسول اصلی ۳ ستونه (نمایش هم‌زمان دو فروشنده + صندوق امانت) -->
+    <section class="grid grid-cols-1 xl:grid-cols-12 gap-5 items-start">
 
-    <!-- ۷.۳ شبیه‌ساز چرخه سفارش در وب -->
-    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      
-      <div class="lg:col-span-5 glass-panel p-6 md:p-8 rounded-3xl space-y-5 border-t-4 border-t-brand-500">
-        <div class="flex items-center justify-between border-b border-pink-200 dark:border-zinc-800 pb-3">
-          <h3 class="font-bold text-sm md:text-base text-slate-900 dark:text-white flex items-center gap-2">
-            <span class="w-6 h-6 rounded-xl bg-pink-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-xs">۱</span>
-            جستجوی جنس کسری در قفسه همکاران
-          </h3>
-          <span class="text-[11px] bg-rose-500/15 text-rose-600 dark:text-rose-400 px-2.5 py-0.5 rounded-full font-bold">مشتری دایرکت منتظر است</span>
-        </div>
-
-        <p class="text-xs text-slate-600 dark:text-slate-300">برای آزمایش سریع، یکی از گزینه‌های زیر را انتخاب کنید:</p>
-
-        <div class="space-y-2.5">
-          <button onclick="fillRequestForm('هودی دورس پنبه‌ای مشکی L')" class="w-full text-right p-3 rounded-2xl glass-subcard hover:border-brand-500/50 transition flex items-center justify-between text-xs md:text-sm">
-            <span class="text-slate-800 dark:text-white font-medium">هودی دورس پنبه‌ای مشکی (L)</span>
-            <span class="text-brand-600 dark:text-brand-400 font-mono font-bold">قیمت مشتری: ۴۹۰,۰۰۰ ت</span>
-          </button>
-          <button onclick="fillRequestForm('ماگ سرامیکی دست‌ساز')" class="w-full text-right p-3 rounded-2xl glass-subcard hover:border-brand-500/50 transition flex items-center justify-between text-xs md:text-sm">
-            <span class="text-slate-800 dark:text-white font-medium">ماگ سرامیکی دست‌ساز</span>
-            <span class="text-brand-600 dark:text-brand-400 font-mono font-bold">قیمت مشتری: ۲۲۰,۰۰۰ ت</span>
-          </button>
-          <button onclick="fillRequestForm('کیف دوشی کتان')" class="w-full text-right p-3 rounded-2xl glass-subcard hover:border-brand-500/50 transition flex items-center justify-between text-xs md:text-sm">
-            <span class="text-slate-800 dark:text-white font-medium">کیف دوشی کتان</span>
-            <span class="text-brand-600 dark:text-brand-400 font-mono font-bold">قیمت مشتری: ۳۶۰,۰۰۰ ت</span>
-          </button>
-        </div>
-
-        <div class="flex gap-2 pt-1">
-          <input type="text" id="search-input" placeholder="نام کالای ناموجود را بنویسید..." class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3.5 py-2 text-xs md:text-sm focus:outline-none focus:border-brand-500 text-slate-900 dark:text-white">
-          <button onclick="handleSearch()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs md:text-sm rounded-xl transition shrink-0">
-            جستجو
-          </button>
-        </div>
-
-        <div id="match-result-container" class="hidden pt-3 border-t border-pink-200 dark:border-zinc-800 space-y-3.5">
-          <div class="text-xs font-bold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
-            ✓ کالا در قفسه همکار پیدا شد (تفکیک دقیق سود ۳ طرف):
+      <!-- ==================================================== -->
+      <!-- ستون اول (راست): پنل فروشنده معرف (مهشید)            -->
+      <!-- ==================================================== -->
+      <div class="xl:col-span-4 glass-panel p-5 md:p-6 rounded-3xl space-y-4 border-t-4 border-t-brand-500">
+        
+        <!-- هدر و کیف پول مهشید -->
+        <div class="p-4 rounded-2xl bg-gradient-to-l from-brand-600/15 to-pink-500/10 border border-brand-500/30 space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-2xl bg-brand-600 text-white flex items-center justify-center text-xl shadow">👩🏻‍💼</div>
+              <div>
+                <div class="font-black text-sm text-slate-900 dark:text-white">پنل فروشنده معرف (مهشید)</div>
+                <div class="text-[11px] font-mono text-brand-600 dark:text-brand-400 font-bold">@mahshid_style • تهران</div>
+              </div>
+            </div>
+            <span class="text-[10px] bg-brand-500/20 text-brand-700 dark:text-brand-300 px-2.5 py-1 rounded-full font-bold">صاحب مشتری دایرکت</span>
           </div>
-          <div id="matched-card-content" class="p-4 rounded-2xl glass-subcard border-brand-500/40 space-y-2.5 text-xs md:text-sm"></div>
-          <button onclick="startEscrowFlow()" class="w-full py-3 rounded-2xl bg-gradient-to-r from-brand-600 to-rose-600 text-white font-bold text-xs md:text-sm shadow hover:opacity-95 transition">
-            قفل امن وجه در صندوق امانت هم‌بار
-          </button>
+
+          <div class="grid grid-cols-2 gap-2 text-center font-mono text-xs">
+            <div class="p-2.5 rounded-xl bg-white/80 dark:bg-zinc-900/90 border border-pink-200 dark:border-zinc-800">
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 block font-sans">موجودی کیف پول نقد</span>
+              <b id="mahshid-wallet-display" class="text-sm md:text-base text-emerald-600 dark:text-emerald-400">۱,۲۵۰,۰۰۰ ت</b>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/80 dark:bg-zinc-900/90 border border-pink-200 dark:border-zinc-800">
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 block font-sans">مشتریان نجات‌یافته</span>
+              <b id="mahshid-saved-display" class="text-sm md:text-base text-brand-600 dark:text-brand-400">۴ سفارش</b>
+            </div>
+          </div>
         </div>
+
+        <!-- گام ۱ و ۲: استعلام، مدیریت خطا و مقایسه همکاران -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-xs md:text-sm text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-lg bg-brand-600 text-white flex items-center justify-center text-[11px] font-bold">۱</span>
+              استعلام کسری و مقایسه همکاران
+            </h3>
+            <span class="text-[10px] text-slate-500 dark:text-slate-400">زمان تطبیق: زیر ۳۰ ثانیه</span>
+          </div>
+
+          <!-- باکس جستجو + دکمه‌های سریع -->
+          <div class="flex gap-2">
+            <input type="text" id="search-input" placeholder="نام کالای ناموجود (مثلاً: هودی، کتانی، ماگ...)" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-brand-500 text-slate-900 dark:text-white">
+            <button onclick="handleSearch()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs rounded-xl transition shrink-0">
+              استعلام
+            </button>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 text-[11px]">
+            <button onclick="fillRequestForm('هودی')" class="px-2.5 py-1 rounded-lg glass-subcard hover:border-brand-500 text-slate-700 dark:text-slate-200 font-medium transition">هودی مشکی L</button>
+            <button onclick="fillRequestForm('کتانی')" class="px-2.5 py-1 rounded-lg glass-subcard hover:border-brand-500 text-slate-700 dark:text-slate-200 font-medium transition">کتانی سایز ۳۹</button>
+            <button onclick="fillRequestForm('ماگ')" class="px-2.5 py-1 rounded-lg glass-subcard hover:border-brand-500 text-slate-700 dark:text-slate-200 font-medium transition">ماگ سرامیکی</button>
+            <button onclick="fillRequestForm('کمربند')" class="px-2.5 py-1 rounded-lg glass-subcard hover:border-rose-500 text-rose-600 dark:text-rose-400 font-medium transition">کمربند (ناموجود)</button>
+          </div>
+
+          <!-- خطای ورودی جستجو (مدیریت خطا) -->
+          <div id="sim-search-error" class="hidden p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-700 dark:text-rose-300 text-xs flex items-start gap-2">
+            <span>⚠️</span>
+            <span id="sim-search-error-text"></span>
+          </div>
+
+          <!-- حالت خالی جستجو (مدیریت حالت خالی) -->
+          <div id="sim-search-empty" class="hidden p-4 rounded-2xl glass-subcard border-2 border-dashed border-amber-500/40 text-center space-y-2.5">
+            <div class="text-2xl">📭</div>
+            <div class="font-bold text-xs md:text-sm text-slate-900 dark:text-white" id="sim-search-empty-title">کالایی در قفسه همکاران پیدا نشد</div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+              در حال حاضر هیچ تأمین‌کننده‌ای این کالا را با موجودی فعال ثبت نکرده است. می‌توانید درخواست تجمیعی کسری ارسال کنید تا به بنکداران اعلان شود.
+            </p>
+            <div class="flex flex-wrap justify-center gap-2 pt-1">
+              <button onclick="submitDemandRequest()" class="px-3 py-1.5 rounded-xl bg-amber-500 text-white text-[11px] font-bold hover:bg-amber-600 transition">📢 ثبت درخواست کسری برای بنکداران</button>
+              <button onclick="fillRequestForm('هودی')" class="px-3 py-1.5 rounded-xl border border-pink-200 dark:border-zinc-700 text-[11px] font-bold text-slate-700 dark:text-slate-200">نمایش کالاهای موجود</button>
+            </div>
+          </div>
+
+          <!-- لیست مقایسه همکاران پیدا شده -->
+          <div id="match-result-container" class="hidden space-y-2.5 pt-2 border-t border-pink-200 dark:border-zinc-800">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-emerald-600 dark:text-emerald-400">✓ مقایسه پیشنهادهای همکاران (<span id="compare-count">0</span> مورد):</span>
+              <span class="text-[10px] text-slate-500">بهترین سود را انتخاب کنید</span>
+            </div>
+            <div id="compare-list-container" class="space-y-2 max-h-60 overflow-y-auto pr-0.5"></div>
+          </div>
+        </div>
+
+        <!-- گام ۳: فرم اطلاعات خریدار و صدور پیش‌فاکتور -->
+        <div id="buyer-form-section" class="hidden space-y-3 pt-3 border-t border-pink-200 dark:border-zinc-800">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-xs md:text-sm text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-lg bg-rose-600 text-white flex items-center justify-center text-[11px] font-bold">۲</span>
+              اطلاعات خریدار دایرکت و صدور پیش‌فاکتور
+            </h3>
+            <button onclick="fillSampleBuyerData()" class="text-[11px] text-brand-600 dark:text-brand-400 font-bold hover:underline">پر کردن نمونه</button>
+          </div>
+
+          <div id="selected-supplier-summary" class="p-2.5 rounded-xl bg-brand-500/10 border border-brand-500/30 text-[11px] text-slate-700 dark:text-slate-200"></div>
+
+          <div class="space-y-2.5 text-xs">
+            <div class="grid grid-cols-3 gap-2">
+              <div class="col-span-2">
+                <label class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">نام خریدار دایرکت:</label>
+                <input type="text" id="buyer-name-input" placeholder="مثلاً: زهرا رضایی" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+                <div id="err-buyer-name" class="hidden text-[10px] text-rose-600 dark:text-rose-400 mt-0.5 font-bold"></div>
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">تعداد:</label>
+                <input type="number" id="buyer-qty-input" value="1" min="1" oninput="updateLiveOrderPreview()" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white font-mono focus:outline-none focus:border-brand-500">
+                <div id="err-buyer-qty" class="hidden text-[10px] text-rose-600 dark:text-rose-400 mt-0.5 font-bold"></div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">موبایل خریدار (جهت پیامک کد رهگیری):</label>
+              <input type="text" id="buyer-mobile-input" placeholder="09123456789" dir="ltr" class="w-full text-left bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white font-mono focus:outline-none focus:border-brand-500">
+              <div id="err-buyer-mobile" class="hidden text-[10px] text-rose-600 dark:text-rose-400 mt-0.5 font-bold"></div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">نشانی دقیق پستی:</label>
+              <input type="text" id="buyer-address-input" placeholder="شیراز، خیابان ارم، کوچه ۴، پلاک ۱۲" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+              <div id="err-buyer-address" class="hidden text-[10px] text-rose-600 dark:text-rose-400 mt-0.5 font-bold"></div>
+            </div>
+
+            <!-- پیش‌نمایش محاسبه آنی پیش‌فاکتور -->
+            <div id="buyer-calc-preview" class="p-2.5 rounded-xl glass-subcard grid grid-cols-2 gap-1.5 text-[11px] font-mono"></div>
+
+            <button onclick="issuePreInvoice()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-rose-600 text-white font-bold text-xs shadow hover:opacity-95 transition">
+              🧾 ثبت درخواست و صدور پیش‌فاکتور رسمی
+            </button>
+          </div>
+        </div>
+
+        <!-- اعلان‌های زنده مهشید -->
+        <div class="space-y-2 pt-3 border-t border-pink-200 dark:border-zinc-800">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🔔</span> اعلان‌های زنده پنل مهشید
+            </span>
+            <span id="mahshid-notif-count" class="text-[10px] bg-brand-500/15 text-brand-600 dark:text-brand-400 px-2 py-0.5 rounded-full font-bold font-mono">۱ اعلان</span>
+          </div>
+          <div id="mahshid-notifications-list" class="space-y-1.5 max-h-44 overflow-y-auto pr-0.5 text-[11px]"></div>
+        </div>
+
       </div>
 
-      <div class="lg:col-span-7 glass-panel p-6 md:p-8 rounded-3xl space-y-5 border-t-4 border-t-rose-500">
+      <!-- ==================================================== -->
+      <!-- ستون دوم (وسط): هسته هم‌بار، پیش‌فاکتور و صندوق امانت -->
+      <!-- ==================================================== -->
+      <div class="xl:col-span-4 glass-panel p-5 md:p-6 rounded-3xl space-y-4 border-t-4 border-t-emerald-500">
+        
         <div class="flex items-center justify-between border-b border-pink-200 dark:border-zinc-800 pb-3">
-          <h3 class="font-bold text-sm md:text-base text-slate-900 dark:text-white flex items-center gap-2">
-            <span>🛡️</span> مراحل امانت وجه و ارسال بسته
-          </h3>
-          <span id="escrow-badge" class="text-[11px] bg-pink-100 dark:bg-zinc-800 text-slate-600 dark:text-slate-300 px-3 py-0.5 rounded-full font-mono font-bold">وضعیت: آماده سفارش جدید</span>
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🛡️</span>
+            <div>
+              <div class="font-black text-sm text-slate-900 dark:text-white">صندوق امانت و هسته هم‌بار</div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">ناظر امن شاپرک + تفکیک ۳ طرفه</div>
+            </div>
+          </div>
+          <span id="escrow-badge" class="text-[10px] bg-pink-100 dark:bg-zinc-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-full font-mono font-bold">آماده تراکنش</span>
         </div>
 
-        <div class="grid grid-cols-4 gap-2 text-center text-xs">
-          <div id="step-1" class="p-2.5 rounded-xl bg-brand-600 text-white font-bold text-xs shadow">۱. تطبیق کالا</div>
-          <div id="step-2" class="p-2.5 rounded-xl bg-pink-100 dark:bg-zinc-800 text-slate-500 dark:text-slate-400 font-medium text-xs">۲. صندوق امانت</div>
-          <div id="step-3" class="p-2.5 rounded-xl bg-pink-100 dark:bg-zinc-800 text-slate-500 dark:text-slate-400 font-medium text-xs">۳. پست و بارکد</div>
-          <div id="step-4" class="p-2.5 rounded-xl bg-pink-100 dark:bg-zinc-800 text-slate-500 dark:text-slate-400 font-medium text-xs">۴. تسویه نهایی</div>
+        <!-- نوار ۵ مرحله‌ای وضعیت -->
+        <div class="grid grid-cols-5 gap-1 text-center text-[10px]">
+          <div id="step-1" class="p-2 rounded-xl bg-brand-600 text-white font-bold shadow">۱. استعلام</div>
+          <div id="step-2" class="p-2 rounded-xl bg-pink-100 dark:bg-zinc-800 text-slate-500 dark:text-slate-400 font-medium">۲. پیش‌فاکتور</div>
+          <div id="step-3" class="p-2 rounded-xl bg-pink-100 dark:bg-zinc-800 text-slate-500 dark:text-slate-400 font-medium">۳. امانت وجه</div>
+          <div id="step-4" class="p-2 rounded-xl bg-pink-100 dark:bg-zinc-800 text-slate-500 dark:text-slate-400 font-medium">۴. پست و بارکد</div>
+          <div id="step-5" class="p-2 rounded-xl bg-pink-100 dark:bg-zinc-800 text-slate-500 dark:text-slate-400 font-medium">۵. تسویه ۳طرفه</div>
         </div>
 
-        <div id="escrow-detail-box" class="p-5 rounded-2xl glass-subcard space-y-2 min-h-[110px] flex flex-col justify-center text-center text-xs md:text-sm text-slate-600 dark:text-slate-300">
-          برای دیدن مراحل ارسال، یک کالا را از کادر سمت راست انتخاب کنید.
+        <!-- باکس اصلی پیش‌فاکتور / صندوق امانت / رسید -->
+        <div id="escrow-detail-box" class="p-4 rounded-2xl glass-subcard space-y-3 min-h-[250px] flex flex-col justify-center text-xs">
+          <div class="text-center space-y-2 text-slate-600 dark:text-slate-300">
+            <div class="text-3xl">⚖️</div>
+            <div class="font-bold text-slate-900 dark:text-white text-sm">چرخه تعامل هنوز شروع نشده است</div>
+            <p class="text-[11px] leading-relaxed">
+              از پنل سمت راست (مهشید) یک کالا را استعلام بگیرید یا یکی از سناریوهای بالای صفحه را انتخاب کنید تا مقایسه همکاران، پیش‌فاکتور و صندوق امانت به صورت زنده نمایش داده شود.
+            </p>
+          </div>
         </div>
 
-        <div id="escrow-actions" class="hidden flex gap-2.5 pt-1"></div>
+        <!-- دکمه‌های اکشن صندوق امانت -->
+        <div id="escrow-actions" class="hidden space-y-2"></div>
 
-        <div class="pt-3 border-t border-pink-200 dark:border-zinc-800 space-y-2.5">
-          <div class="text-xs md:text-sm font-bold text-slate-900 dark:text-white">📦 کالاهای حاضر در انبار مشترک همکاران:</div>
-          <div class="max-h-44 overflow-y-auto space-y-2 pr-1" id="inventory-list"></div>
+        <!-- لاگ لحظه‌ای جریان پول و داده -->
+        <div class="space-y-2 pt-3 border-t border-pink-200 dark:border-zinc-800">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>📡</span> گزارش لحظه‌ای تبادل داده و پول (Audit Log)
+            </span>
+            <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-bold">LIVE</span>
+          </div>
+          <div id="system-audit-log" class="space-y-1.5 max-h-44 overflow-y-auto pr-0.5 text-[11px]"></div>
         </div>
+
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- ستون سوم (چپ): پنل فروشنده تأمین‌کننده (حاج‌رضا و همکاران) -->
+      <!-- ==================================================== -->
+      <div class="xl:col-span-4 glass-panel p-5 md:p-6 rounded-3xl space-y-4 border-t-4 border-t-rose-500">
+        
+        <!-- هدر و انتخابگر تأمین‌کننده -->
+        <div class="p-4 rounded-2xl bg-gradient-to-l from-rose-600/15 to-amber-500/10 border border-rose-500/30 space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-2xl bg-zinc-800 text-white flex items-center justify-center text-xl shadow">🧔🏻‍♂️</div>
+              <div>
+                <div class="font-black text-sm text-slate-900 dark:text-white" id="supplier-panel-name">پنل تأمین‌کننده (حاج‌رضا)</div>
+                <div class="text-[11px] font-mono text-rose-600 dark:text-rose-400 font-bold" id="supplier-panel-handle">@hajreza_bazar • تهران</div>
+              </div>
+            </div>
+            <select id="supplier-switcher" onchange="switchActiveSupplier(this.value)" class="bg-white dark:bg-zinc-900 border border-rose-200 dark:border-zinc-700 rounded-xl px-2 py-1 text-[11px] font-bold text-slate-800 dark:text-white focus:outline-none">
+            </select>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 text-center font-mono text-xs">
+            <div class="p-2.5 rounded-xl bg-white/80 dark:bg-zinc-900/90 border border-rose-200 dark:border-zinc-800">
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 block font-sans">کیف پول نقد تأمین‌کننده</span>
+              <b id="supplier-cash-display" class="text-sm md:text-base text-emerald-600 dark:text-emerald-400">۸,۴۰۰,۰۰۰ ت</b>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/80 dark:bg-zinc-900/90 border border-rose-200 dark:border-zinc-800">
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 block font-sans">مبلغ قفل‌شده در امانت</span>
+              <b id="supplier-escrow-display" class="text-sm md:text-base text-amber-600 dark:text-amber-400">۰ ت</b>
+            </div>
+          </div>
+        </div>
+
+        <!-- بخش اقدام ارسال تأمین‌کننده -->
+        <div id="supplier-fulfillment-box" class="p-4 rounded-2xl glass-subcard space-y-3 border border-rose-500/20">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>📦</span> میز کار ارسال سفارش
+            </span>
+            <span id="supplier-task-badge" class="text-[10px] bg-slate-200 dark:bg-zinc-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-full font-bold">بدون سفارش منتظر ارسال</span>
+          </div>
+          <div id="supplier-task-content" class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+            هر زمان مهشید سفارشی را ثبت و خریدار وجه را در صندوق امانت قفل کند، دستور بسته‌بندی خنثی و ارسال در اینجا فعال می‌شود.
+          </div>
+        </div>
+
+        <!-- قفسه زنده کالاهای همین تأمین‌کننده (کاهش آنی موجودی!) -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🗄️</span> موجودی قفسه فعلی تأمین‌کننده
+            </span>
+            <span class="text-[10px] text-slate-500">کسر لحظه‌ای با هر سفارش</span>
+          </div>
+          <div id="supplier-shelf-list" class="space-y-1.5 max-h-44 overflow-y-auto pr-0.5"></div>
+        </div>
+
+        <!-- اعلان‌های زنده تأمین‌کننده -->
+        <div class="space-y-2 pt-3 border-t border-pink-200 dark:border-zinc-800">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🔔</span> اعلان‌های زنده پنل تأمین‌کننده
+            </span>
+            <span id="supplier-notif-count" class="text-[10px] bg-rose-500/15 text-rose-600 dark:text-rose-400 px-2 py-0.5 rounded-full font-bold font-mono">۱ اعلان</span>
+          </div>
+          <div id="supplier-notifications-list" class="space-y-1.5 max-h-44 overflow-y-auto pr-0.5 text-[11px]"></div>
+        </div>
+
       </div>
 
     </section>
 
-    <!-- ۷.۴ شبیه‌ساز رسمی ربات بله -->
+    <!-- ۸.۴ دفتر کل معاملات شبیه‌ساز + نمای انبار مشترک کل شبکه -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- انبار مشترک کل همکاران با فیلتر و مدیریت حالت خالی -->
+      <div class="lg:col-span-6 glass-panel p-6 rounded-3xl space-y-4 border-r-4 border-r-pink-500">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-pink-200 dark:border-zinc-800 pb-3">
+          <h3 class="font-bold text-sm md:text-base text-slate-900 dark:text-white">📦 کل قفسه انبار مشترک همکاران</h3>
+          <div class="flex items-center gap-2 text-xs">
+            <select id="inv-city-filter" onchange="renderInventoryList()" class="bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-2.5 py-1 text-xs text-slate-800 dark:text-white">
+              <option value="all">همه شهرها</option>
+              <option value="تهران">تهران</option>
+              <option value="اصفهان">اصفهان</option>
+              <option value="مشهد">مشهد</option>
+              <option value="رشت">رشت</option>
+              <option value="تبریز">تبریز (تست حالت خالی)</option>
+            </select>
+            <label class="flex items-center gap-1 text-[11px] text-slate-600 dark:text-slate-300 cursor-pointer">
+              <input type="checkbox" id="inv-only-available" onchange="renderInventoryList()" class="accent-brand-500"> فقط موجود
+            </label>
+          </div>
+        </div>
+
+        <div class="max-h-64 overflow-y-auto space-y-2 pr-1" id="inventory-list"></div>
+      </div>
+
+      <!-- دفتر کل تراکنش‌های انجام‌شده در این جلسه -->
+      <div class="lg:col-span-6 glass-panel p-6 rounded-3xl space-y-4 border-r-4 border-r-emerald-500">
+        <div class="flex items-center justify-between border-b border-pink-200 dark:border-zinc-800 pb-3">
+          <h3 class="font-bold text-sm md:text-base text-slate-900 dark:text-white">📑 دفتر کل تراکنش‌های تسویه‌شده و مرجوعی</h3>
+          <span class="text-[11px] text-slate-500 font-mono">شفافیت مالی ۲ طرف + کارمزد ۳٪</span>
+        </div>
+
+        <div id="completed-ledger-list" class="max-h-64 overflow-y-auto space-y-2 pr-1 text-xs"></div>
+      </div>
+
+    </section>
+
+    <!-- ۸.۵ شبیه‌ساز رسمی ربات بله -->
     <section id="bale-simulator-section" class="scroll-mt-28 glass-panel rounded-3xl p-6 md:p-8 space-y-5 border-2 border-brand-500/30 shadow-xl">
       
       <div class="p-4 rounded-2xl bg-gradient-to-r from-brand-600 via-pink-600 to-rose-600 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
@@ -1529,7 +1789,7 @@
 
         <div class="space-y-2.5 pt-1 border-t border-pink-200 dark:border-zinc-700/60 text-xs">
           <form onsubmit="handleBaleUserSubmit(event)" class="flex gap-2">
-            <input type="text" id="bale-user-input" placeholder="نام کالای مورد نظر را بنویسید (مثلاً: هودی مشکی، ماگ، کیف...)" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-brand-500 text-slate-900 dark:text-white">
+            <input type="text" id="bale-user-input" placeholder="نام کالای مورد نظر را بنویسید (مثلاً: هودی، کتانی، ماگ، کیف...)" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-brand-500 text-slate-900 dark:text-white">
             <button type="submit" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl transition shrink-0 flex items-center gap-1 text-xs md:text-sm">
               <span>ارسال</span> ➔
             </button>
@@ -1567,6 +1827,7 @@
         <h4 class="text-base font-bold text-slate-900 dark:text-white">ثبت کالای موجود در انبار مشترک</h4>
         <button onclick="closeRegisterModal()" class="text-2xl font-bold text-slate-400 hover:text-slate-600 dark:hover:text-white">&times;</button>
       </div>
+      <div id="modal-error-box" class="hidden p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-700 dark:text-rose-300 text-xs font-bold"></div>
       <div class="space-y-3 text-xs md:text-sm">
         <div>
           <label class="block text-slate-700 dark:text-slate-300 mb-1 font-bold">نام کالا، رنگ و سایز:</label>
@@ -1585,7 +1846,7 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-slate-700 dark:text-slate-300 mb-1 font-bold">تعداد در قفسه شما:</label>
-            <input type="number" id="new-item-qty" value="5" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3.5 py-2 text-slate-900 dark:text-white">
+            <input type="number" id="new-item-qty" value="5" min="1" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3.5 py-2 text-slate-900 dark:text-white">
           </div>
           <div>
             <label class="block text-slate-700 dark:text-slate-300 mb-1 font-bold">شهر انبار:</label>
@@ -1593,8 +1854,8 @@
           </div>
         </div>
         <div>
-          <label class="block text-slate-700 dark:text-slate-300 mb-1 font-bold">آیدی پیج اینستاگرام شما:</label>
-          <input type="text" id="new-item-seller" placeholder="@store_name" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3.5 py-2 text-slate-900 dark:text-white">
+          <label class="block text-slate-700 dark:text-slate-300 mb-1 font-bold">آیدی پیج اینستاگرام تأمین‌کننده:</label>
+          <input type="text" id="new-item-seller" placeholder="@hajreza_bazar" class="w-full bg-white dark:bg-zinc-900 border border-pink-200 dark:border-zinc-700 rounded-xl px-3.5 py-2 text-slate-900 dark:text-white">
         </div>
       </div>
       <div class="flex justify-end gap-2.5 pt-3">
@@ -1614,18 +1875,76 @@
   <!-- ========================================== -->
   <script>
     const defaultDatabase = [
-      { id: 1, title: 'هودی دورس پنبه‌ای مشکی L', customerPrice: 490000, wholesalePrice: 380000, qty: 7, seller: '@mode_parsi', city: 'تهران', rating: '۴.۹' },
-      { id: 2, title: 'ماگ سرامیکی دست‌ساز', customerPrice: 220000, wholesalePrice: 165000, qty: 12, seller: '@ceramic_art', city: 'اصفهان', rating: '۴.۸' },
-      { id: 3, title: 'کیف دوشی کتان', customerPrice: 360000, wholesalePrice: 280000, qty: 5, seller: '@linen_design', city: 'رشت', rating: '۵.۰' },
-      { id: 4, title: 'پک جوراب ساقدار فانتزی', customerPrice: 160000, wholesalePrice: 115000, qty: 30, seller: '@socks_gallery', city: 'شیراز', rating: '۴.۷' },
-      { id: 5, title: 'شمع معطر موم عسل', customerPrice: 135000, wholesalePrice: 90000, qty: 15, seller: '@honey_candle', city: 'مشهد', rating: '۴.۹' }
+      { id: 1, title: 'هودی دورس پنبه‌ای مشکی L', customerPrice: 490000, wholesalePrice: 370000, qty: 7, reservedQty: 0, seller: '@hajreza_bazar', sellerName: 'حاج‌رضا (بنکدار پوشاک)', city: 'تهران', rating: '۴.۹', shipSpeed: 'ارسال همان روز' },
+      { id: 2, title: 'هودی دورس پنبه‌ای مشکی L', customerPrice: 490000, wholesalePrice: 395000, qty: 4, reservedQty: 0, seller: '@mode_parsi', sellerName: 'مد پارسی', city: 'اصفهان', rating: '۴.۷', shipSpeed: 'ارسال ۲۴ ساعته' },
+      { id: 3, title: 'کتانی اسنیکرز سفید سایز ۳۹', customerPrice: 680000, wholesalePrice: 510000, qty: 5, reservedQty: 0, seller: '@kafsh_markazi', sellerName: 'کفش مرکزی', city: 'تهران', rating: '۵.۰', shipSpeed: 'ارسال همان روز' },
+      { id: 4, title: 'کتانی اسنیکرز سفید سایز ۳۹', customerPrice: 680000, wholesalePrice: 535000, qty: 2, reservedQty: 0, seller: '@mode_parsi', sellerName: 'مد پارسی', city: 'اصفهان', rating: '۴.۷', shipSpeed: 'ارسال ۴۸ ساعته' },
+      { id: 5, title: 'ماگ سرامیکی دست‌ساز', customerPrice: 220000, wholesalePrice: 160000, qty: 12, reservedQty: 0, seller: '@ceramic_art', sellerName: 'سرامیک آرت', city: 'اصفهان', rating: '۴.۹', shipSpeed: 'ارسال ۲۴ ساعته' },
+      { id: 6, title: 'ماگ سرامیکی دست‌ساز', customerPrice: 220000, wholesalePrice: 172000, qty: 6, reservedQty: 0, seller: '@mashhad_decor', sellerName: 'دکور مشهد', city: 'مشهد', rating: '۴.۸', shipSpeed: 'ارسال همان روز' },
+      { id: 7, title: 'کیف دوشی کتان', customerPrice: 360000, wholesalePrice: 275000, qty: 5, reservedQty: 0, seller: '@linen_design', sellerName: 'لینن دیزاین', city: 'رشت', rating: '۵.۰', shipSpeed: 'ارسال ۲۴ ساعته' },
+      { id: 8, title: 'ست کمربند چرم قهوه‌ای', customerPrice: 310000, wholesalePrice: 230000, qty: 0, reservedQty: 0, seller: '@hajreza_bazar', sellerName: 'حاج‌رضا (بنکدار پوشاک)', city: 'تهران', rating: '۴.۹', shipSpeed: 'ناموجود' }
     ];
 
-    let itemsDB = [...defaultDatabase];
+    const defaultSuppliers = {
+      '@hajreza_bazar': { name: 'حاج‌رضا (بنکدار پوشاک)', city: 'تهران', cash: 8400000, escrowPending: 0, rating: '۴.۹' },
+      '@mode_parsi': { name: 'مد پارسی', city: 'اصفهان', cash: 4200000, escrowPending: 0, rating: '۴.۷' },
+      '@kafsh_markazi': { name: 'کفش مرکزی', city: 'تهران', cash: 6900000, escrowPending: 0, rating: '۵.۰' },
+      '@ceramic_art': { name: 'سرامیک آرت', city: 'اصفهان', cash: 3150000, escrowPending: 0, rating: '۴.۹' },
+      '@mashhad_decor': { name: 'دکور مشهد', city: 'مشهد', cash: 2800000, escrowPending: 0, rating: '۴.۸' },
+      '@linen_design': { name: 'لینن دیزاین', city: 'رشت', cash: 3600000, escrowPending: 0, rating: '۵.۰' }
+    };
+
+    let itemsDB = JSON.parse(JSON.stringify(defaultDatabase));
     let selectedMatch = null;
 
+    let simState = {};
+
+    function initSimState() {
+      itemsDB = JSON.parse(JSON.stringify(defaultDatabase));
+      selectedMatch = null;
+      simState = {
+        mahshidWallet: 1250000,
+        mahshidSavedCount: 4,
+        mahshidNotifications: [
+          { time: 'الان', title: 'پنل مهشید آماده است', desc: 'کسری دایرکت خود را استعلام بگیرید تا از قفسه همکاران تأمین شود.', type: 'info' }
+        ],
+        suppliers: JSON.parse(JSON.stringify(defaultSuppliers)),
+        supplierNotifications: {
+          '@hajreza_bazar': [
+            { time: 'الان', title: 'قفسه آنلاین متصل است', desc: 'آماده دریافت سفارش از همکاران شبکه هم‌بار و ارسال مستقیم با لیبل معرف.', type: 'info' }
+          ]
+        },
+        activeSupplierHandle: '@hajreza_bazar',
+        stats: {
+          savedOrders: 4,
+          totalGmv: 2150000,
+          hambarRevenue: 64500
+        },
+        currentOrder: {
+          status: 'idle',
+          selectedItem: null,
+          qty: 1,
+          buyerName: '',
+          buyerMobile: '',
+          buyerAddress: '',
+          invoiceId: '',
+          trackingCode: '',
+          subtotal: 0,
+          wholesaleTotal: 0,
+          commission: 0,
+          mahshidProfit: 0
+        },
+        auditLogs: [
+          { time: 'شروع', actor: 'هسته هم‌بار', msg: 'موتور تطبیق قفسه‌ها و صندوق امانت شاپرک فعال شدند.', badge: 'ready' }
+        ],
+        ledgerHistory: [
+          { invoiceId: 'INV-1405-1042', itemTitle: 'ماگ سرامیکی دست‌ساز × ۲', referrer: '@mahshid_style', supplier: '@ceramic_art', gmv: 440000, supplierShare: 320000, fee: 13200, profit: 106800, status: 'تسویه موفق' }
+        ]
+      };
+    }
+
     let activeBaleOrder = {
-      item: itemsDB[0],
+      item: defaultDatabase[0],
       buyerName: 'زهرا رضایی',
       buyerMobile: '۰۹۱۲۳۴۵۶۷۸۹',
       buyerAddress: 'شیراز، خیابان ارم، کوچه ۴، پلاک ۱۲',
@@ -1645,7 +1964,6 @@
     ];
     let currentPresIndex = 0;
 
-    // تابع آکاردئونی هوشمند: باز کردن کارت انتخابی و بستن تمام کارت‌های دیگر
     function toggleFrictionQuote(num) {
       for (let i = 1; i <= 4; i++) {
         const q = document.getElementById(`friction-quote-${i}`);
@@ -1751,7 +2069,7 @@
         activeBtn.className = 'whitespace-nowrap flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-gradient-to-r from-brand-600 to-rose-600 text-white shadow-sm shrink-0';
       }
 
-      if (tabId === 'simulation') renderInventoryList();
+      if (tabId === 'simulation') renderAllSimulationUI();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1902,16 +2220,1077 @@
       }, 100);
     }
 
+    function updateCalculator() {
+      const lostOrders = parseInt(document.getElementById('calc-lost-slider').value);
+      const avgPrice = parseInt(document.getElementById('calc-price-slider').value);
+
+      document.getElementById('calc-lost-label').innerText = `${lostOrders} سفارش در روز`;
+      document.getElementById('calc-price-label').innerText = `${avgPrice.toLocaleString('fa-IR')} تومان`;
+
+      const monthlyGross = lostOrders * 30 * avgPrice;
+      const colleagueShare = Math.round(monthlyGross * 0.74);
+      const hambarFee = Math.round(monthlyGross * 0.03);
+      const yourProfit = monthlyGross - colleagueShare - hambarFee;
+
+      document.getElementById('calc-colleague-share').innerText = `${colleagueShare.toLocaleString('fa-IR')} ت`;
+      document.getElementById('calc-hambar-share').innerText = `${hambarFee.toLocaleString('fa-IR')} ت`;
+      document.getElementById('calc-salvaged-profit').innerText = `${yourProfit.toLocaleString('fa-IR')} ت`;
+    }
+
+    // =========================================================
+    // توابع پیشرفته شبیه‌ساز دوطرفه (بخش ب - فاز دوم)
+    // =========================================================
+
+    function toEnglishDigits(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
+        .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+    }
+
+    function getTimeNowStr() {
+      const now = new Date();
+      return now.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+
+    function pushMahshidNotif(title, desc, type = 'info') {
+      simState.mahshidNotifications.unshift({ time: getTimeNowStr(), title, desc, type });
+      renderMahshidPanel();
+    }
+
+    function pushSupplierNotif(handle, title, desc, type = 'info') {
+      if (!simState.supplierNotifications[handle]) {
+        simState.supplierNotifications[handle] = [];
+      }
+      simState.supplierNotifications[handle].unshift({ time: getTimeNowStr(), title, desc, type });
+      renderSupplierPanel();
+    }
+
+    function pushAuditLog(actor, msg, badge = 'info') {
+      simState.auditLogs.unshift({ time: getTimeNowStr(), actor, msg, badge });
+      renderAuditLog();
+    }
+
+    function loadPhase1Scenario(key) {
+      if (key === 'hoodie') {
+        document.getElementById('search-input').value = 'هودی';
+        handleSearch();
+        document.getElementById('buyer-name-input').value = 'سارا محمدی';
+        document.getElementById('buyer-mobile-input').value = '09123456789';
+        document.getElementById('buyer-address-input').value = 'اصفهان، خیابان چهارباغ بالا، پلاک ۴۵';
+        showToast('سناریوی فاز ۱ (مهشید و حاج‌رضا - هودی مشکی L) بارگذاری شد', 'success');
+      } else if (key === 'sneakers') {
+        document.getElementById('search-input').value = 'کتانی';
+        handleSearch();
+        document.getElementById('buyer-name-input').value = 'امیرحسین کریمی';
+        document.getElementById('buyer-mobile-input').value = '09351234567';
+        document.getElementById('buyer-address-input').value = 'تهران، سعادت‌آباد، بلوار دریا، پلاک ۱۸';
+        showToast('سناریوی فاز ۱ (پیج کتانی تهران - سایز ۳۹) بارگذاری شد', 'success');
+      } else if (key === 'mug') {
+        document.getElementById('search-input').value = 'ماگ';
+        handleSearch();
+        document.getElementById('buyer-name-input').value = 'نرگس موسوی';
+        document.getElementById('buyer-mobile-input').value = '09159876543';
+        document.getElementById('buyer-address-input').value = 'مشهد، بلوار وکیل‌آباد، هنرستان ۱۲، پلاک ۸';
+        activeBaleOrder.item = itemsDB.find(i => i.title.includes('ماگ')) || itemsDB[0];
+        showToast('سناریوی فاز ۱ (ماگ مشهد + شرایط قطعی نت) در وب و بات بله آماده شد', 'info');
+      } else if (key === 'empty_test') {
+        document.getElementById('search-input').value = 'بارانی چرم سبز';
+        handleSearch();
+        showToast('حالت خالی جستجو برای ارائه فعال شد!', 'warning');
+      }
+    }
+
+    function fillRequestForm(title) {
+      document.getElementById('search-input').value = title;
+      handleSearch();
+    }
+
+    function handleSearch() {
+      const inputEl = document.getElementById('search-input');
+      const rawQuery = inputEl.value.trim();
+      const errBox = document.getElementById('sim-search-error');
+      const errText = document.getElementById('sim-search-error-text');
+      const emptyBox = document.getElementById('sim-search-empty');
+      const resultContainer = document.getElementById('match-result-container');
+      const buyerFormSection = document.getElementById('buyer-form-section');
+
+      errBox.classList.add('hidden');
+      emptyBox.classList.add('hidden');
+
+      // مدیریت خطای ورودی جستجو
+      if (!rawQuery || rawQuery.length < 2) {
+        resultContainer.classList.add('hidden');
+        buyerFormSection.classList.add('hidden');
+        errText.innerText = 'ورودی نامعتبر! لطفاً حداقل ۲ حرف از نام کالا را بنویسید (مثلاً: هودی، کتانی، ماگ).';
+        errBox.classList.remove('hidden');
+        pushAuditLog('اعتبارسنجی ورودی', 'جستجوی خالی یا کوتاه‌تر از ۲ کاراکتر توسط سیستم رد شد.', 'error');
+        showToast('عبارت جستجو معتبر نیست', 'error');
+        return;
+      }
+
+      if (/^\d+$/.test(toEnglishDigits(rawQuery))) {
+        resultContainer.classList.add('hidden');
+        buyerFormSection.classList.add('hidden');
+        errText.innerText = 'جستجو با عدد تنها مجاز نیست! نام یا دسته‌بندی کالا را وارد کنید.';
+        errBox.classList.remove('hidden');
+        showToast('لطفاً نام کالا را وارد کنید', 'warning');
+        return;
+      }
+
+      const qLower = rawQuery.toLowerCase();
+      const matches = itemsDB.filter(item =>
+        item.title.toLowerCase().includes(qLower) ||
+        qLower.split(' ').some(word => word.length >= 2 && item.title.toLowerCase().includes(word))
+      );
+
+      // مدیریت حالت خالی (نبود داده)
+      if (matches.length === 0) {
+        resultContainer.classList.add('hidden');
+        buyerFormSection.classList.add('hidden');
+        document.getElementById('sim-search-empty-title').innerText = `هیچ کالایی با عبارت «${rawQuery}» در قفسه همکاران پیدا نشد`;
+        emptyBox.classList.remove('hidden');
+        pushAuditLog('جستجوی بدون نتیجه', `جستجوی «${rawQuery}» نتیجه‌ای نداشت؛ وضعیت حالت خالی نمایش داده شد.`, 'warning');
+        showToast('کالایی در قفسه همکاران یافت نشد', 'warning');
+        return;
+      }
+
+      // مرتب‌سازی: اول کالاهای موجود بر اساس بیشترین سود مهشید
+      matches.sort((a, b) => {
+        if ((a.qty > 0) !== (b.qty > 0)) return b.qty - a.qty;
+        const profA = a.customerPrice - a.wholesalePrice - Math.round(a.customerPrice * 0.03);
+        const profB = b.customerPrice - b.wholesalePrice - Math.round(b.customerPrice * 0.03);
+        return profB - profA;
+      });
+
+      document.getElementById('compare-count').innerText = matches.length.toLocaleString('fa-IR');
+      const listEl = document.getElementById('compare-list-container');
+      listEl.innerHTML = '';
+
+      matches.forEach((item, index) => {
+        const comm = Math.round(item.customerPrice * 0.03);
+        const profit = item.customerPrice - item.wholesalePrice - comm;
+        const isOutOfStock = item.qty <= 0;
+        const isBest = index === 0 && !isOutOfStock;
+        const isSelected = selectedMatch && selectedMatch.id === item.id;
+
+        const card = document.createElement('div');
+        card.className = `p-3 rounded-2xl border transition space-y-2 text-xs ${
+          isOutOfStock
+            ? 'bg-slate-100/70 dark:bg-zinc-900/50 border-rose-300/60 dark:border-rose-900/60 opacity-80'
+            : isSelected
+              ? 'bg-brand-500/15 border-2 border-brand-500 shadow-md'
+              : 'glass-subcard hover:border-brand-400'
+        }`;
+
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 flex-wrap">
+                <span>${item.title}</span>
+                ${isBest ? '<span class="text-[9px] bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full font-extrabold">پیشنهاد برتر (بیشترین سود)</span>' : ''}
+                ${isOutOfStock ? '<span class="text-[9px] bg-rose-500/20 text-rose-700 dark:text-rose-300 px-2 py-0.5 rounded-full font-extrabold">ناموجود در قفسه</span>' : ''}
+              </div>
+              <div class="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">
+                تأمین‌کننده: <b class="text-rose-600 dark:text-rose-400">${item.sellerName || item.seller}</b> (${item.city}) • ⭐ ${item.rating} • ${item.shipSpeed || 'آماده ارسال'}
+              </div>
+            </div>
+            <span class="font-mono text-[11px] px-2 py-0.5 rounded-lg ${isOutOfStock ? 'bg-rose-500/15 text-rose-600' : 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300'} font-bold shrink-0">
+              ${isOutOfStock ? '۰ عدد' : `${item.qty.toLocaleString('fa-IR')} عدد`}
+            </span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-1.5 text-center font-mono text-[10px] pt-1 border-t border-pink-200/60 dark:border-zinc-800">
+            <div class="p-1.5 rounded-lg bg-white/70 dark:bg-zinc-900">
+              <span class="text-slate-500 block font-sans">قیمت مشتری</span>
+              <b class="text-slate-900 dark:text-white">${item.customerPrice.toLocaleString('fa-IR')} ت</b>
+            </div>
+            <div class="p-1.5 rounded-lg bg-rose-500/10">
+              <span class="text-rose-600 dark:text-rose-400 block font-sans">سهم همکار</span>
+              <b class="text-rose-600 dark:text-rose-400">${item.wholesalePrice.toLocaleString('fa-IR')} ت</b>
+            </div>
+            <div class="p-1.5 rounded-lg bg-emerald-500/10">
+              <span class="text-emerald-600 dark:text-emerald-400 block font-sans">سود خالص مهشید</span>
+              <b class="text-emerald-600 dark:text-emerald-400">+${profit.toLocaleString('fa-IR')} ت</b>
+            </div>
+          </div>
+
+          <div class="pt-1">
+            ${
+              isOutOfStock
+                ? `<button disabled class="w-full py-1.5 rounded-xl bg-slate-300 dark:bg-zinc-800 text-slate-500 text-[11px] font-bold cursor-not-allowed">موجودی این قفسه به اتمام رسیده است</button>`
+                : `<button onclick="selectSupplierForOrder(${item.id})" class="w-full py-1.5 rounded-xl ${isSelected ? 'bg-emerald-600 text-white' : 'bg-brand-600 hover:bg-brand-500 text-white'} text-[11px] font-bold transition shadow-sm">
+                    ${isSelected ? '✓ همکار انتخاب‌شده (مشاهده فرم خریدار)' : 'انتخاب این همکار و ثبت سفارش'}
+                  </button>`
+            }
+          </div>
+        `;
+        listEl.appendChild(card);
+      });
+
+      resultContainer.classList.remove('hidden');
+      pushAuditLog('استعلام و مقایسه', `${matches.length} پیشنهاد همکار برای «${rawQuery}» بازیابی و مقایسه شد.`, 'info');
+    }
+
+    function submitDemandRequest() {
+      const q = document.getElementById('search-input').value.trim() || 'کالای کسری';
+      pushMahshidNotif('درخواست کسری ثبت شد', `نیاز شما به «${q}» به شبکه بنکداران ارسال گردید.`, 'info');
+      pushSupplierNotif('@hajreza_bazar', 'اعلان تقاضای جدید بازار', `فروشنده @mahshid_style به دنبال «${q}» است؛ در صورت موجودی در قفسه ثبت کنید.`, 'warning');
+      pushAuditLog('ثبت تقاضای کسری', `درخواست کسری «${q}» در شبکه بنکداران منتشر شد.`, 'info');
+      showToast('درخواست کسری برای بنکداران ارسال شد', 'success');
+    }
+
+    function selectSupplierForOrder(itemId) {
+      const found = itemsDB.find(i => i.id === itemId);
+      if (!found || found.qty <= 0) {
+        showToast('موجودی این کالا کافی نیست!', 'error');
+        return;
+      }
+
+      selectedMatch = found;
+      simState.currentOrder.selectedItem = found;
+      simState.currentOrder.status = 'comparing';
+      simState.activeSupplierHandle = found.seller;
+
+      // بازخوانی مقایسه برای هایلایت شدن گزینه انتخابی
+      handleSearch();
+
+      document.getElementById('buyer-form-section').classList.remove('hidden');
+      document.getElementById('selected-supplier-summary').innerHTML = `
+        همکار انتخابی: <b>${found.sellerName || found.seller} (${found.seller})</b> از <b>${found.city}</b> | موجودی قفسه: <b>${found.qty} عدد</b>
+      `;
+
+      const qtyInput = document.getElementById('buyer-qty-input');
+      qtyInput.max = found.qty;
+      if (parseInt(qtyInput.value) > found.qty || parseInt(qtyInput.value) < 1) {
+        qtyInput.value = 1;
+      }
+
+      clearBuyerFormErrors();
+      updateLiveOrderPreview();
+      updateStepUI(1);
+
+      pushAuditLog('انتخاب تأمین‌کننده', `مهشید همکار ${found.seller} را برای «${found.title}» انتخاب کرد (پنل سمت چپ روی ${found.seller} همگام شد).`, 'info');
+      renderSupplierPanel();
+      showToast(`همکار ${found.seller} انتخاب شد و پنل تأمین‌کننده همگام گردید`, 'info');
+    }
+
+    function fillSampleBuyerData() {
+      document.getElementById('buyer-name-input').value = 'زهرا رضایی';
+      document.getElementById('buyer-mobile-input').value = '09123456789';
+      document.getElementById('buyer-address-input').value = 'شیراز، خیابان ارم، کوچه ۴، پلاک ۱۲';
+      document.getElementById('buyer-qty-input').value = 1;
+      clearBuyerFormErrors();
+      updateLiveOrderPreview();
+      showToast('مشخصات نمونه خریدار درج شد', 'info');
+    }
+
+    function clearBuyerFormErrors() {
+      ['err-buyer-name', 'err-buyer-qty', 'err-buyer-mobile', 'err-buyer-address'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    }
+
+    function updateLiveOrderPreview() {
+      if (!selectedMatch) return;
+      const qtyRaw = toEnglishDigits(document.getElementById('buyer-qty-input').value);
+      const qty = Math.max(1, parseInt(qtyRaw) || 1);
+
+      const subtotal = selectedMatch.customerPrice * qty;
+      const wholesaleTotal = selectedMatch.wholesalePrice * qty;
+      const comm = Math.round(subtotal * 0.03);
+      const profit = subtotal - wholesaleTotal - comm;
+
+      document.getElementById('buyer-calc-preview').innerHTML = `
+        <div class="p-1.5 rounded-lg bg-white/70 dark:bg-zinc-900">مبلغ فاکتور: <b class="text-slate-900 dark:text-white">${subtotal.toLocaleString('fa-IR')} ت</b></div>
+        <div class="p-1.5 rounded-lg bg-rose-500/10">سهم ${selectedMatch.seller}: <b class="text-rose-600 dark:text-rose-400">${wholesaleTotal.toLocaleString('fa-IR')} ت</b></div>
+        <div class="p-1.5 rounded-lg bg-pink-500/10">کارمزد ۳٪ هم‌بار: <b class="text-brand-600 dark:text-brand-400">${comm.toLocaleString('fa-IR')} ت</b></div>
+        <div class="p-1.5 rounded-lg bg-emerald-500/15">سود مهشید: <b class="text-emerald-600 dark:text-emerald-400">+${profit.toLocaleString('fa-IR')} ت</b></div>
+      `;
+    }
+
+    function issuePreInvoice() {
+      if (!selectedMatch) {
+        showToast('ابتدا یک همکار تأمین‌کننده انتخاب کنید', 'error');
+        return;
+      }
+
+      clearBuyerFormErrors();
+      const name = document.getElementById('buyer-name-input').value.trim();
+      const mobileClean = toEnglishDigits(document.getElementById('buyer-mobile-input').value.trim());
+      const address = document.getElementById('buyer-address-input').value.trim();
+      const qty = parseInt(toEnglishDigits(document.getElementById('buyer-qty-input').value));
+
+      let hasError = false;
+
+      if (!name || name.length < 3) {
+        const el = document.getElementById('err-buyer-name');
+        el.innerText = 'نام خریدار باید حداقل ۳ حرف باشد.';
+        el.classList.remove('hidden');
+        hasError = true;
+      }
+      if (!/^09\d{9}$/.test(mobileClean)) {
+        const el = document.getElementById('err-buyer-mobile');
+        el.innerText = 'شماره موبایل نامعتبر است (مثال صحیح: 09123456789).';
+        el.classList.remove('hidden');
+        hasError = true;
+      }
+      if (!address || address.length < 10) {
+        const el = document.getElementById('err-buyer-address');
+        el.innerText = 'لطفاً نشانی پستی کامل (حداقل ۱۰ کاراکتر) را وارد کنید.';
+        el.classList.remove('hidden');
+        hasError = true;
+      }
+      if (isNaN(qty) || qty < 1) {
+        const el = document.getElementById('err-buyer-qty');
+        el.innerText = 'حداقل ۱ عدد';
+        el.classList.remove('hidden');
+        hasError = true;
+      } else if (qty > selectedMatch.qty) {
+        const el = document.getElementById('err-buyer-qty');
+        el.innerText = `حداکثر موجودی قفسه ${selectedMatch.qty} عدد است!`;
+        el.classList.remove('hidden');
+        hasError = true;
+      }
+
+      if (hasError) {
+        pushAuditLog('خطای فرم پیش‌فاکتور', 'ثبت درخواست به دلیل نقص اطلاعات خریدار یا مازاد بر موجودی متوقف شد.', 'error');
+        showToast('لطفاً خطاهای قرمز فرم خریدار را برطرف کنید', 'error');
+        return;
+      }
+
+      const subtotal = selectedMatch.customerPrice * qty;
+      const wholesaleTotal = selectedMatch.wholesalePrice * qty;
+      const commission = Math.round(subtotal * 0.03);
+      const mahshidProfit = subtotal - wholesaleTotal - commission;
+      const invoiceId = 'INV-1405-' + Math.floor(1000 + Math.random() * 8999);
+
+      simState.currentOrder = {
+        status: 'pre_invoice',
+        selectedItem: selectedMatch,
+        qty,
+        buyerName: name,
+        buyerMobile: mobileClean,
+        buyerAddress: address,
+        invoiceId,
+        trackingCode: '',
+        subtotal,
+        wholesaleTotal,
+        commission,
+        mahshidProfit
+      };
+
+      updateStepUI(2);
+      renderEscrowPanel();
+
+      pushMahshidNotif(
+        `پیش‌فاکتور ${invoiceId} صادر شد`,
+        `لینک پرداخت برای خریدار «${name}» به مبلغ ${subtotal.toLocaleString('fa-IR')} ت آماده شد.`,
+        'info'
+      );
+      pushSupplierNotif(
+        selectedMatch.seller,
+        `استعلام رزرو موقت از @mahshid_style`,
+        `${qty} عدد «${selectedMatch.title}» در پیش‌فاکتور ${invoiceId} قرار گرفت (در انتظار پرداخت خریدار).`,
+        'info'
+      );
+      pushAuditLog('صدور پیش‌فاکتور', `پیش‌فاکتور ${invoiceId} برای ${qty} عدد «${selectedMatch.title}» با ارزش ${subtotal.toLocaleString('fa-IR')} ت صادر شد.`, 'info');
+      showToast('پیش‌فاکتور رسمی صادر شد! اکنون پرداخت خریدار را در ستون وسط تست کنید.', 'success');
+    }
+
+    function simulatePaymentSuccess() {
+      const ord = simState.currentOrder;
+      if (ord.status !== 'pre_invoice' || !ord.selectedItem) return;
+
+      const item = ord.selectedItem;
+      if (item.qty < ord.qty) {
+        showToast('متأسفانه موجودی کالا هم‌اکنون کافی نیست!', 'error');
+        return;
+      }
+
+      // کسر موجودی از قفسه و انتقال به وضعیت رزرو شده
+      item.qty -= ord.qty;
+      item.reservedQty = (item.reservedQty || 0) + ord.qty;
+
+      // فریز شدن سهم عمده در صندوق امانت پنل تأمین‌کننده
+      const sup = simState.suppliers[item.seller];
+      if (sup) sup.escrowPending += ord.wholesaleTotal;
+
+      ord.status = 'escrow_locked';
+      updateStepUI(3);
+
+      pushMahshidNotif(
+        `💳 خریدار پرداخت کرد و وجه قفل شد`,
+        `مبلغ ${ord.subtotal.toLocaleString('fa-IR')} ت در صندوق شاپرک فریز شد و سفارش به ${item.seller} ابلاغ گردید.`,
+        'success'
+      );
+      pushSupplierNotif(
+        item.seller,
+        `🔒 سفارش قطعی! وجه در صندوق امانت قفل شد`,
+        `سفارش ${ord.invoiceId} (${ord.qty} عدد ${item.title}) از طرف @mahshid_style قطعی شد. مبلغ ${ord.wholesaleTotal.toLocaleString('fa-IR')} ت به نام شما در امانت است. لطفاً با لیبل @mahshid_style پست کنید.`,
+        'success'
+      );
+      pushAuditLog(
+        'صندوق امانت شاپرک',
+        `پرداخت ${ord.subtotal.toLocaleString('fa-IR')} ت تایید و قفل شد. موجودی قفسه ${item.seller} به ${item.qty} عدد کاهش یافت (${ord.qty} رزرو).`,
+        'success'
+      );
+
+      renderAllSimulationUI();
+      showToast('وجه در صندوق امانت قفل شد! اکنون در پنل سمت چپ (تأمین‌کننده) بسته را ارسال کنید.', 'success');
+    }
+
+    function simulatePaymentFailure() {
+      const ord = simState.currentOrder;
+      if (ord.status !== 'pre_invoice') return;
+
+      const errEl = document.getElementById('escrow-payment-error');
+      if (errEl) {
+        errEl.classList.remove('hidden');
+      }
+      pushMahshidNotif(
+        `⚠️ خطای پرداخت در درگاه خریدار`,
+        `پرداخت پیش‌فاکتور ${ord.invoiceId} توسط خریدار ناموفق بود یا لغو شد. موجودی قفسه دست نخورد.`,
+        'error'
+      );
+      pushAuditLog('خطای درگاه شاپرک', `تراکنش پیش‌فاکتور ${ord.invoiceId} ناموفق بود؛ موجودی تأمین‌کننده تغییر نکرد.`, 'error');
+      showToast('خطای پرداخت شبیه‌سازی شد (امکان تلاش مجدد وجود دارد)', 'error');
+    }
+
+    function simulateEscrowTimeoutRefund() {
+      const ord = simState.currentOrder;
+      if (ord.status !== 'escrow_locked' || !ord.selectedItem) return;
+
+      const item = ord.selectedItem;
+      item.qty += ord.qty;
+      item.reservedQty = Math.max(0, (item.reservedQty || 0) - ord.qty);
+
+      const sup = simState.suppliers[item.seller];
+      if (sup) sup.escrowPending = Math.max(0, sup.escrowPending - ord.wholesaleTotal);
+
+      ord.status = 'cancelled_refunded';
+      updateStepUI(1);
+
+      simState.ledgerHistory.unshift({
+        invoiceId: ord.invoiceId,
+        itemTitle: `${item.title} × ${ord.qty}`,
+        referrer: '@mahshid_style',
+        supplier: item.seller,
+        gmv: ord.subtotal,
+        supplierShare: 0,
+        fee: 0,
+        profit: 0,
+        status: 'عودت کامل امانت (عدم ارسال)'
+      });
+
+      pushMahshidNotif(
+        `🛡️ عودت وجه به خریدار به علت تأخیر تأمین‌کننده`,
+        `چون ${item.seller} بارکد ثبت نکرد، کل ${ord.subtotal.toLocaleString('fa-IR')} ت از صندوق امانت به خریدار برگشت و اعتبار پیج شما حفظ شد.`,
+        'warning'
+      );
+      pushSupplierNotif(
+        item.seller,
+        `❌ لغو سفارش ${ord.invoiceId} به دلیل عدم ارسال`,
+        `مهلت ۴۸ ساعته به پایان رسید؛ وجه امانت آزاد نشد و کالا به موجودی قفسه بازگشت.`,
+        'error'
+      );
+      pushAuditLog('مکانیزم محافظت امانت', `به علت عدم ثبت بارکد، وجه ${ord.invoiceId} به خریدار مسترد شد و قفسه بازگشت.`, 'warning');
+
+      renderAllSimulationUI();
+      showToast('تضمین امانت اجرا شد: کل وجه به خریدار بازگشت!', 'warning');
+    }
+
+    function generateRandomBarcode() {
+      const input = document.getElementById('supplier-barcode-input');
+      if (!input) return;
+      input.value = '301988' + Math.floor(10000000000000 + Math.random() * 89999999999999);
+      const err = document.getElementById('err-supplier-barcode');
+      if (err) err.classList.add('hidden');
+    }
+
+    function submitSupplierShipment() {
+      const ord = simState.currentOrder;
+      if (ord.status !== 'escrow_locked' || !ord.selectedItem) return;
+
+      const checkEl = document.getElementById('supplier-neutral-check');
+      const barcodeInput = document.getElementById('supplier-barcode-input');
+      const errCheck = document.getElementById('err-supplier-check');
+      const errBarcode = document.getElementById('err-supplier-barcode');
+
+      errCheck.classList.add('hidden');
+      errBarcode.classList.add('hidden');
+
+      let invalid = false;
+      if (!checkEl || !checkEl.checked) {
+        errCheck.innerText = 'تایید تعهد بسته‌بندی خنثی (بدون نام انبار و کارت ویزیت) الزامی است!';
+        errCheck.classList.remove('hidden');
+        invalid = true;
+      }
+
+      const code = toEnglishDigits(barcodeInput ? barcodeInput.value.trim() : '');
+      if (!/^\d{18,24}$/.test(code)) {
+        errBarcode.innerText = 'کد رهگیری پست پیشتاز باید بین ۱۸ تا ۲۴ رقم عددی باشد.';
+        errBarcode.classList.remove('hidden');
+        invalid = true;
+      }
+
+      if (invalid) {
+        pushAuditLog('خطای ارسال تأمین‌کننده', 'تاییدیه لیبل خنثی یا فرمت بارکد پستی نامعتبر بود.', 'error');
+        showToast('لطفاً تاییدیه بسته‌بندی و کد رهگیری معتبر را ثبت کنید', 'error');
+        return;
+      }
+
+      const item = ord.selectedItem;
+      item.reservedQty = Math.max(0, (item.reservedQty || 0) - ord.qty);
+      ord.trackingCode = code;
+      ord.status = 'shipped_settled';
+
+      // تسویه ۳ طرفه هم‌زمان در دو پنل
+      simState.mahshidWallet += ord.mahshidProfit;
+      simState.mahshidSavedCount += 1;
+
+      const sup = simState.suppliers[item.seller];
+      if (sup) {
+        sup.escrowPending = Math.max(0, sup.escrowPending - ord.wholesaleTotal);
+        sup.cash += ord.wholesaleTotal;
+      }
+
+      simState.stats.savedOrders += 1;
+      simState.stats.totalGmv += ord.subtotal;
+      simState.stats.hambarRevenue += ord.commission;
+
+      simState.ledgerHistory.unshift({
+        invoiceId: ord.invoiceId,
+        itemTitle: `${item.title} × ${ord.qty}`,
+        referrer: '@mahshid_style',
+        supplier: item.seller,
+        gmv: ord.subtotal,
+        supplierShare: ord.wholesaleTotal,
+        fee: ord.commission,
+        profit: ord.mahshidProfit,
+        status: 'تسویه ۳ طرفه موفق'
+      });
+
+      updateStepUI(5);
+
+      pushMahshidNotif(
+        `🎉 واریز سود +${ord.mahshidProfit.toLocaleString('fa-IR')} تومان به کیف پول شما`,
+        `بسته ${ord.invoiceId} با بارکد پستی ${code} و با نام فرستنده @mahshid_style ارسال شد. مشتری شما حفظ گردید!`,
+        'success'
+      );
+      pushSupplierNotif(
+        item.seller,
+        `💰 تسویه موفق +${ord.wholesaleTotal.toLocaleString('fa-IR')} تومان به کیف پول`,
+        `کد رهگیری ${code} تایید شد. مبلغ از صندوق امانت آزاد و به کیف پول نقد شما واریز گردید.`,
+        'success'
+      );
+      pushAuditLog(
+        'تسویه ۳ طرفه نهایی',
+        `کد رهگیری ${code} ثبت شد ← سهم ${item.seller} (+${ord.wholesaleTotal.toLocaleString('fa-IR')} ت) | سود @mahshid_style (+${ord.mahshidProfit.toLocaleString('fa-IR')} ت) | کارمزد ۳٪ هم‌بار (+${ord.commission.toLocaleString('fa-IR')} ت).`,
+        'success'
+      );
+
+      renderAllSimulationUI();
+      showToast('سفارش کامل شد: موجودی کم شد، بارکد صادر گردید و سود هر دو طرف واریز شد!', 'success');
+    }
+
+    function switchActiveSupplier(handle) {
+      if (!simState.suppliers[handle]) return;
+      simState.activeSupplierHandle = handle;
+      renderSupplierPanel();
+    }
+
+    function updateStepUI(step) {
+      for (let i = 1; i <= 5; i++) {
+        const el = document.getElementById(`step-${i}`);
+        if (!el) continue;
+        if (i <= step) {
+          el.className = 'p-2 rounded-xl bg-gradient-to-r from-brand-600 to-rose-600 text-white font-bold shadow';
+        } else {
+          el.className = 'p-2 rounded-xl bg-pink-100 dark:bg-zinc-800 text-slate-500 dark:text-slate-400 font-medium';
+        }
+      }
+    }
+
+    function renderAllSimulationUI() {
+      renderGlobalStats();
+      renderMahshidPanel();
+      renderEscrowPanel();
+      renderSupplierPanel();
+      renderAuditLog();
+      renderInventoryList();
+      renderLedgerList();
+    }
+
+    function renderGlobalStats() {
+      const totalQty = itemsDB.reduce((acc, it) => acc + Math.max(0, it.qty), 0);
+      document.getElementById('stat-total-items').innerText = `${itemsDB.length.toLocaleString('fa-IR')} کالا (${totalQty.toLocaleString('fa-IR')} عدد)`;
+      document.getElementById('stat-saved-orders').innerText = `${simState.stats.savedOrders.toLocaleString('fa-IR')} سفارش موفق`;
+      document.getElementById('stat-total-gmv').innerText = `${simState.stats.totalGmv.toLocaleString('fa-IR')} تومان`;
+      document.getElementById('stat-hambar-revenue').innerText = `${simState.stats.hambarRevenue.toLocaleString('fa-IR')} تومان`;
+    }
+
+    function renderMahshidPanel() {
+      document.getElementById('mahshid-wallet-display').innerText = `${simState.mahshidWallet.toLocaleString('fa-IR')} ت`;
+      document.getElementById('mahshid-saved-display').innerText = `${simState.mahshidSavedCount.toLocaleString('fa-IR')} سفارش`;
+
+      const notifs = simState.mahshidNotifications || [];
+      document.getElementById('mahshid-notif-count').innerText = `${notifs.length.toLocaleString('fa-IR')} اعلان`;
+
+      const listEl = document.getElementById('mahshid-notifications-list');
+      listEl.innerHTML = '';
+      notifs.forEach(n => {
+        const tone = n.type === 'success'
+          ? 'border-r-emerald-500 bg-emerald-500/10'
+          : n.type === 'error'
+            ? 'border-r-rose-500 bg-rose-500/10'
+            : n.type === 'warning'
+              ? 'border-r-amber-500 bg-amber-500/10'
+              : 'border-r-brand-500 glass-subcard';
+        const d = document.createElement('div');
+        d.className = `p-2.5 rounded-xl border border-pink-200/50 dark:border-zinc-800 border-r-4 ${tone} space-y-0.5`;
+        d.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <b class="text-slate-900 dark:text-white">${n.title}</b>
+            <span class="text-[9px] text-slate-400 font-mono shrink-0">${n.time}</span>
+          </div>
+          <div class="text-slate-600 dark:text-slate-300 leading-relaxed">${n.desc}</div>
+        `;
+        listEl.appendChild(d);
+      });
+    }
+
+    function renderEscrowPanel() {
+      const ord = simState.currentOrder;
+      const badge = document.getElementById('escrow-badge');
+      const box = document.getElementById('escrow-detail-box');
+      const actions = document.getElementById('escrow-actions');
+
+      if (ord.status === 'idle' || ord.status === 'comparing') {
+        badge.innerText = ord.status === 'comparing' ? 'در حال مقایسه و تکمیل فرم' : 'آماده تراکنش';
+        badge.className = 'text-[10px] bg-pink-100 dark:bg-zinc-800 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-full font-mono font-bold';
+        box.innerHTML = `
+          <div class="text-center space-y-2 text-slate-600 dark:text-slate-300">
+            <div class="text-3xl">⚖️</div>
+            <div class="font-bold text-slate-900 dark:text-white text-sm">
+              ${ord.status === 'comparing' ? 'همکار انتخاب شد — فرم خریدار را ثبت کنید' : 'چرخه تعامل هنوز شروع نشده است'}
+            </div>
+            <p class="text-[11px] leading-relaxed">
+              ${ord.status === 'comparing'
+                ? 'در پنل سمت راست (مهشید)، مشخصات خریدار دایرکت را تایید و دکمه «صدور پیش‌فاکتور رسمی» را بزنید تا صندوق امانت فعال شود.'
+                : 'از پنل سمت راست (مهشید) یک کالا را استعلام بگیرید یا یکی از سناریوهای بالای صفحه را انتخاب کنید.'}
+            </p>
+          </div>
+        `;
+        actions.classList.add('hidden');
+        actions.innerHTML = '';
+        return;
+      }
+
+      const item = ord.selectedItem;
+
+      if (ord.status === 'pre_invoice') {
+        badge.innerText = `پیش‌فاکتور ${ord.invoiceId}`;
+        badge.className = 'text-[10px] bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 px-2.5 py-1 rounded-full font-mono font-bold';
+
+        box.innerHTML = `
+          <div class="space-y-2.5 w-full">
+            <div class="flex items-center justify-between border-b border-pink-200 dark:border-zinc-800 pb-2">
+              <span class="font-black text-slate-900 dark:text-white text-sm">🧾 پیش‌فاکتور رسمی هم‌بار</span>
+              <span class="font-mono text-[11px] text-brand-600 dark:text-brand-400 font-bold">${ord.invoiceId}</span>
+            </div>
+            <div class="text-[11px] space-y-1 text-slate-700 dark:text-slate-300">
+              <div>• کالا: <b>${item.title}</b> (${ord.qty} عدد)</div>
+              <div>• فروشنده معرف (نام روی بسته): <b class="text-brand-600 dark:text-brand-400">@mahshid_style</b></div>
+              <div>• تأمین‌کننده انبار: <b class="text-rose-600 dark:text-rose-400">${item.seller} (${item.city})</b></div>
+              <div>• خریدار نهایی: <b>${ord.buyerName}</b> (${ord.buyerMobile})</div>
+              <div>• نشانی مقصد: ${ord.buyerAddress}</div>
+            </div>
+            <div class="grid grid-cols-2 gap-1.5 pt-2 border-t border-pink-200 dark:border-zinc-800 font-mono text-[11px]">
+              <div class="p-2 rounded-xl bg-white/80 dark:bg-zinc-900">پرداختی خریدار: <b class="text-slate-900 dark:text-white">${ord.subtotal.toLocaleString('fa-IR')} ت</b></div>
+              <div class="p-2 rounded-xl bg-rose-500/10">سهم تأمین‌کننده: <b class="text-rose-600 dark:text-rose-400">${ord.wholesaleTotal.toLocaleString('fa-IR')} ت</b></div>
+              <div class="p-2 rounded-xl bg-pink-500/10">کارمزد ۳٪ هم‌بار: <b class="text-brand-600 dark:text-brand-400">${ord.commission.toLocaleString('fa-IR')} ت</b></div>
+              <div class="p-2 rounded-xl bg-emerald-500/15">سود مهشید: <b class="text-emerald-600 dark:text-emerald-400">+${ord.mahshidProfit.toLocaleString('fa-IR')} ت</b></div>
+            </div>
+            <div id="escrow-payment-error" class="hidden p-2.5 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-700 dark:text-rose-300 text-[11px] font-bold">
+              ⚠️ پرداخت در درگاه بانکی ناموفق بود یا خریدار انصراف داد. لینک پرداخت همچنان معتبر است و می‌توانید مجدداً تلاش کنید.
+            </div>
+          </div>
+        `;
+
+        actions.classList.remove('hidden');
+        actions.innerHTML = `
+          <button onclick="simulatePaymentSuccess()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-xs shadow hover:opacity-95 transition">
+            💳 شبیه‌سازی پرداخت موفق خریدار و قفل وجه در صندوق امانت
+          </button>
+          <button onclick="simulatePaymentFailure()" class="w-full py-2 rounded-xl border border-rose-400/50 text-rose-600 dark:text-rose-400 font-bold text-[11px] hover:bg-rose-500/10 transition">
+            ⚠️ شبیه‌سازی خطای درگاه / انصراف خریدار
+          </button>
+        `;
+      } else if (ord.status === 'escrow_locked') {
+        badge.innerText = '🔒 وجه در امانت قفل شد';
+        badge.className = 'text-[10px] bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 px-2.5 py-1 rounded-full font-mono font-bold';
+
+        box.innerHTML = `
+          <div class="space-y-2.5 w-full">
+            <div class="p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-800 dark:text-emerald-200 font-bold text-xs">
+              🔒 مبلغ ${ord.subtotal.toLocaleString('fa-IR')} تومان در صندوق امانت شاپرک قفل شد!
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+              • <b>${ord.qty} عدد</b> از موجودی قفسه <b>${item.seller}</b> رزرو شد.<br>
+              • سهم عمده (<b>${ord.wholesaleTotal.toLocaleString('fa-IR')} ت</b>) در حالت تعلیق امانت است و تا زمان ثبت بارکد ۲۴ رقمی پست توسط تأمین‌کننده آزاد نمی‌شود.<br>
+              • <b>اقدام بعدی:</b> در پنل سمت چپ (تأمین‌کننده) تعهد لیبل خنثی و بارکد پستی را ثبت کنید.
+            </p>
+          </div>
+        `;
+
+        actions.classList.remove('hidden');
+        actions.innerHTML = `
+          <button onclick="simulateEscrowTimeoutRefund()" class="w-full py-2 rounded-xl border border-amber-500/50 text-amber-700 dark:text-amber-300 font-bold text-[11px] hover:bg-amber-500/10 transition">
+            ⏳ شبیه‌سازی عدم ارسال تا ۴۸ ساعت (بازگشت خودکار پول به خریدار)
+          </button>
+        `;
+      } else if (ord.status === 'shipped_settled') {
+        badge.innerText = '✅ تسویه ۳ طرفه انجام شد';
+        badge.className = 'text-[10px] bg-brand-500/15 text-brand-700 dark:text-brand-300 border border-brand-500/30 px-2.5 py-1 rounded-full font-mono font-bold';
+
+        box.innerHTML = `
+          <div class="space-y-2.5 w-full">
+            <div class="p-3 rounded-xl bg-brand-500/15 border border-brand-500/30 text-brand-800 dark:text-brand-200 font-bold text-xs">
+              🎉 معامله ${ord.invoiceId} با موفقیت کامل و تسویه شد!
+            </div>
+            <div class="text-[11px] space-y-1 text-slate-700 dark:text-slate-300">
+              <div>• بارکد پست پیشتاز: <code class="bg-black/10 dark:bg-black/40 px-2 py-0.5 rounded font-mono text-brand-600 dark:text-brand-400">${ord.trackingCode}</code></div>
+              <div>• پیامک کد رهگیری با نام فرستنده <b>@mahshid_style</b> برای <b>${ord.buyerName}</b> ارسال شد.</div>
+              <div>• کیف پول <b>${item.seller}</b>: <b class="text-emerald-600">+${ord.wholesaleTotal.toLocaleString('fa-IR')} ت</b></div>
+              <div>• کیف پول <b>@mahshid_style</b>: <b class="text-emerald-600">+${ord.mahshidProfit.toLocaleString('fa-IR')} ت</b></div>
+              <div>• کارمزد ۳٪ هم‌بار: <b class="text-brand-600">+${ord.commission.toLocaleString('fa-IR')} ت</b></div>
+            </div>
+          </div>
+        `;
+
+        actions.classList.remove('hidden');
+        actions.innerHTML = `
+          <button onclick="resetFlow()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-rose-600 text-white font-bold text-xs shadow hover:opacity-95 transition">
+            🔄 شروع سفارش جدید (کیف پول‌ها و موجودی جدید حفظ می‌شوند)
+          </button>
+        `;
+      } else if (ord.status === 'cancelled_refunded') {
+        badge.innerText = '🛡️ عودت وجه امانت';
+        badge.className = 'text-[10px] bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 px-2.5 py-1 rounded-full font-mono font-bold';
+
+        box.innerHTML = `
+          <div class="space-y-2.5 w-full">
+            <div class="p-3 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-800 dark:text-amber-200 font-bold text-xs">
+              🛡️ تضمین صندوق امانت فعال شد: کل مبلغ به خریدار برگشت!
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+              تأمین‌کننده در مهلت مقرر بارکد پستی ثبت نکرد؛ بنابراین مبلغ <b>${ord.subtotal.toLocaleString('fa-IR')} ت</b> بدون کم‌و‌کاست به خریدار مسترد شد و موجودی رزرو به قفسه بازگشت.
+            </p>
+          </div>
+        `;
+
+        actions.classList.remove('hidden');
+        actions.innerHTML = `
+          <button onclick="resetFlow()" class="w-full py-2.5 rounded-xl border border-pink-200 dark:border-zinc-700 text-slate-800 dark:text-white font-bold text-xs hover:bg-pink-100/40 dark:hover:bg-zinc-800 transition">
+            🔄 ثبت سفارش با همکار دیگر
+          </button>
+        `;
+      }
+    }
+
+    function renderSupplierPanel() {
+      const switcher = document.getElementById('supplier-switcher');
+      const handles = Object.keys(simState.suppliers);
+      switcher.innerHTML = '';
+      handles.forEach(h => {
+        const opt = document.createElement('option');
+        opt.value = h;
+        opt.innerText = `${simState.suppliers[h].name} (${h})`;
+        if (h === simState.activeSupplierHandle) opt.selected = true;
+        switcher.appendChild(opt);
+      });
+
+      const activeHandle = simState.activeSupplierHandle;
+      const sup = simState.suppliers[activeHandle] || simState.suppliers[handles[0]];
+
+      document.getElementById('supplier-panel-name').innerText = `پنل تأمین‌کننده (${sup.name})`;
+      document.getElementById('supplier-panel-handle').innerText = `${activeHandle} • ${sup.city} • ⭐ ${sup.rating}`;
+      document.getElementById('supplier-cash-display').innerText = `${sup.cash.toLocaleString('fa-IR')} ت`;
+      document.getElementById('supplier-escrow-display').innerText = `${sup.escrowPending.toLocaleString('fa-IR')} ت`;
+
+      // میز کار ارسال سفارش تأمین‌کننده
+      const ord = simState.currentOrder;
+      const taskBadge = document.getElementById('supplier-task-badge');
+      const taskContent = document.getElementById('supplier-task-content');
+
+      if (ord.status === 'escrow_locked' && ord.selectedItem && ord.selectedItem.seller === activeHandle) {
+        taskBadge.innerText = `سفارش منتظر ارسال (${ord.invoiceId})`;
+        taskBadge.className = 'text-[10px] bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-full font-bold animate-pulse';
+
+        taskContent.innerHTML = `
+          <div class="space-y-2.5">
+            <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-[11px] text-slate-800 dark:text-slate-100">
+              <b>دستور ارسال قطعی:</b> ${ord.qty} عدد «<b>${ord.selectedItem.title}</b>»<br>
+              مبلغ قفل‌شده برای شما: <b class="text-emerald-600 dark:text-emerald-400">${ord.wholesaleTotal.toLocaleString('fa-IR')} تومان</b>
+            </div>
+
+            <div class="p-2.5 rounded-xl bg-white/80 dark:bg-zinc-900 border border-dashed border-brand-500/50 text-[10px] space-y-1">
+              <div class="font-bold text-brand-600 dark:text-brand-400">🏷️ پیش‌نمایش لیبل محرمانه روی بسته:</div>
+              <div><b>فرستنده:</b> @mahshid_style (فروشنده معرف)</div>
+              <div><b>گیرنده:</b> ${ord.buyerName} (${ord.buyerMobile})</div>
+              <div><b>نشانی:</b> ${ord.buyerAddress}</div>
+              <div class="text-rose-600 dark:text-rose-400 font-bold">⛔ درج نام، آیدی یا کارت ویزیت ${activeHandle} اکیداً ممنوع!</div>
+            </div>
+
+            <label class="flex items-start gap-2 text-[11px] text-slate-700 dark:text-slate-200 cursor-pointer">
+              <input type="checkbox" id="supplier-neutral-check" class="mt-0.5 accent-brand-500">
+              <span>تایید می‌کنم بسته بدون کارت ویزیت و تبلیغ انبار، منحصراً با نام @mahshid_style بسته‌بندی شده است.</span>
+            </label>
+            <div id="err-supplier-check" class="hidden text-[10px] text-rose-600 dark:text-rose-400 font-bold"></div>
+
+            <div class="space-y-1">
+              <div class="flex items-center justify-between">
+                <label class="text-[11px] font-bold text-slate-700 dark:text-slate-300">کد رهگیری ۲۴ رقمی پست پیشتاز:</label>
+                <button type="button" onclick="generateRandomBarcode()" class="text-[10px] text-brand-600 dark:text-brand-400 font-bold hover:underline">🎲 تولید کد آزمایشی</button>
+              </div>
+              <input type="text" id="supplier-barcode-input" dir="ltr" placeholder="30198847291048291012" class="w-full text-left bg-white dark:bg-zinc-900 border border-rose-200 dark:border-zinc-700 rounded-xl px-3 py-2 text-xs font-mono text-slate-900 dark:text-white focus:outline-none focus:border-rose-500">
+              <div id="err-supplier-barcode" class="hidden text-[10px] text-rose-600 dark:text-rose-400 font-bold"></div>
+            </div>
+
+            <button onclick="submitSupplierShipment()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-brand-600 text-white font-bold text-xs shadow hover:opacity-95 transition">
+              🚚 ثبت ارسال پستی و آزادسازی تسویه نقدی
+            </button>
+          </div>
+        `;
+      } else if (ord.status === 'escrow_locked' && ord.selectedItem && ord.selectedItem.seller !== activeHandle) {
+        taskBadge.innerText = 'سفارش برای همکار دیگری است';
+        taskBadge.className = 'text-[10px] bg-slate-200 dark:bg-zinc-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-full font-bold';
+        taskContent.innerHTML = `
+          <div class="space-y-2 text-[11px]">
+            <p>سفارش فعال <b>${ord.invoiceId}</b> مربوط به همکار <b>${ord.selectedItem.seller}</b> است.</p>
+            <button onclick="switchActiveSupplier('${ord.selectedItem.seller}')" class="px-3 py-1.5 rounded-xl bg-rose-600 text-white font-bold text-[11px]">
+              مشاهده پنل ${ord.selectedItem.seller}
+            </button>
+          </div>
+        `;
+      } else {
+        taskBadge.innerText = 'بدون سفارش منتظر ارسال';
+        taskBadge.className = 'text-[10px] bg-slate-200 dark:bg-zinc-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-full font-bold';
+        taskContent.innerHTML = `
+          هر زمان مهشید سفارشی را ثبت و خریدار وجه را در صندوق امانت قفل کند، دستور بسته‌بندی خنثی و فیلد ثبت بارکد پستی در این پنل فعال می‌شود.
+        `;
+      }
+
+      // قفسه زنده همین تأمین‌کننده
+      const shelfEl = document.getElementById('supplier-shelf-list');
+      const shelfItems = itemsDB.filter(it => it.seller === activeHandle);
+      shelfEl.innerHTML = '';
+
+      if (shelfItems.length === 0) {
+        shelfEl.innerHTML = `<div class="p-3 rounded-xl glass-subcard text-center text-[11px] text-slate-500">هنوز کالایی در قفسه این همکار ثبت نشده است.</div>`;
+      } else {
+        shelfItems.forEach(it => {
+          const d = document.createElement('div');
+          d.className = 'p-2.5 rounded-xl glass-subcard flex items-center justify-between gap-2 text-[11px]';
+          d.innerHTML = `
+            <div>
+              <div class="font-bold text-slate-900 dark:text-white">${it.title}</div>
+              <div class="text-[10px] text-slate-500 font-mono">تسویه عمده: ${it.wholesalePrice.toLocaleString('fa-IR')} ت</div>
+            </div>
+            <div class="text-left font-mono shrink-0">
+              <span class="px-2 py-0.5 rounded-lg font-bold ${it.qty > 0 ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300' : 'bg-rose-500/15 text-rose-600'}">
+                ${it.qty > 0 ? `${it.qty.toLocaleString('fa-IR')} عدد` : 'ناموجود'}
+              </span>
+              ${it.reservedQty > 0 ? `<span class="block text-[9px] text-amber-600 dark:text-amber-400 font-bold mt-0.5">${it.reservedQty.toLocaleString('fa-IR')} رزرو در امانت</span>` : ''}
+            </div>
+          `;
+          shelfEl.appendChild(d);
+        });
+      }
+
+      // اعلان‌های زنده تأمین‌کننده
+      const supNotifs = simState.supplierNotifications[activeHandle] || [
+        { time: 'الان', title: 'قفسه آنلاین فعال است', desc: 'در انتظار دریافت سفارش جدید از فروشگاه‌های همکار.', type: 'info' }
+      ];
+      document.getElementById('supplier-notif-count').innerText = `${supNotifs.length.toLocaleString('fa-IR')} اعلان`;
+
+      const supNotifEl = document.getElementById('supplier-notifications-list');
+      supNotifEl.innerHTML = '';
+      supNotifs.forEach(n => {
+        const tone = n.type === 'success'
+          ? 'border-r-emerald-500 bg-emerald-500/10'
+          : n.type === 'error'
+            ? 'border-r-rose-500 bg-rose-500/10'
+            : n.type === 'warning'
+              ? 'border-r-amber-500 bg-amber-500/10'
+              : 'border-r-rose-400 glass-subcard';
+        const d = document.createElement('div');
+        d.className = `p-2.5 rounded-xl border border-rose-200/50 dark:border-zinc-800 border-r-4 ${tone} space-y-0.5`;
+        d.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <b class="text-slate-900 dark:text-white">${n.title}</b>
+            <span class="text-[9px] text-slate-400 font-mono shrink-0">${n.time}</span>
+          </div>
+          <div class="text-slate-600 dark:text-slate-300 leading-relaxed">${n.desc}</div>
+        `;
+        supNotifEl.appendChild(d);
+      });
+    }
+
+    function renderAuditLog() {
+      const logEl = document.getElementById('system-audit-log');
+      if (!logEl) return;
+      logEl.innerHTML = '';
+      simState.auditLogs.forEach(log => {
+        const color = log.badge === 'success'
+          ? 'text-emerald-600 dark:text-emerald-400'
+          : log.badge === 'error'
+            ? 'text-rose-600 dark:text-rose-400'
+            : log.badge === 'warning'
+              ? 'text-amber-600 dark:text-amber-400'
+              : 'text-brand-600 dark:text-brand-400';
+        const d = document.createElement('div');
+        d.className = 'p-2 rounded-xl glass-subcard flex items-start justify-between gap-2';
+        d.innerHTML = `
+          <div>
+            <span class="font-extrabold ${color}">[${log.actor}]</span>
+            <span class="text-slate-700 dark:text-slate-200"> ${log.msg}</span>
+          </div>
+          <span class="text-[9px] text-slate-400 font-mono shrink-0">${log.time}</span>
+        `;
+        logEl.appendChild(d);
+      });
+    }
+
+    function renderInventoryList() {
+      const list = document.getElementById('inventory-list');
+      if (!list) return;
+
+      const cityFilterEl = document.getElementById('inv-city-filter');
+      const onlyAvailEl = document.getElementById('inv-only-available');
+      const cityVal = cityFilterEl ? cityFilterEl.value : 'all';
+      const onlyAvail = onlyAvailEl ? onlyAvailEl.checked : false;
+
+      let filtered = itemsDB.filter(item => {
+        if (cityVal !== 'all' && item.city !== cityVal) return false;
+        if (onlyAvail && item.qty <= 0) return false;
+        return true;
+      });
+
+      list.innerHTML = '';
+
+      if (filtered.length === 0) {
+        list.innerHTML = `
+          <div class="p-6 rounded-2xl glass-subcard border-2 border-dashed border-pink-300 dark:border-zinc-700 text-center space-y-2">
+            <div class="text-2xl">🗂️</div>
+            <div class="font-bold text-xs md:text-sm text-slate-900 dark:text-white">هیچ کالایی با فیلتر انتخاب‌شده یافت نشد</div>
+            <p class="text-[11px] text-slate-500">این بخش «حالت خالی» انبار هنگام نبود موجودی در شهر انتخابی را نمایش می‌دهد.</p>
+            <button onclick="document.getElementById('inv-city-filter').value='all'; document.getElementById('inv-only-available').checked=false; renderInventoryList();" class="px-3 py-1.5 rounded-xl bg-brand-600 text-white text-xs font-bold">
+              بازنشانی فیلتر و نمایش همه کالاها
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const comm = Math.round(item.customerPrice * 0.03);
+        const profit = item.customerPrice - item.wholesalePrice - comm;
+        const d = document.createElement('div');
+        d.className = 'p-3 rounded-2xl glass-subcard flex justify-between items-center text-xs md:text-sm gap-2';
+        d.innerHTML = `
+          <div>
+            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 flex-wrap">
+              <span>${item.title}</span>
+              ${item.qty <= 0 ? '<span class="text-[10px] bg-rose-500/15 text-rose-600 px-2 py-0.5 rounded-full font-bold">ناموجود</span>' : ''}
+            </div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+              ${item.seller} (${item.city}) • ⭐ ${item.rating} • موجودی: <b class="font-mono">${item.qty.toLocaleString('fa-IR')} عدد</b>
+            </div>
+          </div>
+          <div class="text-left font-mono shrink-0">
+            <div class="text-brand-600 dark:text-brand-400 font-bold text-xs">فروش: ${item.customerPrice.toLocaleString('fa-IR')} ت</div>
+            <div class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">سود معرف: +${profit.toLocaleString('fa-IR')} ت</div>
+          </div>
+        `;
+        list.appendChild(d);
+      });
+    }
+
+    function renderLedgerList() {
+      const ledgerEl = document.getElementById('completed-ledger-list');
+      if (!ledgerEl) return;
+      ledgerEl.innerHTML = '';
+
+      if (simState.ledgerHistory.length === 0) {
+        ledgerEl.innerHTML = `<div class="p-6 text-center text-slate-500 glass-subcard rounded-2xl">هنوز تراکنشی در این جلسه ثبت نشده است.</div>`;
+        return;
+      }
+
+      simState.ledgerHistory.forEach(row => {
+        const isRefund = row.status.includes('عودت');
+        const d = document.createElement('div');
+        d.className = `p-3 rounded-2xl glass-subcard border-r-4 ${isRefund ? 'border-r-amber-500' : 'border-r-emerald-500'} space-y-1`;
+        d.innerHTML = `
+          <div class="flex items-center justify-between">
+            <b class="text-slate-900 dark:text-white">${row.itemTitle}</b>
+            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold ${isRefund ? 'bg-amber-500/15 text-amber-700 dark:text-amber-300' : 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300'}">${row.status}</span>
+          </div>
+          <div class="text-[11px] text-slate-600 dark:text-slate-400">
+            شماره فاکتور: <span class="font-mono">${row.invoiceId}</span> | معرف: ${row.referrer} ← تأمین‌کننده: ${row.supplier}
+          </div>
+          <div class="flex flex-wrap gap-3 text-[10px] font-mono pt-1">
+            <span>کل: <b>${row.gmv.toLocaleString('fa-IR')} ت</b></span>
+            <span class="text-rose-600 dark:text-rose-400">تأمین‌کننده: <b>${row.supplierShare.toLocaleString('fa-IR')} ت</b></span>
+            <span class="text-emerald-600 dark:text-emerald-400">سود معرف: <b>+${row.profit.toLocaleString('fa-IR')} ت</b></span>
+            <span class="text-brand-600 dark:text-brand-400">کارمزد هم‌بار: <b>${row.fee.toLocaleString('fa-IR')} ت</b></span>
+          </div>
+        `;
+        ledgerEl.appendChild(d);
+      });
+    }
+
+    function resetFlow() {
+      selectedMatch = null;
+      simState.currentOrder = {
+        status: 'idle',
+        selectedItem: null,
+        qty: 1,
+        buyerName: '',
+        buyerMobile: '',
+        buyerAddress: '',
+        invoiceId: '',
+        trackingCode: '',
+        subtotal: 0,
+        wholesaleTotal: 0,
+        commission: 0,
+        mahshidProfit: 0
+      };
+      document.getElementById('match-result-container').classList.add('hidden');
+      document.getElementById('buyer-form-section').classList.add('hidden');
+      document.getElementById('sim-search-error').classList.add('hidden');
+      document.getElementById('sim-search-empty').classList.add('hidden');
+      document.getElementById('search-input').value = '';
+      updateStepUI(1);
+      renderAllSimulationUI();
+      showToast('آماده ثبت سفارش جدید!', 'info');
+    }
+
+    // =========================================================
+    // توابع شبیه‌ساز ربات بله + مودال افزودن کالا
+    // =========================================================
+
     function resetBaleBot() {
       const chatBox = document.getElementById('bale-chat-box');
       chatBox.innerHTML = `
         <div class="p-3.5 rounded-2xl rounded-tr-none bg-brand-600 text-white max-w-[85%] space-y-1 shadow">
           <div class="font-bold text-xs opacity-90">🤖 بات هم‌بار:</div>
-          <div>سلام همکار عزیز! شبکه سرورهای داخلی هم‌بار روی پیام‌رسان بله فعال است. چه کالایی در قفسه شما کسری آمده است؟ می‌توانید نام کالا را تایپ کنید یا از دکمه «۱. استعلام و رزرو جنس» استفاده نمایید.</div>
+          <div>سلام همکار عزیز! شبکه سرورهای داخلی هم‌بار روی پیام‌رسان بله فعال است. چه کالایی در قفسه شما کسری آمده است؟ می‌توانید نام کالا را تایپ کنید (مثلاً: <b>هودی</b>، <b>کتانی</b> یا <b>ماگ</b>) یا از دکمه «۱. استعلام و رزرو جنس» استفاده نمایید.</div>
         </div>
       `;
       document.getElementById('bale-user-input').value = '';
-      showToast('ربات بله آماده به کار شد', 'info');
     }
 
     function appendUserBaleMsg(msg) {
@@ -1936,18 +3315,22 @@
       e.preventDefault();
       const input = document.getElementById('bale-user-input');
       const text = input.value.trim();
-      if (!text) return;
+
+      if (!text || text.length < 2) {
+        appendBotBaleMsg('⚠️ <b>خطای ورودی:</b> لطفاً حداقل ۲ حرف از نام کالای کسری را تایپ کنید (مثلاً: هودی، کتانی، ماگ).');
+        return;
+      }
 
       appendUserBaleMsg(text);
       input.value = '';
 
       setTimeout(() => {
-        const found = itemsDB.find(i => i.title.toLowerCase().includes(text.toLowerCase()));
+        const found = itemsDB.find(i => i.qty > 0 && i.title.toLowerCase().includes(text.toLowerCase()));
         if (found) {
           activeBaleOrder.item = found;
           executeBaleStep(1, true);
         } else {
-          appendBotBaleMsg(`کالای مورد نظر در قفسه آنلاین یافت شد یا می‌توانید از دکمه‌های گام‌به‌گام ۱ تا ۴ زیر کادر برای تکمیل سفارش آزمایشی استفاده کنید.`);
+          appendBotBaleMsg(`📭 <b>کالایی با نام «${text}» در قفسه آنلاین همکاران یافت نشد یا موجودی آن تمام شده است.</b><br>می‌توانید نام کالاهای فعال (هودی، کتانی، ماگ، کیف) را بفرستید یا درخواست کسری خود را به بنکداران بله ارسال کنید.`);
         }
       }, 300);
     }
@@ -1979,7 +3362,7 @@
             <b>اطلاعات گیرنده ثبت شد:</b><br>
             • خریدار: <b>${activeBaleOrder.buyerName}</b> (${activeBaleOrder.buyerMobile})<br>
             • نشانی پستی: ${activeBaleOrder.buyerAddress}<br>
-            • <b>قانون بسته‌بندی محرمانه:</b> نام فرستنده بر روی بسته منحصراً <b>پیج شما</b> خواهد بود.<br><br>
+            • <b>قانون بسته‌بندی محرمانه:</b> نام فرستنده بر روی بسته منحصراً <b>پیج شما (@mahshid_style)</b> خواهد بود.<br><br>
             <button onclick="executeBaleStep(3)" class="px-3 py-1.5 rounded-xl bg-white text-brand-700 font-bold text-xs shadow hover:bg-pink-100 transition">
               ➔ مرحله بعد: صدور فاکتور شاپرک و قفل وجه
             </button>
@@ -2013,240 +3396,92 @@
       }
     }
 
-    function updateCalculator() {
-      const lostOrders = parseInt(document.getElementById('calc-lost-slider').value);
-      const avgPrice = parseInt(document.getElementById('calc-price-slider').value);
-
-      document.getElementById('calc-lost-label').innerText = `${lostOrders} سفارش در روز`;
-      document.getElementById('calc-price-label').innerText = `${avgPrice.toLocaleString('fa-IR')} تومان`;
-
-      const monthlyGross = lostOrders * 30 * avgPrice;
-      const colleagueShare = Math.round(monthlyGross * 0.74);
-      const hambarFee = Math.round(monthlyGross * 0.03);
-      const yourProfit = monthlyGross - colleagueShare - hambarFee;
-
-      document.getElementById('calc-colleague-share').innerText = `${colleagueShare.toLocaleString('fa-IR')} ت`;
-      document.getElementById('calc-hambar-share').innerText = `${hambarFee.toLocaleString('fa-IR')} ت`;
-      document.getElementById('calc-salvaged-profit').innerText = `${yourProfit.toLocaleString('fa-IR')} ت`;
+    function showRegisterModal() {
+      document.getElementById('modal-error-box').classList.add('hidden');
+      document.getElementById('register-modal').classList.remove('hidden');
     }
 
-    function renderInventoryList() {
-      const list = document.getElementById('inventory-list');
-      if (!list) return;
-      list.innerHTML = '';
-      itemsDB.forEach(item => {
-        const comm = Math.round(item.customerPrice * 0.03);
-        const profit = item.customerPrice - item.wholesalePrice - comm;
-        const d = document.createElement('div');
-        d.className = 'p-3 rounded-2xl glass-subcard flex justify-between items-center text-xs md:text-sm';
-        d.innerHTML = `
-          <div>
-            <div class="font-bold text-slate-900 dark:text-white">${item.title}</div>
-            <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">${item.seller} (${item.city}) • ⭐ ${item.rating}</div>
-          </div>
-          <div class="text-left font-mono">
-            <div class="text-brand-600 dark:text-brand-400 font-bold">فروش: ${item.customerPrice.toLocaleString('fa-IR')} ت</div>
-            <div class="text-[10px] text-pink-500 font-bold">سود شما: +${profit.toLocaleString('fa-IR')} ت</div>
-          </div>
-        `;
-        list.appendChild(d);
-      });
-      document.getElementById('stat-total-items').innerText = `${itemsDB.length} کالا`;
+    function closeRegisterModal() {
+      document.getElementById('register-modal').classList.add('hidden');
     }
-
-    function fillRequestForm(title) {
-      document.getElementById('search-input').value = title;
-      handleSearch();
-    }
-
-    function handleSearch() {
-      const q = document.getElementById('search-input').value.trim();
-      if (!q) return showToast('نام کالا را بنویسید', 'warning');
-      const found = itemsDB.find(i => i.title.includes(q) || q.includes(i.title.split(' ')[0]));
-      const container = document.getElementById('match-result-container');
-      const content = document.getElementById('matched-card-content');
-
-      if (found) {
-        selectedMatch = found;
-        const comm = Math.round(found.customerPrice * 0.03);
-        const yourProfit = found.customerPrice - found.wholesalePrice - comm;
-
-        content.innerHTML = `
-          <div class="font-bold text-sm md:text-base text-slate-900 dark:text-white">${found.title}</div>
-          <div class="text-xs text-slate-600 dark:text-slate-300">قفسه تامین‌کننده: <b class="text-brand-600 dark:text-brand-400">${found.seller}</b> (${found.city}) | موجودی: ${found.qty} عدد</div>
-          
-          <div class="grid grid-cols-4 gap-2 py-2 border-y border-pink-200 dark:border-zinc-800 text-xs font-mono text-center">
-            <div class="p-1.5 rounded-xl bg-white/70 dark:bg-zinc-900">
-              <span class="text-[10px] text-slate-500 block">واریز مشتری:</span>
-              <strong class="text-slate-900 dark:text-white">${found.customerPrice.toLocaleString('fa-IR')} ت</strong>
-            </div>
-            <div class="p-1.5 rounded-xl bg-pink-500/10">
-              <span class="text-[10px] text-brand-600 block">سهم همکار:</span>
-              <strong class="text-brand-600 dark:text-brand-400">${found.wholesalePrice.toLocaleString('fa-IR')} ت</strong>
-            </div>
-            <div class="p-1.5 rounded-xl bg-rose-500/10">
-              <span class="text-[10px] text-rose-600 block">کارمزد ۳٪:</span>
-              <strong class="text-rose-600 dark:text-rose-400">${comm.toLocaleString('fa-IR')} ت</strong>
-            </div>
-            <div class="p-1.5 rounded-xl bg-brand-500/20">
-              <span class="text-[10px] text-brand-600 block">سود نقد شما:</span>
-              <strong class="text-brand-600 dark:text-brand-300 font-bold">+${yourProfit.toLocaleString('fa-IR')} ت</strong>
-            </div>
-          </div>
-          <div class="text-[11px] text-slate-500 dark:text-slate-400">بسته‌بندی بدون نام تأمین‌کننده و با مشخصات پیج خودتان انجام می‌شود.</div>
-        `;
-        container.classList.remove('hidden');
-        showToast('کالا در قفسه همکار پیدا شد!', 'success');
-      } else {
-        container.classList.add('hidden');
-        showToast('کالایی با این نام پیدا نشد', 'error');
-      }
-    }
-
-    function startEscrowFlow() {
-      updateStepUI(2);
-      const detail = document.getElementById('escrow-detail-box');
-      const actions = document.getElementById('escrow-actions');
-      const badge = document.getElementById('escrow-badge');
-
-      badge.innerText = 'وضعیت: وجه در صندوق امانت فریز شد';
-      badge.className = 'text-[11px] bg-pink-500/15 text-brand-600 dark:text-brand-400 border border-brand-500/30 px-3 py-0.5 rounded-full font-mono font-bold';
-
-      detail.innerHTML = `
-        <div class="text-right space-y-1.5">
-          <div class="font-bold text-brand-600 dark:text-brand-400 text-sm md:text-base">🔒 مرحله ۲: وجه مشتری نزد صندوق هم‌بار امانت ماند</div>
-          <p class="text-slate-700 dark:text-slate-200 text-xs md:text-sm leading-relaxed">
-            مبلغ <b>${selectedMatch.customerPrice.toLocaleString('fa-IR')} تومان</b> در صندوق امانت فریز شد. اعلان آماده‌سازی برای همکار (${selectedMatch.seller}) ارسال شد تا مرسوله را با نام پیج شما بسته‌بندی کند.
-          </p>
-        </div>
-      `;
-
-      actions.classList.remove('hidden');
-      actions.innerHTML = `
-        <button onclick="simulateShipping()" class="px-4 py-2.5 bg-brand-600 text-white rounded-xl text-xs md:text-sm font-bold hover:bg-brand-500 transition shadow">
-          🚚 تحویل بسته به پست و صدور بارکد رهگیری
-        </button>
-      `;
-      showToast('وجه در صندوق امانت نگهداری شد', 'info');
-    }
-
-    function simulateShipping() {
-      updateStepUI(3);
-      const barcode = '30198' + Math.floor(1000000000 + Math.random() * 9000000000);
-      const detail = document.getElementById('escrow-detail-box');
-      const actions = document.getElementById('escrow-actions');
-      const badge = document.getElementById('escrow-badge');
-
-      badge.innerText = 'وضعیت: تحویل پست پیشتاز شد';
-      badge.className = 'text-[11px] bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/30 px-3 py-0.5 rounded-full font-mono font-bold';
-
-      detail.innerHTML = `
-        <div class="text-right space-y-2">
-          <div class="font-bold text-rose-600 dark:text-rose-400 text-sm md:text-base">📦 مرحله ۳: بارکد پست صادر شد</div>
-          <p class="text-slate-700 dark:text-slate-200 text-xs md:text-sm">کد رهگیری پستی: <code class="bg-black/10 dark:bg-black/40 px-2 py-0.5 rounded text-pink-600 dark:text-pink-400 font-mono">${barcode}</code></p>
-          <div class="p-2.5 rounded-xl bg-white/70 dark:bg-zinc-900 border text-xs space-y-1">
-            <span class="font-bold text-slate-800 dark:text-slate-200">پیش‌نمایش لیبل روی بسته:</span>
-            <div class="text-slate-600 dark:text-slate-400">فرستنده: پیج شما | گیرنده: خریدار دایرکت شما | بدون نام تأمین‌کننده</div>
-          </div>
-        </div>
-      `;
-
-      actions.innerHTML = `
-        <button onclick="finalizeEscrow()" class="px-4 py-2.5 bg-brand-600 text-white rounded-xl text-xs md:text-sm font-bold hover:bg-brand-500 transition shadow">
-          ✅ تایید تحویل و تقسیم سود ۳ طرفه
-        </button>
-      `;
-      showToast('بارکد پستی صادر شد', 'info');
-    }
-
-    function finalizeEscrow() {
-      updateStepUI(4);
-      const comm = Math.round(selectedMatch.customerPrice * 0.03);
-      const yourProfit = selectedMatch.customerPrice - selectedMatch.wholesalePrice - comm;
-
-      const detail = document.getElementById('escrow-detail-box');
-      const actions = document.getElementById('escrow-actions');
-      const badge = document.getElementById('escrow-badge');
-
-      badge.innerText = 'وضعیت: سفارش تکمیل و تسویه شد';
-      badge.className = 'text-[11px] bg-brand-500/15 text-brand-600 dark:text-brand-300 border border-brand-500/30 px-3 py-0.5 rounded-full font-mono font-bold';
-
-      detail.innerHTML = `
-        <div class="text-right space-y-2">
-          <div class="font-bold text-brand-600 dark:text-brand-300 text-sm md:text-base">🎉 مرحله ۴: تحویل موفق و تسویه آنی</div>
-          <div class="p-3 rounded-2xl bg-brand-500/10 border border-brand-500/30 text-xs space-y-1">
-            <div>• سهم واریزی به حساب همکار تأمین‌کننده: <b>${selectedMatch.wholesalePrice.toLocaleString('fa-IR')} تومان</b></div>
-            <div>• کارمزد ۳٪ ثبت‌شده برای هم‌بار: <b>${comm.toLocaleString('fa-IR')} تومان</b></div>
-            <div class="font-bold text-brand-600 dark:text-brand-300 text-sm">• سود خالص نقد واریزشده به کارت پیج شما: <b>+${yourProfit.toLocaleString('fa-IR')} تومان</b></div>
-          </div>
-          <p class="text-[11px] text-slate-500">مشتری شما حفظ شد، بدون اینکه جنسی را از قبل خریده یا خواب سرمایه داشته باشید!</p>
-        </div>
-      `;
-
-      actions.innerHTML = `
-        <button onclick="resetFlow()" class="px-4 py-2 border border-pink-200 dark:border-zinc-700 rounded-xl text-xs md:text-sm font-bold text-slate-700 dark:text-white hover:bg-pink-100/50 dark:hover:bg-zinc-800 transition">
-          ثبت سفارش جدید 🔄
-        </button>
-      `;
-
-      selectedMatch.qty -= 1;
-      renderInventoryList();
-      showToast('سفارش با موفقیت کامل شد و سودها تسویه گردید', 'success');
-    }
-
-    function updateStepUI(step) {
-      for (let i = 1; i <= 4; i++) {
-        const el = document.getElementById(`step-${i}`);
-        if (i <= step) {
-          el.className = 'p-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-rose-600 text-white font-bold text-xs shadow';
-        } else {
-          el.className = 'p-2.5 rounded-xl bg-pink-100 dark:bg-zinc-800 text-slate-500 dark:text-slate-400 font-medium text-xs';
-        }
-      }
-    }
-
-    function resetFlow() {
-      selectedMatch = null;
-      document.getElementById('match-result-container').classList.add('hidden');
-      document.getElementById('search-input').value = '';
-      document.getElementById('escrow-badge').innerText = 'وضعیت: آماده سفارش جدید';
-      document.getElementById('escrow-badge').className = 'text-[11px] bg-pink-100 dark:bg-zinc-800 text-slate-600 dark:text-slate-400 px-3 py-0.5 rounded-full font-mono font-bold';
-      document.getElementById('escrow-detail-box').innerHTML = 'برای دیدن مراحل ارسال، یک کالا را از کادر سمت راست انتخاب کنید.';
-      document.getElementById('escrow-actions').classList.add('hidden');
-      updateStepUI(1);
-    }
-
-    function showRegisterModal() { document.getElementById('register-modal').classList.remove('hidden'); }
-    function closeRegisterModal() { document.getElementById('register-modal').classList.add('hidden'); }
 
     function addNewItem() {
       const title = document.getElementById('new-item-title').value.trim();
-      const custPrice = parseInt(document.getElementById('new-item-cust-price').value);
-      const wholesalePrice = parseInt(document.getElementById('new-item-price').value);
-      const qty = parseInt(document.getElementById('new-item-qty').value) || 1;
+      const custPrice = parseInt(toEnglishDigits(document.getElementById('new-item-cust-price').value));
+      const wholesalePrice = parseInt(toEnglishDigits(document.getElementById('new-item-price').value));
+      const qty = parseInt(toEnglishDigits(document.getElementById('new-item-qty').value));
       const city = document.getElementById('new-item-city').value.trim() || 'تهران';
-      const seller = document.getElementById('new-item-seller').value.trim() || '@store_partner';
+      let seller = document.getElementById('new-item-seller').value.trim() || '@hajreza_bazar';
+      if (!seller.startsWith('@')) seller = '@' + seller;
 
-      if (!title || isNaN(wholesalePrice)) return showToast('اطلاعات کالا معتبر نیست', 'warning');
+      const errBox = document.getElementById('modal-error-box');
+      errBox.classList.add('hidden');
 
-      const customerPrice = (!isNaN(custPrice) && custPrice > wholesalePrice) ? custPrice : Math.round(wholesalePrice * 1.3);
+      if (!title || title.length < 3) {
+        errBox.innerText = '⚠️ نام کالا باید حداقل ۳ حرف باشد.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      if (isNaN(wholesalePrice) || wholesalePrice < 10000) {
+        errBox.innerText = '⚠️ قیمت تسویه با همکار باید عددی معتبر (حداقل ۱۰,۰۰۰ تومان) باشد.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      if (isNaN(custPrice) || custPrice <= wholesalePrice) {
+        errBox.innerText = '⚠️ قیمت فروش به مشتری باید بیشتر از قیمت تسویه عمده با همکار باشد تا حاشیه سود منفی نشود!';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      if (isNaN(qty) || qty < 1) {
+        errBox.innerText = '⚠️ تعداد موجودی در قفسه باید حداقل ۱ عدد باشد.';
+        errBox.classList.remove('hidden');
+        return;
+      }
 
-      itemsDB.unshift({ id: itemsDB.length + 1, title, customerPrice, wholesalePrice, qty, seller, city, rating: '۵.۰' });
-      renderInventoryList();
+      if (!simState.suppliers[seller]) {
+        simState.suppliers[seller] = { name: seller.replace('@', ''), city, cash: 1000000, escrowPending: 0, rating: '۵.۰' };
+      }
+
+      itemsDB.unshift({
+        id: Date.now(),
+        title,
+        customerPrice: custPrice,
+        wholesalePrice,
+        qty,
+        reservedQty: 0,
+        seller,
+        sellerName: simState.suppliers[seller].name,
+        city,
+        rating: '۵.۰',
+        shipSpeed: 'ارسال همان روز'
+      });
+
+      simState.activeSupplierHandle = seller;
+      pushSupplierNotif(seller, '📦 کالای جدید به قفسه اضافه شد', `${qty} عدد «${title}» در شبکه هم‌بار منتشر گردید.`, 'info');
+      pushAuditLog('افزودن موجودی جدید', `${seller} تعداد ${qty} عدد «${title}» را با قیمت عمده ${wholesalePrice.toLocaleString('fa-IR')} ت ثبت کرد.`, 'success');
+
+      renderAllSimulationUI();
       closeRegisterModal();
-      showToast(`کالای «${title}» به انبار اضافه شد.`, 'success');
+
+      document.getElementById('new-item-title').value = '';
+      document.getElementById('new-item-cust-price').value = '';
+      document.getElementById('new-item-price').value = '';
+      document.getElementById('new-item-qty').value = '5';
+
+      showToast(`کالای «${title}» به قفسه ${seller} اضافه شد.`, 'success');
     }
 
     function resetData() {
-      itemsDB = [...defaultDatabase];
-      renderInventoryList();
+      initSimState();
       resetFlow();
       resetBaleBot();
-      showToast('اطلاعات به حالت اولیه برگشت', 'info');
+      renderAllSimulationUI();
+      showToast('تمام پنل‌ها و داده‌های شبیه‌ساز به حالت اولیه برگشتند', 'info');
     }
 
     window.onload = () => {
-      renderInventoryList();
+      initSimState();
+      renderAllSimulationUI();
       updateCalculator();
       resetBaleBot();
       setupScrollSpy();
